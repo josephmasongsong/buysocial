@@ -2,14 +2,12 @@ import React from 'react'
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 import Prismic from 'prismic-javascript';
+import NewsItem from './NewsItem';
 
 const NewsItems = styled.div`
 	padding: 6rem 0;
 	position: relative;
 	background: #f8f9fa;
-`
-const NewsItem = styled.div`
-	position: relative;
 `
 const TriangleRed = styled.div`
 	width: 12.5%;
@@ -67,12 +65,7 @@ class LatestNews extends React.Component {
 					<Row>
 						{this.state.docs.map((doc) => {
 							return(
-								<Col lg="6" key={doc.id}>
-									<NewsItem className="mb-3 pb-3 border-bottom">
-										<h5>{doc.data.post_title[0].text}</h5>
-										<p className="text-muted mb-0">{doc.last_publication_date}</p>
-									</NewsItem>
-								</Col>
+								<NewsItem key={doc.id} doc={doc} />
 							)
 						})}
 					</Row>

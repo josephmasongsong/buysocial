@@ -1,17 +1,40 @@
 import React, { Component } from 'react';
+import Prismic from 'prismic-javascript';
 import SlimHeader from './components/SlimHeader';
-import images from './ThemeImages';
 
 class Library extends Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+		  doc: null,
+		}
+	}
+
+	componentWillMount() {
+	  const apiEndpoint = 'https://buy-social-canada.prismic.io/api/v2';
+	  Prismic.api(apiEndpoint).then(api => {
+	    api.query(Prismic.Predicates.at('document.type', 'library_page')).then(response => {
+	      if (response) {
+	        this.setState({ doc: response.results[0] });
+	      }
+	    });
+	  });
+	}
+
   render() {
-    return (
-      <div>
-      	<SlimHeader headline="Social Procurement Knowledge Base" 
-      		subheader="Take advantage of Buy Social Canada's vast industry knowledge. Search our site for tools, resources, and frameworks free for use for organizations and businesses with social and environmental missions." 
-      		headerImage={images.constructionWorker}
-      		/>
-      </div>
-    );
+  	if (this.state.doc) {
+  		const content = this.state.doc.data;
+	    return (
+	      <div>
+	      	<SlimHeader 
+	      		headline={content.page_title[0].text} 
+	      		subheader={content.page_blurb[0].text}  
+						headerImage={content.page_image.url} 
+	      	/>
+	      </div>
+	    );
+  	}
+  	return <SlimHeader headline="Loading..." />;
   }
 }
 

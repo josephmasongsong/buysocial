@@ -38,15 +38,15 @@ class Navigation extends React.Component {
 						<Collapse isOpen={this.state.isOpen} navbar>
 							<Nav className="ml-auto" navbar>
 								<NavItem>
-									<NavLink href="/who-we-are">Who We Are</NavLink>
+									<NavLink href="/about-buy-social-canada">Who We Are</NavLink>
 								</NavItem>
 								<UncontrolledDropdown nav inNavbar>
 									<DropdownToggle nav>
 										Certification
 									</DropdownToggle>
 									<DropdownMenu right>
-										<a className="dropdown-item" href="/purchasers">Purchasers</a>
-										<a className="dropdown-item" href="/suppliers">Suppliers</a>
+										<a className="dropdown-item" href="/social-purchaser-certification">Purchasers</a>
+										<a className="dropdown-item" href="/social-enterprise-certification">Suppliers</a>
 									</DropdownMenu>
 								</UncontrolledDropdown>
 								<NavItem>
