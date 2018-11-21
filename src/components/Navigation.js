@@ -14,7 +14,9 @@ import {
 import images from '../ThemeImages';
 import styled from 'styled-components';
 
-
+const Logo = styled.img`
+	width: 84px;
+`
 class Navigation extends React.Component {
 	constructor(props) {
 		super(props);
@@ -35,7 +37,7 @@ class Navigation extends React.Component {
 			<div>
 				<Navbar color="white" light fixed="top" expand="lg" className="buysocial-navigation">
 					<Container>
-						<NavbarBrand href="/"><img src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
+						<NavbarBrand href="/"><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
 						<NavbarToggler onClick={this.toggle} />
 						<Collapse isOpen={this.state.isOpen} navbar>
 							<Nav className="ml-auto" navbar>

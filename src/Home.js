@@ -40,7 +40,11 @@ const TriangleBlue = styled.div`
   z-index: 2;
   clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
 `
-
+const BlockImage = styled.img`
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	max-width: 100%;
+	height: auto;
+`
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -120,7 +124,7 @@ class Home extends Component {
 							<Container>
 								<Row>
 									<Col lg="8">
-										<h3 className=" mb-4">{RichText.asText(slice.primary.title_of_section )}</h3>
+										<h3 className="mb-4">{RichText.asText(slice.primary.title_of_section )}</h3>
 									</Col>
 								</Row>
 								<Row>
@@ -141,7 +145,7 @@ class Home extends Component {
                     <a href={Link.url(slice.primary.section_link, PrismicConfig.linkResolver)} className="lead mb-0">{RichText.asText(slice.primary.link_text)}</a>
 	  							</Col>
                   <Col lg="5" className="align-self-center ml-auto">
-                    <img src={slice.primary.section_image.url} alt="" className="img-fluid light-shadow" />
+                    <BlockImage src={slice.primary.section_image.url} alt=""/>
                   </Col>
 	  						</Row>
   						</Container>

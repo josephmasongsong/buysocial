@@ -32,7 +32,7 @@ class Footer extends React.Component {
               <div className="input-group mb-5">
                 <input className="form-control py-2 rounded-0" type="search" placeholder="Email"></input>
                 <span className="input-group-append">
-                  <button className="btn btn-buysocial-yellow rounded-0" type="button">
+                  <button className="btn btn-warning rounded-0" type="button">
                     Sign Up
                   </button>
                 </span>
@@ -43,46 +43,46 @@ class Footer extends React.Component {
 						<Col lg="3" className="mx-auto">
 							<h5 className="mb-4 text-white">Contact Information</h5>
               <Address className="fa-ul pl-0">
-                <li className="mb-2"><span className="fa-li"><i className="fas fa-map-marker-alt"></i></span>Buy Social Canada<br />337 Gore Avenue<br />Vancouver BC, V6A 2Z3<br />CANADA</li>
-                <li className="mb-2"><span className="fa-li"><i className="fas fa-envelope"></i></span>maija@buysocialcanada.ca</li>
-                <li><span className="fa-li"><i className="fas fa-phone"></i></span>+1.604.416.0318</li>
+                <li className="mb-2"><span className="fa-li"><i className="fas fa-map-marker-alt text-warning"></i></span>Buy Social Canada<br />337 Gore Avenue<br />Vancouver BC, V6A 2Z3<br />CANADA</li>
+                <li className="mb-2"><span className="fa-li"><i className="fas fa-envelope text-warning"></i></span>maija@buysocialcanada.ca</li>
+                <li><span className="fa-li"><i className="fas fa-phone text-warning"></i></span>+1.604.416.0318</li>
               </Address>
 						</Col>
 						<Col lg="2">
 							<h5 className="mb-4 text-white">Navigation</h5>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#">
+                  <a href="/">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="/">
                     Who We Are
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="/">
                     Certification
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="/">
                     Knowledge Base
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="/">
                     News
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="/">
                     Events
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="/">
                     Contact
                   </a>
                 </li>

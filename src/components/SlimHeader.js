@@ -10,33 +10,43 @@ const Masthead = styled.section`
 `
 const TriangleLarge = styled.div`
 	width: 25%;
-    height: 100%;
-    background: #005891;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    clip-path: polygon(0 0, 0 100%, 50% 50%);
+  height: 100%;
+  background: #005891;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  clip-path: polygon(0 0, 0 100%, 50% 50%);
 `
 const TriangleRed = styled.div`
-    width: 12.5%;
-    height: 50%;
-    background: #D12331;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+  width: 12.5%;
+  height: 50%;
+  background: #D12331;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
 `
 
 const TriangleYellow = styled.div`
-    width: 12.5%;
-    height: 50%;
-    background: #D9D458;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 2;
-    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+  width: 12.5%;
+  height: 50%;
+  background: #D9D458;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+`
+
+const Arrows = styled.img`
+  margin-bottom: 1rem!important;
+	width: 64px;
+`
+const HeaderImage = styled.img`
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	max-width: 100%;
+	height: auto;
 `
 
 const SlimHeader = props => {
@@ -48,12 +58,12 @@ const SlimHeader = props => {
 			<Container className="h-100">
 				<Row className="h-100">
 					<Col lg="6" className="align-self-center">
-						<img src={images.arrowRight} alt="" width="64" className="mb-3"/>
+						<Arrows src={images.arrowRight} alt=""/>
 						<h1 className="display-4  mb-3">{props.headline}</h1>
 						<p className="lead text-muted mb-0">{props.subheader}</p>
 					</Col>
           <Col lg="5" className="align-self-center mx-auto">
-            <img src={props.headerImage} alt="" className="img-fluid light-shadow" />
+            <HeaderImage src={props.headerImage} alt="" />
           </Col>
 				</Row>
 			</Container>

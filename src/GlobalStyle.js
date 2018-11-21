@@ -1,4 +1,3 @@
-import React from 'react';
 import { css, createGlobalStyle } from 'styled-components'
 
 const bscBlue = css`
@@ -30,8 +29,9 @@ const GlobalStyle = createGlobalStyle`
     .form-control {
       border: 0;
     }
-    .list-unstyled a { color: #fff; }
-
+    .list-unstyled a { color: #fff !important; }
+    a {
+    }
   }
 
   body {
@@ -53,6 +53,17 @@ const GlobalStyle = createGlobalStyle`
       font-family: 'Museo Slab 500';
       ${bscBlue};
     }
+  }
+  .btn-warning {
+    border-color: #D9D458;
+    background: #D9D458;
+  }
+  .text-warning {
+    color: #D9D458 !important;
+  }
+  a {
+    ${bscBlue};
+    // text-decoration: underline;
   }
 `
 export default GlobalStyle

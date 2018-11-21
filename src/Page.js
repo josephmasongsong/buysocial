@@ -50,6 +50,10 @@ const TriangleBlue = styled.div`
   z-index: 2;
   clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
 `
+const MemberPhoto = styled.img`
+	border-radius: 50px;
+	margin-bottom: 1rem;
+`
 
 class Page extends Component {
 	constructor(props) {
@@ -113,8 +117,8 @@ class Page extends Component {
   					return(
   						<Col lg="3" key={memberIndex}>
   							<TeamMember>
-  								<img src={member.portrait.url} alt="" height="100" width="100" className="mb-3 team-member-image" />
-  								<h5>{member.first_and_lastname[0].text}</h5>
+  								<MemberPhoto src={member.portrait.url} alt="" height="100" width="100"/>
+  								<h5 className="text-dark">{member.first_and_lastname[0].text}</h5>
   								<p className="mb-0 text-muted">{member.position[0].text}</p>
   							</TeamMember>
   						</Col>
@@ -143,7 +147,7 @@ class Page extends Component {
   			} else if (slice.slice_type === 'bullet_list') {
   				const listItems = slice.items.map(function(listItem, itemIndex){
   					return(
-  						<li class="mb-3 pl-3" key={itemIndex}><span class="fa-li" ><i class="fas fa-check"></i></span>{listItem.list_item[0].text}</li>
+  						<li className="mb-3 pl-3" key={itemIndex}><span className="fa-li" ><i className="fas fa-check"></i></span>{listItem.list_item[0].text}</li>
   					);
   				});
   				return(
@@ -152,7 +156,7 @@ class Page extends Component {
 	  						<Row>
 	  							<Col lg="12" className="align-self-center">
 	  								<div className="media mb-4 align-items-center">
-											<img src={slice.primary.list_icon.url} alt="" height="64" class="mr-3" />
+											<img src={slice.primary.list_icon.url} alt="" height="64" className="mr-3" />
 	  									<div className="media-body">
 	  										<h3 className=" mb-0">{RichText.asText(slice.primary.list_name)}</h3>
 	  									</div>
@@ -199,7 +203,7 @@ class Page extends Component {
   				const blocks = slice.items.map(function(block, blockIndex){
   					return(
   						<Col lg="4" key={blockIndex} className="mb-5">
-  							<h5 className=" mb-3">{block.block_title[0].text}</h5>
+  							<h5 className="mb-3">{block.block_title[0].text}</h5>
   							<p className="mb-0">{block.block_blurb[0].text}</p>
   						</Col>
   					)

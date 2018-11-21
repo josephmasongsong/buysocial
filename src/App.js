@@ -8,9 +8,7 @@ import Library from './Library';
 import GlobalStyle from './GlobalStyle';
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-  }
+
   render() {
     return (
       <div className="App">

@@ -39,6 +39,11 @@ const TriangleYellow = styled.div`
     clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
 `
 
+const Arrows = styled.img`
+    margin-bottom: 1rem!important;
+		width: 64px;
+`
+
 const Header = props => {
 
 		return(
@@ -49,10 +54,10 @@ const Header = props => {
 				<Container className="h-100">
 					<Row className="h-100 align-items-center">
 						<Col lg="8" className="mx-auto">
-							<img src={images.arrowRight} alt="" width="64" className="mb-3"/>
+							<Arrows src={images.arrowRight} alt=""/>
 							<h1 className="display-4 mb-3">{props.headline}</h1>
 							<p className="lead mb-3">{props.subheader}</p>
-							<Button color="buysocial-yellow" size="lg" className="rounded-0">Learn More</Button>
+							<Button color="warning" size="lg" className="rounded-0">Learn More</Button>
 						</Col>
 					</Row>
 				</Container>
