@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 
@@ -271,6 +272,13 @@ class Page extends Component {
 
 	    return (
 	      <div>
+					<Helmet>
+            <title>{RichText.asText(document.page_title)}</title>
+            <meta name="description" content={RichText.asText(document.page_blurb)} />
+            <meta name="og:image" content={document.page_image.url} />
+          </Helmet>
+
+
 	      	<SlimHeader
 	      		headline={RichText.asText(document.page_title)}
 	      		subheader={RichText.asText(document.page_blurb)}
