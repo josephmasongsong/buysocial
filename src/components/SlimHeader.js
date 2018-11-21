@@ -49,7 +49,7 @@ const SlimHeader = props => {
 				<Row className="h-100">
 					<Col lg="6" className="align-self-center">
 						<img src={images.arrowRight} alt="" width="64" className="mb-3"/>
-						<h1 className="display-4 text-primary mb-3">{props.headline}</h1>
+						<h1 className="display-4  mb-3">{props.headline}</h1>
 						<p className="lead text-muted mb-0">{props.subheader}</p>
 					</Col>
           <Col lg="5" className="align-self-center mx-auto">

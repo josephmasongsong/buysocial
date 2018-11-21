@@ -40,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h1,h2,h3,h4,h5,h6 {
     font-family: 'Roboto Slab', sans-serif;
+    ${bscBlue};
   }
   .buysocial-navigation {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);

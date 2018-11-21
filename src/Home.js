@@ -70,7 +70,7 @@ class Home extends Component {
             return(
               <Col lg="3" key={blockIndex}>
                 <img src={block.blurb_image.url} alt="" height="64" className="mb-3" />
-                <h4 className="text-primary mb-3">{block.block_title[0].text}</h4>
+                <h4 className=" mb-3">{block.block_title[0].text}</h4>
                 <p className="mb-0">{block.block_blurb[0].text}</p>
               </Col>
             )
@@ -97,7 +97,7 @@ class Home extends Component {
   						<Container>
 	  						<Row>
 	  							<Col lg="10" className="mx-auto text-center">
-	  								<h3 className="text-primary mb-3">{RichText.asText(slice.primary.logo_section)}</h3>
+	  								<h3 className=" mb-3">{RichText.asText(slice.primary.logo_section)}</h3>
 	  								<p className="lead text-muted mb-0">{RichText.asText(slice.primary.logo_subheader )}</p>
 	  							</Col>
 	  						</Row>
@@ -120,7 +120,7 @@ class Home extends Component {
 							<Container>
 								<Row>
 									<Col lg="8">
-										<h3 className="text-primary mb-4">{RichText.asText(slice.primary.title_of_section )}</h3>
+										<h3 className=" mb-4">{RichText.asText(slice.primary.title_of_section )}</h3>
 									</Col>
 								</Row>
 								<Row>
@@ -136,7 +136,7 @@ class Home extends Component {
   						<Container>
 	  						<Row>
 	  							<Col lg="6" className="align-self-center">
-                    <h3 className="text-primary mb-3">{RichText.asText(slice.primary.section_title )}</h3>
+                    <h3 className=" mb-3">{RichText.asText(slice.primary.section_title )}</h3>
                     <p className="lead text-muted mb-3">{RichText.asText(slice.primary.section_subtitle )}</p>
                     <a href={Link.url(slice.primary.section_link, PrismicConfig.linkResolver)} className="lead mb-0">{RichText.asText(slice.primary.link_text)}</a>
 	  							</Col>

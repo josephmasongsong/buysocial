@@ -94,7 +94,7 @@ class Page extends Component {
   					return(
 							<Col lg="4" key={blockIndex}>
 								<img src={block.block_image.url} alt="" height="64" className="mb-3" />
-								<h4 className="text-primary mb-3">{block.block_title[0].text}</h4>
+								<h4 className=" mb-3">{block.block_title[0].text}</h4>
 								<p className="mb-0">{block.block_blurb[0].text}</p>
 							</Col>
   					);
@@ -128,7 +128,7 @@ class Page extends Component {
 							<Container>
 								<Row className="mb-5">
 									<Col lg="12" className="text-center">
-										<h3 className="text-primary mb-3">{RichText.asText(slice.primary.team_section)}</h3>
+										<h3 className=" mb-3">{RichText.asText(slice.primary.team_section)}</h3>
 										<p className="text-muted lead mb-0">{RichText.asText(slice.primary.team_subheader)}</p>
 									</Col>
 								</Row>
@@ -154,7 +154,7 @@ class Page extends Component {
 	  								<div className="media mb-4 align-items-center">
 											<img src={slice.primary.list_icon.url} alt="" height="64" class="mr-3" />
 	  									<div className="media-body">
-	  										<h3 className="text-primary mb-0">{RichText.asText(slice.primary.list_name)}</h3>
+	  										<h3 className=" mb-0">{RichText.asText(slice.primary.list_name)}</h3>
 	  									</div>
 	  								</div>
 	  								<ul className="mb-0 fa-ul">
@@ -184,7 +184,7 @@ class Page extends Component {
   						<Container>
 	  						<Row className="mb-5">
 	  							<Col lg="10" className="mx-auto text-center">
-	  								<h3 className="text-primary mb-3">{RichText.asText(slice.primary.block_header)}</h3>
+	  								<h3 className=" mb-3">{RichText.asText(slice.primary.block_header)}</h3>
 	  								<p className="lead text-muted mb-0">{RichText.asText(slice.primary.block_blurb )}</p>
 	  							</Col>
 	  						</Row>
@@ -199,7 +199,7 @@ class Page extends Component {
   				const blocks = slice.items.map(function(block, blockIndex){
   					return(
   						<Col lg="4" key={blockIndex} className="mb-5">
-  							<h5 className="text-primary mb-3">{block.block_title[0].text}</h5>
+  							<h5 className=" mb-3">{block.block_title[0].text}</h5>
   							<p className="mb-0">{block.block_blurb[0].text}</p>
   						</Col>
   					)
@@ -228,7 +228,7 @@ class Page extends Component {
   						<Container>
 	  						<Row>
 	  							<Col lg="10" className="mx-auto text-center">
-	  								<h3 className="text-primary mb-3">{RichText.asText(slice.primary.logo_section)}</h3>
+	  								<h3 className=" mb-3">{RichText.asText(slice.primary.logo_section)}</h3>
 	  								<p className="lead text-muted mb-0">{RichText.asText(slice.primary.logo_subheader )}</p>
 	  							</Col>
 	  						</Row>
@@ -251,7 +251,7 @@ class Page extends Component {
 							<Container>
 								<Row>
 									<Col lg="8">
-										<h3 className="text-primary mb-4">{RichText.asText(slice.primary.title_of_section )}</h3>
+										<h3 className=" mb-4">{RichText.asText(slice.primary.title_of_section )}</h3>
 									</Col>
 								</Row>
 								<Row>
