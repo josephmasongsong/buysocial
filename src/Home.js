@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
 import { Container, Row, Col } from 'reactstrap';
-import {RichText} from 'prismic-reactjs';
+import {Link, RichText} from 'prismic-reactjs';
 import Header from './components/Header';
 import NewsItem from './components/NewsItem';
 
@@ -17,6 +17,8 @@ const NewsItems = styled.div`
 const ContentBlock = styled.section`
 	position: relative;
 	padding: 6rem 0;
+  border-top: 1px solid #f8f9fa;
+  border-bottom: 1px solid #f8f9fa;
 `
 const TriangleRed = styled.div`
 	width: 12.5%;
@@ -63,7 +65,7 @@ class Home extends Component {
       const document = this.state.doc.data;
 
       const sliceContent = document.body.map(function(slice, index){
-        if (slice.slice_type == '4_column_content_block') {
+        if (slice.slice_type === '4_column_content_block') {
           const blocks = slice.items.map(function(block, blockIndex){
             return(
               <Col lg="3" key={blockIndex}>
@@ -127,7 +129,25 @@ class Home extends Component {
 							</Container>
 						</NewsItems>
   				);
-				} else {
+				} else if (slice.slice_type === 'content_block_with_image') {
+
+  				return(
+  					<ContentBlock key={index}>
+  						<Container>
+	  						<Row>
+	  							<Col lg="6" className="align-self-center">
+                    <h3 className="text-primary mb-3">{RichText.asText(slice.primary.section_title )}</h3>
+                    <p className="lead text-muted mb-3">{RichText.asText(slice.primary.section_subtitle )}</p>
+                    <a href={Link.url(slice.primary.section_link, PrismicConfig.linkResolver)} className="lead mb-0">{RichText.asText(slice.primary.link_text)}</a>
+	  							</Col>
+                  <Col lg="5" className="align-self-center ml-auto">
+                    <img src={slice.primary.section_image.url} alt="" className="img-fluid light-shadow" />
+                  </Col>
+	  						</Row>
+  						</Container>
+  					</ContentBlock>
+  				);
+  			} else {
           return null;
         }
       });
@@ -140,7 +160,7 @@ class Home extends Component {
         </div>
       )
     }
-    return <Header headline="Free Social Procurement Tools & Resources" subheader="Capitalize on Buy Social Canada's vast social procurement knowledge base for free. Search through our library of tools, frameworks, and resources."/>
+    return <Header headline="Connecting to Server..." subheader="Please be patient..."/>
   }
 }
 

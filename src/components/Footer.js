@@ -9,7 +9,12 @@ const FooterStyle = styled.div`
   background-color: #005891;
   color: #fff;
 `
-
+const Arrows = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+`
 const Address = styled.ul`
   padding-left: 2rem;
 `
@@ -18,7 +23,7 @@ class Footer extends React.Component {
 	render() {
 		return(
 			<FooterStyle className="footer">
-				<img src={images.arrowLeft} className="icon-arrow-left" alt="" />
+				<Arrows src={images.arrowLeft} alt="" />
 				<Container>
 					<Row className="justify-content-center">
 						<Col lg="4" className="mr-auto">
@@ -45,7 +50,7 @@ class Footer extends React.Component {
 						</Col>
 						<Col lg="2">
 							<h5 className="mb-4">Navigation</h5>
-              <ul class="list-unstyled">
+              <ul className="list-unstyled">
                 <li>
                   <a href="#">
                     Home
@@ -85,11 +90,11 @@ class Footer extends React.Component {
 						</Col>
 						<Col lg="2">
 							<h5 className="mb-4">Social</h5>
-              <ul class="social list-inline">
-                <li class="list-inline-item"><i class="fab fa-facebook-f"></i></li>
-                <li class="list-inline-item"><i class="fab fa-twitter"></i></li>
-                <li class="list-inline-item"><i class="fab fa-linkedin"></i></li>
-                <li class="list-inline-item"><i class="fab fa-instagram"></i></li>
+              <ul className="social list-inline">
+                <li className="list-inline-item"><i className="fab fa-facebook-f"></i></li>
+                <li className="list-inline-item"><i className="fab fa-twitter"></i></li>
+                <li className="list-inline-item"><i className="fab fa-linkedin"></i></li>
+                <li className="list-inline-item"><i className="fab fa-instagram"></i></li>
               </ul>
 						</Col>
 					</Row>

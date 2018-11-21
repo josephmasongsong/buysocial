@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import styled from 'styled-components';
+
 import {RichText} from 'prismic-reactjs';
 import SlimHeader from './components/SlimHeader';
-import styled from 'styled-components';
 import NewsItem from './components/NewsItem';
 
 const ContentBlock = styled.section`
 	position: relative;
 	padding: 6rem 0;
+	border-top: 1px solid #f8f9fa;
+	border-bottom: 1px solid #f8f9fa;
 `
 const GrayBlock = styled.div`
 	padding: 6rem 0;
@@ -64,10 +67,6 @@ class Page extends Component {
   componentWillReceiveProps(props) {
     this.fetchPage(props);
   }
-
-  // componentDidUpdate() {
-  //   this.props.prismicCtx.toolbar();
-  // }
 
   fetchPage(props) {
     if (props.prismicCtx) {
@@ -148,7 +147,7 @@ class Page extends Component {
   					);
   				});
   				return(
-  					<ContentBlock key={index} className="border-top">
+  					<ContentBlock key={index}>
   						<Container>
 	  						<Row>
 	  							<Col lg="12" className="align-self-center">

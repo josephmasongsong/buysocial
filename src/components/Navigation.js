@@ -12,6 +12,8 @@ import {
 	DropdownToggle,
 	DropdownMenu } from 'reactstrap';
 import images from '../ThemeImages';
+import styled from 'styled-components';
+
 
 class Navigation extends React.Component {
 	constructor(props) {
@@ -38,10 +40,10 @@ class Navigation extends React.Component {
 						<Collapse isOpen={this.state.isOpen} navbar>
 							<Nav className="ml-auto" navbar>
 								<NavItem>
-									<NavLink href="/about-buy-social-canada">Who We Are</NavLink>
+									<NavLink className="px-3" href="/about-buy-social-canada">Who We Are</NavLink>
 								</NavItem>
 								<UncontrolledDropdown nav inNavbar>
-									<DropdownToggle nav>
+									<DropdownToggle nav className="px-3">
 										Certification
 									</DropdownToggle>
 									<DropdownMenu right>
@@ -50,16 +52,16 @@ class Navigation extends React.Component {
 									</DropdownMenu>
 								</UncontrolledDropdown>
 								<NavItem>
-									<NavLink href="/library">Knowledge Base</NavLink>
+									<NavLink href="/library" className="px-3">Knowledge Base</NavLink>
 								</NavItem>
 								<NavItem>
-									<NavLink href="/">News</NavLink>
+									<NavLink href="/" className="px-3">News</NavLink>
 								</NavItem>
 								<NavItem>
-									<NavLink href="/">Events</NavLink>
+									<NavLink href="/" className="px-3">Events</NavLink>
 								</NavItem>
 								<NavItem>
-									<NavLink href="/">Contact</NavLink>
+									<NavLink href="/" className="px-3">Contact</NavLink>
 								</NavItem>
 							</Nav>
 						</Collapse>
