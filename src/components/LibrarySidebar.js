@@ -72,13 +72,13 @@ class LibrarySidebar extends Component {
             </ListGroup>
           </Col>
           <Col lg="8" className="ml-auto">
-            <h1>Smell Test</h1>
+            <h1>Loading Documents...</h1>
           </Col>
         </Row>
       )
     }
     return(
-      <h1>Test</h1>
+      <h1>Loading Documents...</h1>
     )
   }
 }

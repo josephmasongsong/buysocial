@@ -57,20 +57,16 @@ class Navigation extends Component {
 							return(
 								<a className="dropdown-item" key={navItemIndex} href={navItem.sub_nav_link.slug}>{navItem.sub_nav_link_lable[0].text}</a>
 	  					);
+						} else {
+							return null;
 						}
   				});
 
   				return(
 						<div key={index}>
 						{
-							navItems
+							(slice.items.length > 1)
 							?
-
-							<NavItem>
-	              <NavLink className="px-3" name={RichText.asText(slice.primary.label)} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)} />
-	            </NavItem>
-
-							:
 							<UncontrolledDropdown nav inNavbar>
 								<DropdownToggle nav className="px-3">
 									{RichText.asText(slice.primary.label)}
@@ -79,6 +75,10 @@ class Navigation extends Component {
 									{navItems}
 								</DropdownMenu>
 							</UncontrolledDropdown>
+							:
+							<NavItem>
+	              <NavLink className="px-3" name={RichText.asText(slice.primary.label)} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)} />
+	            </NavItem>
 						}
 						</div>
   				);
