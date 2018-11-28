@@ -4,7 +4,6 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './Home';
 import Page from './Page';
-import Library from './Library';
 import GlobalStyle from './GlobalStyle';
 
 class App extends Component {
@@ -16,7 +15,6 @@ class App extends Component {
         <Navigation />
           <Switch>
             <Route exact path='/' component={Home}/>
-            <Route path='/library' component={Library}/>
             <Route exact path="/:uid" render={routeProps => <Page {...routeProps} prismicCtx={this.props.prismicCtx} />} />
           </Switch>
         <Footer />

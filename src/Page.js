@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import {RichText} from 'prismic-reactjs';
 import SlimHeader from './components/SlimHeader';
 import NewsItem from './components/NewsItem';
+import LibrarySidebar from './components/LibrarySidebar';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -265,6 +266,16 @@ class Page extends Component {
 							</Container>
 						</NewsItems>
   				);
+				} else if (slice.slice_type === 'knowledge_base') {
+					return(
+						<ContentBlock key={index}>
+							<Container className="px-0">
+
+								<LibrarySidebar />
+
+							</Container>
+						</ContentBlock>
+					);
 				} else {
   				return null;
   			}
