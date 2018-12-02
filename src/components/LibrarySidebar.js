@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Prismic from 'prismic-javascript';
 import PrismicConfig from '../prismic-configuration';
-import { Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
+import { Col, ListGroup, ListGroupItem } from 'reactstrap';
 import ListItemWithSub from './ListItemWithSub';
+import SearchForm from './SearchForm';
 
 class LibrarySidebar extends Component {
   constructor(props) {
@@ -54,31 +55,21 @@ class LibrarySidebar extends Component {
       });
 
       return(
-        <Row>
+
           <Col lg="3">
 
-            <div className="input-group mb-5">
-      			  <input className="form-control py-2" id="example-search-input" type="search" ></input>
-      			  <span className="input-group-append">
-      			    <button className="btn btn-primary" type="button">
-      			      <i className="fas fa-search"></i>
-      			    </button>
-      			  </span>
-      			</div>
+            <SearchForm />
 
             <ListGroup flush>
               <ListGroupItem className="pl-0">All Documents</ListGroupItem>
               {listItems}
             </ListGroup>
           </Col>
-          <Col lg="8" className="ml-auto">
-            <h1>Loading Documents...</h1>
-          </Col>
-        </Row>
+
       )
     }
     return(
-      <h1>Loading Documents...</h1>
+      <h3>Loading Categories</h3>
     )
   }
 }

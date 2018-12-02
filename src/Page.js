@@ -7,6 +7,8 @@ import {RichText} from 'prismic-reactjs';
 import SlimHeader from './components/SlimHeader';
 import NewsItem from './components/NewsItem';
 import LibrarySidebar from './components/LibrarySidebar';
+// import LibraryResults from './components/LibraryResults';
+import FilteredList from './components/FilteredList';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -269,10 +271,11 @@ class Page extends Component {
 				} else if (slice.slice_type === 'knowledge_base') {
 					return(
 						<ContentBlock key={index}>
-							<Container className="px-0">
-
-								<LibrarySidebar />
-
+							<Container>
+								<Row>
+									<LibrarySidebar />
+									<FilteredList />
+								</Row>
 							</Container>
 						</ContentBlock>
 					);

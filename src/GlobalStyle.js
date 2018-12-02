@@ -65,5 +65,15 @@ const GlobalStyle = createGlobalStyle`
     ${bscBlue};
     // text-decoration: underline;
   }
+  .input-group-append .btn-primary {
+    background:#005891;
+    border-color: #005891;
+  }
+  .media {
+    &.mb-5 {
+      a { text-decoration: underline; }
+    }
+  }
+
 `
 export default GlobalStyle
