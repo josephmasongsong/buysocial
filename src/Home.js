@@ -40,11 +40,16 @@ const TriangleBlue = styled.div`
   z-index: 2;
   clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
 `
+const LinkTo = styled.a`
+	text-decoration: underline;
+`
 const BlockImage = styled.img`
 	box-shadow: 0 0 5px rgba(0,0,0,0.2);
 	max-width: 100%;
 	height: auto;
+	width:100%;
 `
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -66,6 +71,7 @@ class Home extends Component {
 
   render() {
     if (this.state.doc) {
+
       const document = this.state.doc.data;
 
       const sliceContent = document.body.map(function(slice, index){
@@ -75,7 +81,8 @@ class Home extends Component {
               <Col lg="3" key={blockIndex}>
                 <img src={block.blurb_image.url} alt="" height="64" className="mb-3" />
                 <h4 className=" mb-3">{block.block_title[0].text}</h4>
-                <p className="mb-0">{block.block_blurb[0].text}</p>
+                <p className="mb-3">{block.block_blurb[0].text}</p>
+								<LinkTo href={block.block_link.uid}>Learn More</LinkTo>
               </Col>
             )
           });
@@ -142,7 +149,7 @@ class Home extends Component {
 	  							<Col lg="6" className="align-self-center">
                     <h3 className=" mb-3">{RichText.asText(slice.primary.section_title )}</h3>
                     <p className="lead text-muted mb-3">{RichText.asText(slice.primary.section_subtitle )}</p>
-                    <a href={Link.url(slice.primary.section_link, PrismicConfig.linkResolver)} className="lead mb-0">{RichText.asText(slice.primary.link_text)}</a>
+                    <LinkTo href={Link.url(slice.primary.section_link, PrismicConfig.linkResolver)} className="lead mb-0">{RichText.asText(slice.primary.link_text)}</LinkTo>
 	  							</Col>
                   <Col lg="5" className="align-self-center ml-auto">
                     <BlockImage src={slice.primary.section_image.url} alt=""/>
@@ -151,16 +158,39 @@ class Home extends Component {
   						</Container>
   					</ContentBlock>
   				);
+  			} else if (slice.slice_type === 'content_block_with_image_left') {
+
+  				return(
+  					<ContentBlock key={index}>
+  						<Container>
+	  						<Row>
+									<Col lg="5" className="align-self-center mr-auto">
+										<BlockImage src={slice.primary.section_image.url} alt=""/>
+									</Col>
+
+	  							<Col lg="6" className="align-self-center">
+                    <h3 className=" mb-3">{RichText.asText(slice.primary.section_title )}</h3>
+                    <p className="lead text-muted mb-3">{RichText.asText(slice.primary.section_subtitle )}</p>
+                    <LinkTo href={Link.url(slice.primary.section_link, PrismicConfig.linkResolver)} className="lead mb-0">{RichText.asText(slice.primary.link_text)}</LinkTo>
+	  							</Col>
+
+	  						</Row>
+  						</Container>
+  					</ContentBlock>
+  				);
+  			} else if (slice.slice_type === 'featured_pages') {
+					const slides = slice.items
+
+					return(
+						<Header slides={slides} key={index}/>
+  				);
   			} else {
           return null;
         }
       });
       return(
         <div>
-          <Header headline="Free Social Procurement Tools & Resources" subheader="Capitalize on Buy Social Canada's vast social procurement knowledge base for free. Search through our library of tools, frameworks, and resources."/>
-          <div>
           {sliceContent}
-          </div>
         </div>
       )
     }

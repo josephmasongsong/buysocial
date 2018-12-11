@@ -1,5 +1,7 @@
-import React from 'react';
-import { Button, Container, Row, Col } from 'reactstrap';
+import React, { Component } from 'react';
+import { Button, Container, Row, Col,
+Carousel,
+CarouselItem, } from 'reactstrap';
 import styled from 'styled-components';
 import images from '../ThemeImages';
 
@@ -43,8 +45,55 @@ const Arrows = styled.img`
     margin-bottom: 1rem!important;
 		width: 64px;
 `
+class Header extends Component {
+	constructor(props) {
+    super(props);
+    this.state = { activeIndex: 0 };
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+    this.goToIndex = this.goToIndex.bind(this);
+    this.onExiting = this.onExiting.bind(this);
+    this.onExited = this.onExited.bind(this);
+  }
+  onExiting() {
+    this.animating = true;
+  }
+  onExited() {
+    this.animating = false;
+  }
+  next() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === this.props.slides.length - 1 ? 0 : this.state.activeIndex + 1;
+    this.setState({ activeIndex: nextIndex });
+  }
+  previous() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === 0 ? this.props.slides.length - 1 : this.state.activeIndex - 1;
+    this.setState({ activeIndex: nextIndex });
+  }
+  goToIndex(newIndex) {
+    if (this.animating) return;
+    this.setState({ activeIndex: newIndex });
+  }
+	render(){
+		const { activeIndex } = this.state;
 
-const Header = props => {
+		const items = this.props.slides || [];
+
+		const carouselSlides =  items.map((item) => {
+			return(
+				<CarouselItem
+          onExiting={this.onExiting}
+          onExited={this.onExited}
+          key={item.link.uid}
+        >
+					<Arrows src={images.arrowRight} alt=""/>
+					<h1 className="display-4 mb-3">{item.headline[0].text}</h1>
+					<p className="lead mb-3">{item.subheader[0].text}</p>
+					<Button color="warning" size="lg" className="rounded-0">Learn More</Button>
+        </CarouselItem>
+			)
+		});
 
 		return(
 			<Masthead>
@@ -54,16 +103,22 @@ const Header = props => {
 				<Container className="h-100">
 					<Row className="h-100 align-items-center">
 						<Col lg="8" className="mx-auto">
-							<Arrows src={images.arrowRight} alt=""/>
-							<h1 className="display-4 mb-3">{props.headline}</h1>
-							<p className="lead mb-3">{props.subheader}</p>
-							<Button color="warning" size="lg" className="rounded-0">Learn More</Button>
+							<Carousel
+								ride="carousel"
+								slide={false}
+								interval="6000"
+				        activeIndex={activeIndex}
+				        next={this.next}
+				        previous={this.previous}
+				      >
+								{carouselSlides}
+				      </Carousel>
 						</Col>
 					</Row>
 				</Container>
 			</Masthead>
 		);
-
+	}
 }
 
 export default Header

@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom'
+import { Provider } from "react-redux";
+import store from "./store/index";
 import './index.scss';
 import PrismicApp from './PrismicApp';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render((
-	<Router>
-		<PrismicApp />
-	</Router>
+	<Provider store={store}>
+		<Router>
+			<PrismicApp />
+		</Router>
+	</Provider>
 ), document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

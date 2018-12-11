@@ -50,21 +50,30 @@ const HeaderImage = styled.img`
 `
 
 const SlimHeader = props => {
+	const headerImg = props.headerImage;
+	let img;
+
+	if (headerImg) {
+		img =  <Col lg="5" className="align-self-center mx-auto">
+		         <HeaderImage src={props.headerImage} alt="" />
+		       </Col>
+	} else {
+		img = null;
+	}
+
 	return(
 		<Masthead>
 			<TriangleLarge />
 			<TriangleRed />
 			<TriangleYellow />
 			<Container className="h-100">
-				<Row className="h-100">
+				<Row className="h-100 justify-content-center">
 					<Col lg="6" className="align-self-center">
 						<Arrows src={images.arrowRight} alt=""/>
 						<h1 className="display-4  mb-3">{props.headline}</h1>
 						<p className="lead text-muted mb-0">{props.subheader}</p>
 					</Col>
-          <Col lg="5" className="align-self-center mx-auto">
-            <HeaderImage src={props.headerImage} alt="" />
-          </Col>
+					{img}
 				</Row>
 			</Container>
 		</Masthead>

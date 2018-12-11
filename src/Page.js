@@ -9,6 +9,9 @@ import NewsItem from './components/NewsItem';
 import LibrarySidebar from './components/LibrarySidebar';
 // import LibraryResults from './components/LibraryResults';
 import FilteredList from './components/FilteredList';
+import PostList from './components/PostList';
+import PostTags from './components/PostTags';
+
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -275,6 +278,17 @@ class Page extends Component {
 								<Row>
 									<LibrarySidebar />
 									<FilteredList />
+								</Row>
+							</Container>
+						</ContentBlock>
+					);
+				} else if (slice.slice_type === 'news_index') {
+					return(
+						<ContentBlock key={index}>
+							<Container>
+								<Row className="justify-content-center">
+									<PostList />
+									<PostTags />
 								</Row>
 							</Container>
 						</ContentBlock>
