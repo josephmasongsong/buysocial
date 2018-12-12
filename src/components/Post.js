@@ -11,6 +11,10 @@ const PostImage = styled.div`
   background-image: ${props => `url(${props.background})`};
 `
 
+const LinkTo = styled.a`
+  text-decoration: none !important;
+`
+
 class Post extends Component {
 
   render(){
@@ -23,7 +27,7 @@ class Post extends Component {
             <PostImage background={this.props.post.data.post_image.url} className="mr-4" />
           </Media>
           <Media body>
-            <h4 className="mb-1">{this.props.post.data.post_title[0].text}</h4>
+            <LinkTo href={"/news/" + this.props.post.uid}><h4 className="mb-1">{this.props.post.data.post_title[0].text}</h4></LinkTo>
             <p className="text-muted mb-3">{pubDate.toLocaleDateString("en-US", options)}</p>
             <p className="mb-0">{this.props.post.data.post_excerpt[0].text}</p>
           </Media>

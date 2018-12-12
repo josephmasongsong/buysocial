@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
-
 import {RichText} from 'prismic-reactjs';
 import SlimHeader from './components/SlimHeader';
 import NewsItem from './components/NewsItem';
 import LibrarySidebar from './components/LibrarySidebar';
-// import LibraryResults from './components/LibraryResults';
 import FilteredList from './components/FilteredList';
 import PostList from './components/PostList';
 import PostTags from './components/PostTags';
-
+import ContactForm from './components/ContactForm';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -36,6 +34,7 @@ const NewsItems = styled.div`
 `
 const TeamMember = styled.div`
 	text-align: center;
+	margin-top: 3rem;
 `
 const TriangleRed = styled.div`
 	width: 12.5%;
@@ -137,7 +136,7 @@ class Page extends Component {
 							<TriangleRed />
 							<TriangleBlue />
 							<Container>
-								<Row className="mb-5">
+								<Row>
 									<Col lg="12" className="text-center">
 										<h3 className=" mb-3">{RichText.asText(slice.primary.team_section)}</h3>
 										<p className="text-muted lead mb-0">{RichText.asText(slice.primary.team_subheader)}</p>
@@ -293,6 +292,19 @@ class Page extends Component {
 							</Container>
 						</ContentBlock>
 					);
+				} else if (slice.slice_type === 'contact_form') {
+					return(
+						<ContentBlock key={index}>
+							<Container>
+								<Row className="justify-content-center">
+									<div>
+										<p className="mb-5">{RichText.asText(slice.primary.form_blurb)}</p>
+									</div>
+									<ContactForm />
+								</Row>
+							</Container>
+						</ContentBlock>
+					);
 				} else {
   				return null;
   			}
@@ -301,7 +313,7 @@ class Page extends Component {
 	    return (
 	      <div>
 					<Helmet>
-            <title>{RichText.asText(document.page_title)}</title>
+            <title>{RichText.asText(document.page_title) + " - Buy Social Canada"}</title>
             <meta name="description" content={RichText.asText(document.page_blurb)} />
             <meta name="og:image" content={document.page_image.url} />
           </Helmet>
@@ -316,7 +328,7 @@ class Page extends Component {
 					{blockContent}
 					</div>
 
-	      </div>
+	     </div>
 	    );
   	}
   	return <SlimHeader headline="Loading..." />;

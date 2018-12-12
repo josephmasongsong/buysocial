@@ -9,7 +9,10 @@ const GlobalStyle = createGlobalStyle`
   .App {
     overflow-x: hidden;
   }
-
+  .btn-primary {
+    background-color: #005891;
+    border-color: #005891;
+  }
   .light-shadow {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
@@ -73,6 +76,31 @@ const GlobalStyle = createGlobalStyle`
     &.mb-5 {
       a { text-decoration: underline; }
     }
+  }
+  .carousel-inner {
+    .carousel-item {
+      opacity: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: block;
+      position: absolute;
+      transition: opacity 1s ease-in-out;
+
+      &:first-of-type {
+        position: relative;
+      }
+    }
+
+    .active {
+      opacity: 1;
+    }
+  }
+  .list-group-item.active {
+      z-index: 2;
+      background-color: transparent;
+      border-color: transparent;
+      ${bscBlue};
   }
 
 `

@@ -90,7 +90,7 @@ class Header extends Component {
 					<Arrows src={images.arrowRight} alt=""/>
 					<h1 className="display-4 mb-3">{item.headline[0].text}</h1>
 					<p className="lead mb-3">{item.subheader[0].text}</p>
-					<Button color="warning" size="lg" className="rounded-0">Learn More</Button>
+					<a href={item.link.uid} className="rounded-0 btn btn-warning btn-lg text-dark">Learn More</a>
         </CarouselItem>
 			)
 		});

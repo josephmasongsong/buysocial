@@ -20,7 +20,7 @@ class FilteredList extends Component {
   componentWillMount() {
     const apiEndpoint = PrismicConfig.apiEndpoint;
 	  Prismic.api(apiEndpoint).then(api => {
-      api.query(Prismic.Predicates.at('document.type', 'library_document')).then(response => {
+      api.query(Prismic.Predicates.at('document.type', 'library_document'), { pageSize: 5 }).then(response => {
         if (response) {
           this.setState({
             doc: response.results,

@@ -44,7 +44,7 @@ const LinkTo = styled.a`
 	text-decoration: underline;
 `
 const BlockImage = styled.img`
-	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	/* box-shadow: 0 0 5px rgba(0,0,0,0.2); */
 	max-width: 100%;
 	height: auto;
 	width:100%;
