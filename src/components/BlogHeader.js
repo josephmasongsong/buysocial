@@ -43,14 +43,14 @@ const Arrows = styled.img`
   margin-bottom: 1rem!important;
 	width: 64px;
 `
-const HeaderImage = styled.img`
-	box-shadow: 0 0 5px rgba(0,0,0,0.2);
-	max-width: 100%;
-	height: auto;
-`
+// const HeaderImage = styled.img`
+// 	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+// 	max-width: 100%;
+// 	height: auto;
+// `
 
 const BlogHeader = props => {
-	const headerImg = props.headerImage;
+	// const headerImg = props.headerImage;
 	let img;
 
 	// if (headerImg) {

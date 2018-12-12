@@ -32,7 +32,7 @@ class Footer extends Component {
   componentWillMount() {
 	  const apiEndpoint = 'https://buy-social-canada.prismic.io/api/v2';
 	  Prismic.api(apiEndpoint).then(api => {
-	    api.query(Prismic.Predicates.at('document.type', 'footer_navigation')).then(response => {
+	    api.query(Prismic.Predicates.at('document.type', 'footer')).then(response => {
 	      if (response) {
 	        this.setState({ doc: response.results[0] });
 	      }
@@ -43,13 +43,15 @@ class Footer extends Component {
     if (this.state.doc) {
       const document = this.state.doc.data
 
-      const footerNavigation = document.nav.map(function(slice, index){
+      const footerNavigation = document.body.map(function(slice, index){
         if (slice.slice_type === 'nav_item') {
           return(
-            <li>
+            <li key={index}>
               <a href={Link.url(slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(slice.primary.label)}</a>
             </li>
           )
+        } else {
+          return null;
         }
       });
       return(
@@ -59,24 +61,27 @@ class Footer extends Component {
   					<Row className="justify-content-center">
   						<Col lg="4" className="mr-auto">
   							<h5 className="mb-4 text-white">Newsletter</h5>
-                <p>Enter your email to receive our newsletter. We will never distribute your email to third parties and you may opt-out at any time.</p>
-                <div className="input-group mb-5">
-                  <input className="form-control py-2 rounded-0" type="search" placeholder="Email"></input>
-                  <span className="input-group-append">
-                    <button className="btn btn-warning rounded-0" type="button">
-                      Sign Up
-                    </button>
-                  </span>
-                </div>
+                <p>{RichText.asText(document.newsletter_blurb)}</p>
+                <form name="newsletter_signup" method="post">
+                  <input type="hidden" name="form-name" value="contact_signup" />
+                  <div className="input-group mb-5">
+                    <input name="email" type="email" placeholder="Email" className="form-control py-2 rounded-0" />
+                    <span className="input-group-append">
+                      <button className="btn btn-warning rounded-0" type="button">
+                        Sign Up
+                      </button>
+                    </span>
+                  </div>
+                </form>
 
 
   						</Col>
   						<Col lg="3" className="mx-auto">
   							<h5 className="mb-4 text-white">Contact Information</h5>
                 <Address className="fa-ul pl-0">
-                  <li className="mb-2"><span className="fa-li"><i className="fas fa-map-marker-alt text-warning"></i></span>Buy Social Canada<br />337 Gore Avenue<br />Vancouver BC, V6A 2Z3<br />CANADA</li>
-                  <li className="mb-2"><span className="fa-li"><i className="fas fa-envelope text-warning"></i></span>maija@buysocialcanada.ca</li>
-                  <li><span className="fa-li"><i className="fas fa-phone text-warning"></i></span>+1.604.416.0318</li>
+                  <li className="mb-2"><span className="fa-li"><i className="fas fa-map-marker-alt text-warning"></i></span>{RichText.render(document.address)}</li>
+                  <li className="mb-2"><span className="fa-li"><i className="fas fa-envelope text-warning"></i></span><a href={"mailto:" + RichText.asText(document.email)} className="text-white">{RichText.asText(document.email)}</a></li>
+                  <li><span className="fa-li"><i className="fas fa-phone text-warning"></i></span><a href={"tel:" + RichText.asText(document.phone)} className="text-white">{RichText.asText(document.phone)}</a></li>
                 </Address>
   						</Col>
   						<Col lg="2">
@@ -88,10 +93,10 @@ class Footer extends Component {
   						<Col lg="2">
   							<h5 className="mb-4 text-white">Social</h5>
                 <ul className="social list-inline">
-                  <li className="list-inline-item"><i className="fab fa-facebook-f"></i></li>
-                  <li className="list-inline-item"><i className="fab fa-twitter"></i></li>
-                  <li className="list-inline-item"><i className="fab fa-linkedin"></i></li>
-                  <li className="list-inline-item"><i className="fab fa-instagram"></i></li>
+                  <li className="list-inline-item"><a className="text-white" href={Link.url(document.facebook_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a></li>
+                  <li className="list-inline-item"><a className="text-white" href={Link.url(document.twitter_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a></li>
+                  <li className="list-inline-item"><a className="text-white" href={Link.url(document.linkedin_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
+                  <li className="list-inline-item"><a className="text-white" href={Link.url(document.instagram_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a></li>
                 </ul>
   						</Col>
   					</Row>

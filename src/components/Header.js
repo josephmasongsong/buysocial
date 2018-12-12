@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container, Row, Col,
+import { Container, Row, Col,
 Carousel,
 CarouselItem, } from 'reactstrap';
 import styled from 'styled-components';
