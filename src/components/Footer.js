@@ -67,7 +67,7 @@ class Footer extends Component {
                   <div className="input-group mb-5">
                     <input name="email" type="email" placeholder="Email" className="form-control py-2 rounded-0" />
                     <span className="input-group-append">
-                      <button className="btn btn-warning rounded-0" type="button">
+                      <button name="submit" type="submit" className="btn btn-warning rounded-0">
                         Sign Up
                       </button>
                     </span>
