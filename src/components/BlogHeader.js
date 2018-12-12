@@ -71,7 +71,7 @@ const BlogHeader = props => {
 					<Col lg="8" className="align-self-center">
 						<Arrows src={images.arrowRight} alt=""/>
 						<h1 className="mb-3">{props.headline}</h1>
-						<p className="text-muted lead mb-0">{props.pubdate}</p>
+						<p className="text-muted lead mb-0">By {props.author} | {props.pubdate}</p>
 					</Col>
 					{img}
 				</Row>

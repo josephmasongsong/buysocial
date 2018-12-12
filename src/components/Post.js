@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Media } from 'reactstrap';
 import styled from 'styled-components';
+import { RichText } from 'prismic-reactjs';
 
 const PostImage = styled.div`
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
@@ -20,6 +21,7 @@ class Post extends Component {
   render(){
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const pubDate = new Date(this.props.post.first_publication_date)
+
     return(
       <div>
         <Media className="mb-5">
@@ -28,7 +30,7 @@ class Post extends Component {
           </Media>
           <Media body>
             <LinkTo href={"/news/" + this.props.post.uid}><h4 className="mb-1">{this.props.post.data.post_title[0].text}</h4></LinkTo>
-            <p className="text-muted mb-3">{pubDate.toLocaleDateString("en-US", options)}</p>
+            <p className="text-muted mb-3">By {RichText.asText(this.props.post.data.author.data.name)} | {pubDate.toLocaleDateString("en-US", options)}</p>
             <p className="mb-0">{this.props.post.data.post_excerpt[0].text}</p>
           </Media>
         </Media>

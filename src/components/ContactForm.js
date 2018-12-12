@@ -21,7 +21,7 @@ const ContactForm = props => {
         <div>
         <div className="form-check form-check-inline">
           <label className="form-check-label">
-          <input name="checkbox" type="checkbox" className="form-check-input" value="subscribe" aria-describedby="checkboxHelpBlock" checked="checked"></input>
+          <input name="checkbox" type="checkbox" className="form-check-input" value="subscribe" aria-describedby="checkboxHelpBlock" defaultChecked></input>
               Subscribe
           </label>
         </div>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { Container, Row, Col } from 'reactstrap';
-import {RichText} from 'prismic-reactjs';
+import { Container, Row, Col, Badge } from 'reactstrap';
+import { Link, RichText } from 'prismic-reactjs';
+import PrismicConfig from './prismic-configuration';
 import BlogHeader from './components/BlogHeader'
 import styled from 'styled-components';
 
@@ -31,7 +32,7 @@ class Post extends Component {
   fetchPage(props) {
     if (props.prismicCtx) {
       // We are using the function to get a document by its uid
-      return props.prismicCtx.api.getByUID('blog_post', props.match.params.uid, {}, (err, doc) => {
+      return props.prismicCtx.api.getByUID('blog_post', props.match.params.uid, {'fetchLinks': ['author.name', 'post_tag.name']}, (err, doc) => {
         if (doc) {
           // We put the retrieved content in the state as a doc variable
           this.setState({ doc });
@@ -50,7 +51,13 @@ class Post extends Component {
       const document = this.state.doc.data;
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       const pubDate = new Date(this.state.doc.first_publication_date)
-
+			const postTags = document.post_tags.map(function(tag, tagIndex){
+				return(
+					<Badge href={Link.url(tag.post_tag, PrismicConfig.linkResolver)} key={tagIndex} className="text-white mr-2">
+						{tag.post_tag.data.name[0].text}
+					</Badge>
+				)
+			});
       return(
         <div>
           <Helmet>
@@ -59,13 +66,14 @@ class Post extends Component {
             <meta name="og:image" content={document.post_image.url} />
           </Helmet>
 
-          <BlogHeader headline={RichText.asText(document.post_title)} pubdate={pubDate.toLocaleDateString("en-US", options)} headerImage={document.post_image.url} />
+          <BlogHeader headline={RichText.asText(document.post_title)} pubdate={pubDate.toLocaleDateString("en-US", options)} headerImage={document.post_image.url} author={RichText.asText(document.author.data.name)} />
           <ContentBlock>
             <Container>
               <Row>
                 <Col lg="8" className="mx-auto">
                   <div>
                   {RichText.render(document.post_body)}
+									<span className="font-weight-bold d-inline-block mr-2 mt-4">Filed Under:</span> {postTags}
                   </div>
                 </Col>
               </Row>

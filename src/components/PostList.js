@@ -14,7 +14,7 @@ class PostList extends Component {
   componentWillMount() {
     const apiEndpoint = PrismicConfig.apiEndpoint;
 	  Prismic.api(apiEndpoint).then(api => {
-      api.query(Prismic.Predicates.at('document.type', 'blog_post')).then(response => {
+      api.query(Prismic.Predicates.at('document.type', 'blog_post'),{ fetchLinks: 'author.name' }).then(response => {
         if (response) {
           this.setState({
             doc: response.results,
