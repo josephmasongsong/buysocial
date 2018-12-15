@@ -102,6 +102,10 @@ const GlobalStyle = createGlobalStyle`
       border-color: transparent;
       ${bscBlue};
   }
+  legend {
+    font-family: 'Roboto Slab', sans-serif;
+    color: #005891;
+  }
 
 `
 export default GlobalStyle

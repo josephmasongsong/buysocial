@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './Home';
 import Page from './Page';
 import Post from './Post';
+import ApplicationForm from './ApplicationForm';
 
 import GlobalStyle from './GlobalStyle';
 
@@ -17,6 +18,8 @@ class App extends Component {
         <Navigation />
           <Switch>
             <Route exact path='/' component={Home}/>
+            <Route exact path='/application' component={ApplicationForm}/>
+
             <Route exact path="/:uid" render={routeProps => <Page {...routeProps} prismicCtx={this.props.prismicCtx} />} />
             <Route exact path="/news/:uid" render={routeProps => <Post {...routeProps} prismicCtx={this.props.prismicCtx} />} />
 

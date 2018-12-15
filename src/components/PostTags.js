@@ -30,8 +30,9 @@ class PostTags extends Component {
       });
       return(
         <Col lg="3" className="ml-auto pl-lg-5">
+          <h5 className="mb-4">Tags</h5>
           <ListGroup flush>
-            <ListGroupItem className="pl-0 active">All Tags</ListGroupItem>
+            <ListGroupItem className="pl-0 active">All</ListGroupItem>
             {listItems}
           </ListGroup>
         </Col>
