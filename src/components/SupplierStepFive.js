@@ -127,7 +127,7 @@ class SupplierStepFive extends Component {
         </FormGroup>
 
         <Button color="primary" onClick={this.back} className="mr-1">Back</Button>
-        <Button color="primary" onClick={this.handleSubmit}>Submit Application</Button>
+        <Button color="primary" type="submit">Submit Application</Button>
       </div>
     )
   }
