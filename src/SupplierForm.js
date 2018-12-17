@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Form } from 'reactstrap'
 import SupplierStepOne from './components/SupplierStepOne'
 import SupplierStepTwo from './components/SupplierStepTwo'
 import SupplierStepThree from './components/SupplierStepThree'
@@ -149,39 +150,58 @@ class SupplierForm extends Component {
     };
     switch (step) {
     case 1:
-      return <SupplierStepOne
-              nextStep={this.nextStep}
-              handleChange={this.handleChange}
-              values={values}
-             />
+      return(
+        <Form>
+          <SupplierStepOne
+           nextStep={this.nextStep}
+           handleChange={this.handleChange}
+           values={values}
+          />
+        </Form>
+      )
     case 2:
-      return <SupplierStepTwo
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              handleChange={this.handleChange}
-              values={values}
-             />
+      return(
+        <Form>
+          <SupplierStepTwo
+           nextStep={this.nextStep}
+           prevStep={this.prevStep}
+           handleChange={this.handleChange}
+           values={values}
+          />
+        </Form>
+      )
     case 3:
-      return <SupplierStepThree
-             nextStep={this.nextStep}
-             prevStep={this.prevStep}
-             handleChange={this.handleChange}
-             values={values}
-            />
+      return(
+        <Form>
+          <SupplierStepThree
+           nextStep={this.nextStep}
+           prevStep={this.prevStep}
+           handleChange={this.handleChange}
+           values={values}
+          />
+        </Form>
+      )
     case 4:
-      return <SupplierStepFour
-             nextStep={this.nextStep}
-             prevStep={this.prevStep}
-             handleChange={this.handleChange}
-             values={values}
-            />
+      return(
+        <Form>
+          <SupplierStepFour
+           nextStep={this.nextStep}
+           prevStep={this.prevStep}
+           handleChange={this.handleChange}
+           values={values}
+          />
+        </Form>
+      )
     case 5:
-      return <SupplierStepFive
-             prevStep={this.prevStep}
-             handleSubmit={this.handleSubmit}
-             handleChange={this.handleChange}
-             values={values}
-            />
+      return(
+        <Form onSubmit={this.handleSubmit}>
+          <SupplierStepFive
+           prevStep={this.prevStep}
+           handleChange={this.handleChange}
+           values={values}
+          />
+        </Form>
+      )
     }
   }
 }

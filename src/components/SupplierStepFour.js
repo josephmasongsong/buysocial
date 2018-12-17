@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, FormGroup, Label, Input, FormText } from 'reactstrap'
 
 class SupplierStepFour extends Component {
   saveAndContinue = (e) => {
@@ -13,7 +13,7 @@ class SupplierStepFour extends Component {
   render(){
     const { values } = this.props;
     return(
-      <Form>
+      <div>
         <legend>Verification Process</legend>
         <FormGroup tag="fieldset">
           <p>Do you follow the principle of one member, one vote?</p>
@@ -327,7 +327,7 @@ class SupplierStepFour extends Component {
 
         <Button color="primary" onClick={this.back}>Back</Button>
         <Button color="primary" onClick={this.saveAndContinue}>Save And Continue </Button>
-      </Form>
+      </div>
     )
   }
 
