@@ -106,6 +106,23 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto Slab', sans-serif;
     color: #005891;
   }
-
+  label { font-family: 'SofiaProMedium'; margin-bottom: 0; }
+  .form-control {
+    outline: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding: .375rem 0;
+    -webkit-appearance: none;
+    margin-bottom: 1.25rem;
+  }
+  .form-control:focus {
+    border-color: #005891;
+    box-shadow: none;
+  }
+  .btn {
+    border-radius: 0;
+  }
 `
 export default GlobalStyle

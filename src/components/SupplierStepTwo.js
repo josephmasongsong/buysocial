@@ -13,8 +13,8 @@ class SupplierStepTwo extends Component {
   render(){
     const { values } = this.props;
     return(
-      <div className="w-100">
-        <legend>Organization Details</legend>
+      <div>
+        <legend className="mb-4">Organization Details</legend>
         <FormGroup>
           <Label htmlFor="organizationType">Organization Type</Label>
           <Input
@@ -25,6 +25,7 @@ class SupplierStepTwo extends Component {
             onChange={this.props.handleChange('organizationType')}
             defaultValue={values.organizationType}
           >
+            <option selected>Choose from list...</option>
             <option>Non Profit</option>
             <option>Charity</option>
             <option>For Profit owned by Non Profit / Charity</option>
@@ -33,22 +34,10 @@ class SupplierStepTwo extends Component {
           </Input>
         </FormGroup>
         <FormGroup>
-          <Label htmlFor="">Organization Size</Label>
-          <Input
-            type="text"
-            name="organizationSize"
-            id="organizationSize"
-            placeholder=""
-            onChange={this.props.handleChange('organizationSize')}
-            defaultValue={values.organizationSize}
-          />
-        </FormGroup>
-
-        <FormGroup>
           <Label htmlFor="organizationMission">Organization Mission</Label>
           <Input
             type="textarea"
-            rows="5"
+            rows="3"
             name="organizationMission"
             id="organizationMission"
             placeholder=""
@@ -84,8 +73,10 @@ class SupplierStepTwo extends Component {
           </Input>
           <p className="text-muted">The annual pricing for certification is based upon your business revenue</p>
         </FormGroup>
-        <Button color="primary" onClick={this.back}>Back</Button>
-        <Button color="primary" onClick={this.saveAndContinue}>Save And Continue </Button>
+        <div className="mt-5">
+          <Button color="warning" className="mr-1" onClick={this.back}>Back</Button>
+          <Button color="primary" onClick={this.saveAndContinue}>Save And Continue </Button>
+        </div>
       </div>
     )
   }

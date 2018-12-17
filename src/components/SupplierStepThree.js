@@ -13,8 +13,8 @@ class SupplierStepThree extends Component {
   render(){
     const { values } = this.props;
     return(
-      <div className="w-100">
-        <legend>Organization Contact</legend>
+      <div>
+        <legend className="mb-4">Organization Contact</legend>
 
         <FormGroup>
           <Label htmlFor="">Full Name</Label>
@@ -60,8 +60,10 @@ class SupplierStepThree extends Component {
             defaultValue={values.phone}
           />
         </FormGroup>
-        <Button color="primary" onClick={this.back}>Back</Button>
-        <Button color="primary" onClick={this.saveAndContinue}>Save And Continue </Button>
+        <div className="mt-5">
+          <Button color="warning" className="mr-1" onClick={this.back}>Back</Button>
+          <Button color="primary" onClick={this.saveAndContinue}>Save And Continue </Button>
+        </div>
       </div>
     )
   }

@@ -5,6 +5,8 @@ import SupplierStepTwo from './components/SupplierStepTwo'
 import SupplierStepThree from './components/SupplierStepThree'
 import SupplierStepFour from './components/SupplierStepFour'
 import SupplierStepFive from './components/SupplierStepFive'
+import SupplierStepSix from './components/SupplierStepSix'
+
 
 const encode = (data) => {
    return Object.keys(data)
@@ -180,8 +182,14 @@ class SupplierForm extends Component {
                 />
         case 5:
           return <SupplierStepFive
+                 nextStep={this.nextStep}
                  prevStep={this.prevStep}
-                 handleSubmit={this.handleSubmit}
+                 handleChange={this.handleChange}
+                 values={values}
+                />
+        case 6:
+          return <SupplierStepSix
+                 prevStep={this.prevStep}
                  handleChange={this.handleChange}
                  values={values}
                 />

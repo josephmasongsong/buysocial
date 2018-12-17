@@ -20,7 +20,11 @@ class ApplicationForm extends Component {
       <div>
         <ContentBlock>
           <Container>
-            <SupplierForm />
+						<Row>
+							<Col lg="10" className="mx-auto">
+								<SupplierForm />
+							</Col>
+						</Row>
           </Container>
         </ContentBlock>
       </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, FormGroup, Label, Input, FormText, Col, Row } from 'reactstrap'
+import { Button, FormGroup, Label, Input, FormText, Card, CardBody } from 'reactstrap'
 
 class SupplierStepFive extends Component {
   saveAndContinue = (e) => {
@@ -13,121 +13,182 @@ class SupplierStepFive extends Component {
   render(){
     const { values } = this.props;
     return(
-      <div className="w-100">
-        <legend>Affiliations</legend>
-        <FormGroup tag="fieldset">
-          <p>SECC Membership</p>
-          <p className="text-muted">You can purchase an Social Enterprise Council of Canada (SECC) Membership for a discounted rate of $50 off when you become a Buy Social Canada Member.Are you interested in learning more / purchasing an SECC Membership?</p>
-          <FormGroup check inline>
-            <Label check>
+      <div>
+
+          <legend className="mb-4">Verification Process</legend>
+          <FormGroup tag="fieldset">
+            <p>Is the primary purpose of the enterprise to create social, environmental or cultural value and impact?</p>
+            <FormGroup check inline>
+              <Label check>
+                <Input
+                  type="radio"
+                  name="q6"
+                  onChange={this.props.handleChange('q6')}
+                  value="yes"
+                  checked={values.q6 === 'yes'}
+                />{' '}
+                Yes
+              </Label>
+            </FormGroup>
+            <FormGroup check inline>
+              <Label check>
               <Input
                 type="radio"
-                name="seccMembership"
-                onChange={this.props.handleChange('seccMembership')}
-                value="yes"
-                checked={values.seccMembership === 'yes'}
+                name="q6"
+                onChange={this.props.handleChange('q6')}
+                value="no"
+                checked={values.q6 === 'no'}
               />{' '}
-              Yes
-            </Label>
+                No
+              </Label>
+            </FormGroup>
           </FormGroup>
-          <FormGroup check inline>
-            <Label check>
-            <Input
-              type="radio"
-              name="seccMembership"
-              onChange={this.props.handleChange('seccMembership')}
-              value="no"
-              checked={values.seccMembership === 'no'}
-            />{' '}
-              No
-            </Label>
-          </FormGroup>
-        </FormGroup>
-        <FormGroup tag="fieldset">
-          <legend>Akcelos Social Enterprise Directory and Online Sales Service</legend>
-          <p className="text-muted">You can purchase an Social Enterprise Council of Canada (SECC) Membership for a discounted rate of $50 off when you become a Buy Social Canada Member.Are you interested in learning more / purchasing an SECC Membership?</p>
-          <FormGroup check>
-            <Label check>
+
+          <FormGroup tag="fieldset">
+            <p>Are at least 50% of profits reinvested in the mission of your organization?</p>
+            <FormGroup check inline>
+              <Label check>
+                <Input
+                  type="radio"
+                  name="q7"
+                  onChange={this.props.handleChange('q7')}
+                  value="yes"
+                  checked={values.q7 === 'yes'}
+                />{' '}
+                Yes
+              </Label>
+            </FormGroup>
+            <FormGroup check inline>
+              <Label check>
               <Input
                 type="radio"
-                name="akcelosDirectory"
-                onChange={this.props.handleChange('akcelosDirectory')}
-                value="list_only"
-                checked={values.akcelosDirectory === 'list_only'}
-
+                name="q7"
+                onChange={this.props.handleChange('q7')}
+                value="no"
+                checked={values.q7 === 'no'}
               />{' '}
-              Yes, I wish to be listed on this directory and agree to share information from this application with Akcelos
-            </Label>
+                No
+              </Label>
+            </FormGroup>
           </FormGroup>
-          <FormGroup check>
-            <Label check>
-            <Input
-              type="radio"
-              name="akcelosDirectory"
-              onChange={this.props.handleChange('akcelosDirectory')}
-              value="list_and_sell"
-              checked={values.akcelosDirectory === 'list_and_sell'}
 
-            />{' '}
-              Yes, I wish to be listed on this directory AND sell my goods/services online and agree to share information from this application with Akcelos.
-            </Label>
+          <FormGroup tag="fieldset">
+            <p>Is the sale of goods or services a principal revenue source of the enterprise being certified?</p>
+            <FormGroup check inline>
+              <Label check>
+                <Input
+                  type="radio"
+                  name="q8"
+                  onChange={this.props.handleChange('q8')}
+                  value="yes"
+                  checked={values.q8 === 'yes'}
+                />{' '}
+                Yes
+              </Label>
+            </FormGroup>
+            <FormGroup check inline>
+              <Label check>
+              <Input
+                type="radio"
+                name="q8"
+                onChange={this.props.handleChange('q8')}
+                value="no"
+                checked={values.q8 === 'no'}
+              />{' '}
+                No
+              </Label>
+            </FormGroup>
           </FormGroup>
-          <FormGroup check>
-            <Label check>
-            <Input
-              type="radio"
-              name="akcelosDirectory"
-              onChange={this.props.handleChange('akcelosDirectory')}
-              value="no"
-              checked={values.akcelosDirectory === 'no'}
 
-            />{' '}
-              No, I do not wish to be listed on this directory or sell online
-            </Label>
+          <FormGroup tag="fieldset">
+            <p>Is the enterprise incorporated in a manner to support, promote, and ensure stakeholder value over shareholder value?</p>
+            <FormGroup check inline>
+              <Label check>
+                <Input
+                  type="radio"
+                  name="q9"
+                  onChange={this.props.handleChange('q9')}
+                  value="yes"
+                  checked={values.q9 === 'yes'}
+                />{' '}
+                Yes
+              </Label>
+            </FormGroup>
+            <FormGroup check inline>
+              <Label check>
+              <Input
+                type="radio"
+                name="q9"
+                onChange={this.props.handleChange('q9')}
+                value="no"
+                checked={values.q9 === 'no'}
+              />{' '}
+                No
+              </Label>
+            </FormGroup>
           </FormGroup>
-        </FormGroup>
-        <FormGroup className="mb-5">
-          <Label htmlFor="region">Referring Agency</Label>
-          <Input
-            type="select"
-            name="referringAgency"
-            id="referringAgency"
-            placeholder=""
-            onChange={this.props.handleChange('referringAgency')}
-            defaultValue={values.referringAgency}
-            >
-            <option>Accelerating Social Impact</option>
-            <option>Urban Matters</option>
-            <option>Common Good Solutions</option>
-            <option>Local Investment Toward Employment</option>
-            <option>Open Door Ventures</option>
-            <option>Realize Co-op Strategies</option>
-            <option>Social Delta</option>
-            <option>Other</option>
-          </Input>
-        </FormGroup>
-        <legend>Confirmation</legend>
 
-        <p>
-          I confirm that this application is accurate and true, to the best of my knowledge, and I am not attempting to misconstrue any facts regarding my organization.
-        </p>
+          <FormGroup tag="fieldset">
+            <p>Does the organization and/or enterprise operate in a transparent and responsible manner?</p>
+            <FormGroup check inline>
+              <Label check>
+                <Input
+                  type="radio"
+                  name="q10"
+                  onChange={this.props.handleChange('q10')}
+                  value="yes"
+                  checked={values.q10 === 'yes'}
+                />{' '}
+                Yes
+              </Label>
+            </FormGroup>
+            <FormGroup check inline>
+              <Label check>
+              <Input
+                type="radio"
+                name="q10"
+                onChange={this.props.handleChange('q10')}
+                value="no"
+                checked={values.q10 === 'no'}
+              />{' '}
+                No
+              </Label>
+            </FormGroup>
+          </FormGroup>
 
-        <FormGroup check className="mb-5">
-          <Label check>
-            <Input
-              type="checkbox"
-              name="confirm"
-              id="confirm"
-              placeholder=""
-              onChange={this.props.handleChange('confirm')}
-              value="confirmed"
-            />{' '}
-            Yes
-          </Label>
-        </FormGroup>
+          <FormGroup tag="fieldset">
+            <p>In the event of the organization's dissolution, are its remaining properties given to another entity working in a similar field?</p>
+            <FormGroup check inline>
+              <Label check>
+                <Input
+                  type="radio"
+                  name="q11"
+                  onChange={this.props.handleChange('q11')}
+                  value="yes"
+                  checked={values.q11 === 'yes'}
+                />{' '}
+                Yes
+              </Label>
+            </FormGroup>
+            <FormGroup check inline>
+              <Label check>
+              <Input
+                type="radio"
+                name="q11"
+                onChange={this.props.handleChange('q11')}
+                value="no"
+                checked={values.q11 === 'no'}
+              />{' '}
+                No
+              </Label>
+            </FormGroup>
+          </FormGroup>
 
-        <Button color="primary" onClick={this.back} className="mr-1">Back</Button>
-        <Button color="primary" type="submit">Submit Application</Button>
+          <div className="mt-4">
+            <Button color="warning" onClick={this.back} className="mr-1">Back</Button>
+            <Button color="primary" onClick={this.saveAndContinue}>Save And Continue </Button>
+          </div>
+
       </div>
     )
   }
