@@ -148,7 +148,7 @@ class SupplierForm extends Component {
       referringAgency,
       confirm
     };
-    
+
     let whichStep = (step) => {
       switch( step ) {
         case 1:
@@ -189,7 +189,7 @@ class SupplierForm extends Component {
     }
 
     return(
-      <Form onSubmit={this.handleChange}>
+      <Form onSubmit={this.handleSubmit}>
         {whichStep(step)}
       </Form>
     )
