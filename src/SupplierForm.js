@@ -5,9 +5,11 @@ import SupplierStepThree from './components/SupplierStepThree'
 import SupplierStepFour from './components/SupplierStepFour'
 import SupplierStepFive from './components/SupplierStepFive'
 
-
-
-
+const encode = (data) => {
+   return Object.keys(data)
+       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+       .join("&");
+ }
 
 class SupplierForm extends Component {
   constructor(props){
@@ -62,6 +64,20 @@ class SupplierForm extends Component {
   handleChange = input => event => {
     this.setState({ [input] : event.target.value })
   }
+
+  handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "supplier", ...this.state })
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  };
+
+
   render(){
     const { step } = this.state;
     const {
@@ -161,8 +177,8 @@ class SupplierForm extends Component {
             />
     case 5:
       return <SupplierStepFive
-             nextStep={this.nextStep}
              prevStep={this.prevStep}
+             handleSubmit={this.handleSubmit}
              handleChange={this.handleChange}
              values={values}
             />

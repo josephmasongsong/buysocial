@@ -64,6 +64,40 @@ class SupplierStepOne extends Component {
           </Input>
         </FormGroup>
 
+        <FormGroup>
+          <Label htmlFor="website">Website</Label>
+          <Input
+            type="text"
+            name="website"
+            id="website"
+            placeholder=""
+            onChange={this.props.handleChange('website')}
+            defaultValue={values.website}
+            />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="facebook">Facebook</Label>
+          <Input
+            type="text"
+            name="facebook"
+            id="facebook"
+            placeholder=""
+            onChange={this.props.handleChange('facebook')}
+            defaultValue={values.facebook}
+            />
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="twitter">Twitter</Label>
+          <Input
+            type="text"
+            name="twitter"
+            id="twitter"
+            placeholder=""
+            onChange={this.props.handleChange('twitter')}
+            defaultValue={values.twitter}
+            />
+        </FormGroup>
+
         <Button color="primary" onClick={this.saveAndContinue}>Save & Continue</Button>
       </Form>
     )

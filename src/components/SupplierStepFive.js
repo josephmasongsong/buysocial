@@ -23,9 +23,9 @@ class SupplierStepFive extends Component {
               <Input
                 type="radio"
                 name="seccMembership"
-                id="seccMembership"
                 onChange={this.props.handleChange('seccMembership')}
-                defaultValue={values.seccMembership}
+                value="yes"
+                checked={values.seccMembership === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -35,9 +35,9 @@ class SupplierStepFive extends Component {
             <Input
               type="radio"
               name="seccMembership"
-              id="seccMembership"
               onChange={this.props.handleChange('seccMembership')}
-              defaultValue={values.seccMembership}
+              value="no"
+              checked={values.seccMembership === 'no'}
             />{' '}
               No
             </Label>
@@ -51,9 +51,10 @@ class SupplierStepFive extends Component {
               <Input
                 type="radio"
                 name="akcelosDirectory"
-                id="akcelosDirectory"
                 onChange={this.props.handleChange('akcelosDirectory')}
-                defaultValue={values.akcelosDirectory}
+                value="list_only"
+                checked={values.akcelosDirectory === 'list_only'}
+
               />{' '}
               Yes, I wish to be listed on this directory and agree to share information from this application with Akcelos
             </Label>
@@ -63,9 +64,10 @@ class SupplierStepFive extends Component {
             <Input
               type="radio"
               name="akcelosDirectory"
-              id="akcelosDirectory"
               onChange={this.props.handleChange('akcelosDirectory')}
-              defaultValue={values.akcelosDirectory}
+              value="list_and_sell"
+              checked={values.akcelosDirectory === 'list_and_sell'}
+
             />{' '}
               Yes, I wish to be listed on this directory AND sell my goods/services online and agree to share information from this application with Akcelos.
             </Label>
@@ -75,15 +77,16 @@ class SupplierStepFive extends Component {
             <Input
               type="radio"
               name="akcelosDirectory"
-              id="akcelosDirectory"
               onChange={this.props.handleChange('akcelosDirectory')}
-              defaultValue={values.akcelosDirectory}
+              value="no"
+              checked={values.akcelosDirectory === 'no'}
+
             />{' '}
               No, I do not wish to be listed on this directory or sell online
             </Label>
           </FormGroup>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="mb-5">
           <Label htmlFor="region">Referring Agency</Label>
           <Input
             type="select"
@@ -109,7 +112,7 @@ class SupplierStepFive extends Component {
           I confirm that this application is accurate and true, to the best of my knowledge, and I am not attempting to misconstrue any facts regarding my organization.
         </p>
 
-        <FormGroup check>
+        <FormGroup check className="mb-5">
           <Label check>
             <Input
               type="checkbox"
@@ -117,14 +120,14 @@ class SupplierStepFive extends Component {
               id="confirm"
               placeholder=""
               onChange={this.props.handleChange('confirm')}
-              defaultValue={values.confirm}
+              value="confirmed"
             />{' '}
             Yes
           </Label>
         </FormGroup>
 
-        <Button color="primary" onClick={this.back}>Back</Button>
-        <Button color="primary" onClick={this.saveAndContinue}>Save And Continue </Button>
+        <Button color="primary" onClick={this.back} className="mr-1">Back</Button>
+        <Button color="primary" onClick={this.handleSubmit}>Submit Application</Button>
       </Form>
     )
   }

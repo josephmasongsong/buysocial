@@ -22,9 +22,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q1"
-                id="q1"
                 onChange={this.props.handleChange('q1')}
-                value={values.q1}
+                value="yes"
+                checked={values.q1 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -34,9 +34,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q1"
-              id="q1"
               onChange={this.props.handleChange('q1')}
-              value={values.q1}
+              value="no"
+              checked={values.q1 === 'no'}
             />{' '}
               No
             </Label>
@@ -51,9 +51,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q2"
-                id="q2"
                 onChange={this.props.handleChange('q2')}
-                defaultValue={values.q2}
+                value="yes"
+                checked={values.q2 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -63,9 +63,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q2"
-              id="q2"
               onChange={this.props.handleChange('q2')}
-              defaultValue={values.q2}
+              value="no"
+              checked={values.q2 === 'no'}
             />{' '}
               No
             </Label>
@@ -79,9 +79,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q3"
-                id="q3"
                 onChange={this.props.handleChange('q3')}
-                defaultValue={values.q3}
+                value="yes"
+                checked={values.q3 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -91,9 +91,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q3"
-              id="q3"
               onChange={this.props.handleChange('q3')}
-              defaultValue={values.q3}
+              value="no"
+              checked={values.q3 === 'no'}
             />{' '}
               No
             </Label>
@@ -107,9 +107,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q4"
-                id="q4"
                 onChange={this.props.handleChange('q4')}
-                defaultValue={values.q4}
+                value="yes"
+                checked={values.q4 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -119,9 +119,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q4"
-              id="q4"
               onChange={this.props.handleChange('q4')}
-              defaultValue={values.q4}
+              value="no"
+              checked={values.q4 === 'no'}
             />{' '}
               No
             </Label>
@@ -135,9 +135,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q5"
-                id="q5"
                 onChange={this.props.handleChange('q5')}
-                defaultValue={values.q5}
+                value="yes"
+                checked={values.q5 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -147,9 +147,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q5"
-              id="q5"
               onChange={this.props.handleChange('q5')}
-              defaultValue={values.q5}
+              value="no"
+              checked={values.q5 === 'no'}
             />{' '}
               No
             </Label>
@@ -163,9 +163,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q6"
-                id="q6"
                 onChange={this.props.handleChange('q6')}
-                defaultValue={values.q6}
+                value="yes"
+                checked={values.q6 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -175,9 +175,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q6"
-              id="q6"
               onChange={this.props.handleChange('q6')}
-              defaultValue={values.q6}
+              value="no"
+              checked={values.q6 === 'no'}
             />{' '}
               No
             </Label>
@@ -191,9 +191,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q7"
-                id="q7"
                 onChange={this.props.handleChange('q7')}
-                defaultValue={values.q7}
+                value="yes"
+                checked={values.q7 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -203,9 +203,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q7"
-              id="q7"
               onChange={this.props.handleChange('q7')}
-              defaultValue={values.q7}
+              value="no"
+              checked={values.q7 === 'no'}
             />{' '}
               No
             </Label>
@@ -219,9 +219,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q8"
-                id="q8"
                 onChange={this.props.handleChange('q8')}
-                defaultValue={values.q8}
+                value="yes"
+                checked={values.q8 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -231,9 +231,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q8"
-              id="q8"
               onChange={this.props.handleChange('q8')}
-              defaultValue={values.q8}
+              value="no"
+              checked={values.q8 === 'no'}
             />{' '}
               No
             </Label>
@@ -247,9 +247,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q9"
-                id="q9"
                 onChange={this.props.handleChange('q9')}
-                defaultValue={values.q9}
+                value="yes"
+                checked={values.q9 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -259,9 +259,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q9"
-              id="q9"
               onChange={this.props.handleChange('q9')}
-              defaultValue={values.q9}
+              value="no"
+              checked={values.q9 === 'no'}
             />{' '}
               No
             </Label>
@@ -275,9 +275,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q10"
-                id="q10"
                 onChange={this.props.handleChange('q10')}
-                defaultValue={values.q10}
+                value="yes"
+                checked={values.q10 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -287,9 +287,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q10"
-              id="q10"
               onChange={this.props.handleChange('q10')}
-              defaultValue={values.q10}
+              value="no"
+              checked={values.q10 === 'no'}
             />{' '}
               No
             </Label>
@@ -303,9 +303,9 @@ class SupplierStepFour extends Component {
               <Input
                 type="radio"
                 name="q11"
-                id="q11"
                 onChange={this.props.handleChange('q11')}
-                defaultValue={values.q11}
+                value="yes"
+                checked={values.q11 === 'yes'}
               />{' '}
               Yes
             </Label>
@@ -315,9 +315,9 @@ class SupplierStepFour extends Component {
             <Input
               type="radio"
               name="q11"
-              id="q11"
               onChange={this.props.handleChange('q11')}
-              defaultValue={values.q11}
+              value="no"
+              checked={values.q11 === 'no'}
             />{' '}
               No
             </Label>

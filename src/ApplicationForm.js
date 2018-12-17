@@ -18,7 +18,6 @@ class ApplicationForm extends Component {
   render(){
     return(
       <div>
-				<SlimHeader />
         <ContentBlock>
           <Container>
             <SupplierForm />
