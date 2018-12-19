@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, FormGroup, Label, Input } from 'reactstrap'
 
 class SupplierStepThree extends Component {
   saveAndContinue = (e) => {

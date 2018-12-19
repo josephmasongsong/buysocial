@@ -124,5 +124,61 @@ const GlobalStyle = createGlobalStyle`
   .btn {
     border-radius: 0;
   }
+  .hit {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    .hit-body {
+      flex: 1;
+      color: #212529;
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+  .ais-Hits-list, .ais-InfiniteHits-list, .ais-InfiniteResults-list, .ais-Results-list {
+    display: block;
+    margin: 0;
+  }
+  .ais-Hits-item, .ais-InfiniteHits-item, .ais-InfiniteResults-item, .ais-Results-item {
+    width: 100%;
+    border: 0;
+    padding:0;
+    box-shadow: none;
+    margin: 0;
+  }
+  .ais-Menu-item:last-child .ais-Menu-link {
+    border-bottom: 0;
+  }
+  .ais-Menu-link {
+    padding: .75rem 0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    color:  #212529 !important;
+  }
+  .ais-Menu-count {
+    margin-left: .25rem;
+  }
+  .ais-SearchBox-form {
+    margin-bottom: 3rem;
+  }
+  .ais-Breadcrumb-item--selected, .ais-HierarchicalMenu-item--selected, .ais-Menu-item--selected {
+    font-family: 'SofiaProMedium';
+    font-weight: normal !important;
+  }
+  .ais-SearchBox-input {
+    border-radius: 0;
+  }
+  .ais-Pagination-link {
+    padding: .25rem 0.75rem;
+    border-radius: 0;
+  }
+  .ais-Pagination-item--selected .ais-Pagination-link {
+    color: #fff !important;
+    background-color: #005891;
+    border-color: #005891;
+  }
+  .ais-Menu-count {
+    display: none;
+  }
 `
 export default GlobalStyle

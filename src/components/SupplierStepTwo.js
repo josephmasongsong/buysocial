@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, FormGroup, Label, Input } from 'reactstrap'
 
 class SupplierStepTwo extends Component {
   saveAndContinue = (e) => {
@@ -25,7 +25,7 @@ class SupplierStepTwo extends Component {
             onChange={this.props.handleChange('organizationType')}
             defaultValue={values.organizationType}
           >
-            <option selected>Choose from list...</option>
+            <option>Choose from list...</option>
             <option>Non Profit</option>
             <option>Charity</option>
             <option>For Profit owned by Non Profit / Charity</option>

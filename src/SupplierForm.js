@@ -198,7 +198,9 @@ class SupplierForm extends Component {
 
     return(
       <Form onSubmit={this.handleSubmit}>
-        {whichStep(step)}
+        <div>
+          {whichStep(step)}
+        </div>
       </Form>
     )
   }

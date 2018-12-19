@@ -5,11 +5,12 @@ import styled from 'styled-components';
 import {RichText} from 'prismic-reactjs';
 import SlimHeader from './components/SlimHeader';
 import NewsItem from './components/NewsItem';
-import LibrarySidebar from './components/LibrarySidebar';
-import FilteredList from './components/FilteredList';
+// import LibrarySidebar from './components/LibrarySidebar';
+// import FilteredList from './components/FilteredList';
 import PostList from './components/PostList';
 import PostTags from './components/PostTags';
 import ContactForm from './components/ContactForm';
+import SearchContainer from './components/SearchContainer';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -274,10 +275,7 @@ class Page extends Component {
 					return(
 						<ContentBlock key={index}>
 							<Container>
-								<Row>
-									<LibrarySidebar />
-									<FilteredList />
-								</Row>
+								<SearchContainer />
 							</Container>
 						</ContentBlock>
 					);

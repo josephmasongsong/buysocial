@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 import SupplierForm from './SupplierForm';
-import SlimHeader from './components/SlimHeader';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -21,7 +20,7 @@ class ApplicationForm extends Component {
         <ContentBlock>
           <Container>
 						<Row>
-							<Col lg="10" className="mx-auto">
+							<Col lg="9" className="mx-auto">
 								<SupplierForm />
 							</Col>
 						</Row>

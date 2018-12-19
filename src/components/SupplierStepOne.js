@@ -4,10 +4,6 @@ import {
   FormGroup,
   Label,
   Input,
-  Card,
-  CardBody,
-  Row,
-  Col,
 } from 'reactstrap'
 
 class SupplierStepOne extends Component {
@@ -64,7 +60,7 @@ class SupplierStepOne extends Component {
               onChange={this.props.handleChange('region')}
               defaultValue={values.region}
               >
-              <option selected>Choose from list...</option>
+              <option>Choose from list...</option>
               <option>Atlantic</option>
               <option>Pacific</option>
               <option>Southern Ontario</option>
