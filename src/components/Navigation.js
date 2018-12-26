@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {
 	Container,
 	Collapse,
@@ -63,7 +63,7 @@ class Navigation extends Component {
   				});
 
   				return(
-						<div key={index}>
+						<Fragment key={index}>
 						{
 							(slice.items.length > 1)
 							?
@@ -80,7 +80,7 @@ class Navigation extends Component {
 	              <NavLink className="px-3" name={RichText.asText(slice.primary.label)} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)} />
 	            </NavItem>
 						}
-						</div>
+						</Fragment>
   				);
   			} else {
   				return null;
@@ -88,7 +88,7 @@ class Navigation extends Component {
   		});
 
 	    return (
-				<Navbar color="white" light fixed="top" expand="lg" className="buysocial-navigation">
+				<Navbar color="white" light expand="lg" className="buysocial-navigation">
 		      <Container>
 		        <NavbarBrand href="/"><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
 		        <NavbarToggler onClick={this.toggle} />
@@ -102,7 +102,7 @@ class Navigation extends Component {
 	    );
   	}
 		return(
-			<Navbar color="white" light fixed="top" expand="lg" className="buysocial-navigation">
+			<Navbar color="white" light expand="lg" className="buysocial-navigation">
 	      <Container>
 	        <NavbarBrand href="/"><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
 	        <NavbarToggler onClick={this.toggle} />

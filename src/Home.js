@@ -5,40 +5,54 @@ import { Container, Row, Col } from 'reactstrap';
 import {Link, RichText} from 'prismic-reactjs';
 import Header from './components/Header';
 import NewsItem from './components/NewsItem';
-
+import RecentArticles from './components/RecentArticles';
+import { DeviceSize } from './DeviceSize';
 import styled from 'styled-components';
 
 const NewsItems = styled.div`
 	padding: 6rem 0;
 	position: relative;
-	background: #f8f9fa;
+	background: #fbfbfb;
+	border-top: 1px solid #f8f9fa;
+	@media ${DeviceSize.xs} {
+		padding: 3rem 0;
+	}
 `
-
 const ContentBlock = styled.section`
 	position: relative;
 	padding: 6rem 0;
-  border-top: 1px solid #f8f9fa;
-  border-bottom: 1px solid #f8f9fa;
+	border-top: 1px solid #f8f9fa;
+	@media ${DeviceSize.xs} {
+		padding: 3rem 0;
+  }
 `
 const TriangleRed = styled.div`
-	width: 12.5%;
+	width: 10%;
   height: 50%;
   background: #D12331;
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 2;
-  clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+  clip-path: polygon(0% 50%, 0% 100%, 100% 100%);
+	@media ${DeviceSize.xs} {
+		width: 20%;
+		height: 20%;
+  }
 `
 const TriangleBlue = styled.div`
-	width: 12.5%;
+	width: 10%;
   height: 50%;
   background: #005891;
   position: absolute;
   top: 0;
   right: 0;
   z-index: 2;
-  clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+  clip-path: polygon(100% 50%, 0% 0%, 100% 0%);
+	@media ${DeviceSize.xs} {
+		width: 20%;
+		height: 20%;
+  }
 `
 const LinkTo = styled.a`
 	text-decoration: underline;
@@ -95,10 +109,29 @@ class Home extends Component {
               </Container>
             </ContentBlock>
           )
-        } else if (slice.slice_type === 'logo_grid') {
+				} else if (slice.slice_type === '3_column_content_block') {
+	  				const blocks = slice.items.map(function(block, blockIndex){
+	  					return(
+								<Col lg="4" key={blockIndex}>
+									<img src={block.block_image.url} alt="" height="64" className="mb-3" />
+									<h4 className=" mb-3">{block.block_title[0].text}</h4>
+									<p className="mb-0">{block.block_blurb[0].text}</p>
+								</Col>
+	  					);
+	  				});
+	  				return(
+							<ContentBlock key={index}>
+								<Container>
+									<Row>
+										{blocks}
+									</Row>
+								</Container>
+							</ContentBlock>
+	  				);
+	  			} else if (slice.slice_type === 'logo_grid') {
   				const blocks = slice.items.map(function(block, blockIndex){
   					return(
-							<Col lg="3" key={blockIndex}>
+							<Col lg="3" xs="6" key={blockIndex}>
 								<img src={block.logo_image.url} alt="" className="img-fluid" />
 							</Col>
   					);
@@ -131,7 +164,7 @@ class Home extends Component {
 							<Container>
 								<Row>
 									<Col lg="8">
-										<h3 className="mb-4">{RichText.asText(slice.primary.title_of_section )}</h3>
+										<h3 className="mb-5">{RichText.asText(slice.primary.title_of_section )}</h3>
 									</Col>
 								</Row>
 								<Row>
@@ -177,6 +210,21 @@ class Home extends Component {
 	  						</Row>
   						</Container>
   					</ContentBlock>
+  				);
+  			} else if (slice.slice_type === 'recent_articles') {
+  				return(
+						<NewsItems key={index}>
+							<TriangleRed />
+							<TriangleBlue />
+							<Container>
+								<Row>
+									<Col lg="8">
+										<h3 className="mb-5">Latest News & Updates</h3>
+									</Col>
+								</Row>
+								<RecentArticles />
+							</Container>
+						</NewsItems>
   				);
   			} else if (slice.slice_type === 'featured_pages') {
 					const slides = slice.items

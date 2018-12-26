@@ -193,14 +193,13 @@ class SupplierForm extends Component {
                  handleChange={this.handleChange}
                  values={values}
                 />
+        default: return null
       }
     }
 
     return(
       <Form onSubmit={this.handleSubmit}>
-        <div>
-          {whichStep(step)}
-        </div>
+        {whichStep(step)}
       </Form>
     )
   }

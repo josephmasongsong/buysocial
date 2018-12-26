@@ -2,64 +2,127 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
-import {RichText} from 'prismic-reactjs';
+import {Link, RichText} from 'prismic-reactjs';
 import SlimHeader from './components/SlimHeader';
 import NewsItem from './components/NewsItem';
-// import LibrarySidebar from './components/LibrarySidebar';
-// import FilteredList from './components/FilteredList';
 import PostList from './components/PostList';
-import PostTags from './components/PostTags';
+// import PostTags from './components/PostTags';
 import ContactForm from './components/ContactForm';
 import SearchContainer from './components/SearchContainer';
+import PrismicConfig from './prismic-configuration';
 
+const CalloutButton = styled.button`
+	border: ${props => props.outline ? '2px solid #005891' : '1px solid #005891' };
+	background-color: ${props => props.outline ? 'transparent' : '#005891' };
+	color: ${props => props.outline ? '#005891' : '#fff' };
+	font-family: 'Roboto Slab', sans-serif;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	padding: 0.75rem 1.25rem;
+	cursor: pointer;
+`
 const ContentBlock = styled.section`
 	position: relative;
 	padding: 6rem 0;
 	border-top: 1px solid #f8f9fa;
-	border-bottom: 1px solid #f8f9fa;
+	@media (max-width: 575.98px) {
+		padding: 3rem 0;
+  }
 `
 const GrayBlock = styled.div`
 	padding: 6rem 0;
 	position: relative;
-	background: #f8f9fa;
+	/* background: #f8f9fa; */
+	background: #fbfbfb;
+	border-top:1px solid #f8f9fa;
 `
 const GrayBlockBottom = styled.div`
 	padding: 6rem 0 3rem;
 	position: relative;
-	background: #f8f9fa;
+	/* background: #f8f9fa; */
+	background: #fbfbfb;
+	border-top: 1px solid #f8f9fa;
 `
 const NewsItems = styled.div`
 	padding: 6rem 0;
 	position: relative;
-	background: #f8f9fa;
+	/* background: #f8f9fa; */
+	background: #fbfbfb;
 `
 const TeamMember = styled.div`
 	text-align: center;
 	margin-top: 3rem;
 `
 const TriangleRed = styled.div`
-	width: 12.5%;
+	width: 10%;
   height: 50%;
   background: #D12331;
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 2;
-  clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+  clip-path: polygon(0% 50%, 0% 100%, 100% 100%);
 `
 const TriangleBlue = styled.div`
-	width: 12.5%;
+	width: 10%;
   height: 50%;
   background: #005891;
   position: absolute;
   top: 0;
   right: 0;
   z-index: 2;
-  clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+  clip-path: polygon(100% 50%, 0% 0%, 100% 0%);
 `
+const TriangleLeftTopRed = styled.div`
+	width: 10%;
+	height: 50%;
+	background: #D12331;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	clip-path: polygon(0% 100%, 0% 0%, 100% 0%);
+`
+
+const TriangleLeftBottomYellow = styled.div`
+	width: 10%;
+	height: 50%;
+	background: #D9D458;
+	background-size: cover;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+	clip-path: polygon(0% 0%, 0% 100%, 100% 100%);
+`
+const TriangleBlueRight = styled.div`
+	width: 20%;
+	height: 100%;
+	background: #005891;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	clip-path: polygon(50% 50%,100% 0%,100% 100%);
+`
+const CalloutIcon = styled.img`
+	margin-bottom: 1.5rem;
+	width: 100px;
+`
+
 const MemberPhoto = styled.img`
 	border-radius: 50px;
 	margin-bottom: 1rem;
+`
+const LinkTo = styled.a`
+	text-decoration: underline;
+`
+const BlockImage = styled.img`
+	/* box-shadow: 0 0 5px rgba(0,0,0,0.2); */
+	max-width: 100%;
+	height: auto;
+	width:100%;
 `
 
 class Page extends Component {
@@ -217,8 +280,7 @@ class Page extends Component {
   				});
   				return(
   					<GrayBlockBottom key={index}>
-							<TriangleRed />
-							<TriangleBlue />
+
 								<Container>
 									<Row>
 										{blocks}
@@ -262,7 +324,7 @@ class Page extends Component {
 							<Container>
 								<Row>
 									<Col lg="8">
-										<h3 className=" mb-4">{RichText.asText(slice.primary.title_of_section )}</h3>
+										<h3 className=" mb-5">{RichText.asText(slice.primary.title_of_section )}</h3>
 									</Col>
 								</Row>
 								<Row>
@@ -285,7 +347,7 @@ class Page extends Component {
 							<Container>
 								<Row className="justify-content-center">
 									<PostList />
-									<PostTags />
+
 								</Row>
 							</Container>
 						</ContentBlock>
@@ -303,6 +365,105 @@ class Page extends Component {
 							</Container>
 						</ContentBlock>
 					);
+				}  else if (slice.slice_type === 'content_block_with_image') {
+
+  				return(
+  					<ContentBlock key={index}>
+  						<Container>
+	  						<Row>
+	  							<Col lg="6" className="align-self-center">
+                    <h3 className=" mb-3">{RichText.asText(slice.primary.section_title )}</h3>
+                    <p className="lead text-muted mb-3">{RichText.asText(slice.primary.section_subtitle )}</p>
+                    <LinkTo href={Link.url(slice.primary.section_link, PrismicConfig.linkResolver)} className="lead mb-0">{RichText.asText(slice.primary.link_text)}</LinkTo>
+	  							</Col>
+                  <Col lg="5" className="align-self-center ml-auto">
+                    <BlockImage src={slice.primary.section_image.url} alt=""/>
+                  </Col>
+	  						</Row>
+  						</Container>
+  					</ContentBlock>
+  				);
+  			} else if (slice.slice_type === 'content_block_with_image_left') {
+
+  				return(
+  					<ContentBlock key={index}>
+  						<Container>
+	  						<Row>
+									<Col lg="5" className="align-self-center mr-auto">
+										<BlockImage src={slice.primary.section_image.url} alt=""/>
+									</Col>
+
+	  							<Col lg="6" className="align-self-center">
+                    <h3 className=" mb-3">{RichText.asText(slice.primary.section_title )}</h3>
+                    <p className="lead text-muted mb-3">{RichText.asText(slice.primary.section_subtitle )}</p>
+										{RichText.render(slice.primary.section_blurb )}
+                    <LinkTo href={Link.url(slice.primary.section_link, PrismicConfig.linkResolver)} className="lead mb-0">{RichText.asText(slice.primary.link_text)}</LinkTo>
+	  							</Col>
+
+	  						</Row>
+  						</Container>
+  					</ContentBlock>
+  				);
+  			} else if (slice.slice_type === 'content_block_no_image') {
+
+  				return(
+  					<ContentBlock key={index}>
+  						<Container>
+	  						<Row>
+	  							<Col lg="12" className="mx-auto">
+										{
+											(slice.primary.title.length !== 0)
+											?
+											<h3 className=" mb-3">{RichText.asText(slice.primary.title )}</h3>
+											:
+											null
+										}
+										{
+											(slice.primary.subtitle.length !== 0 )
+											?
+											<p className="lead text-muted mb-3">{RichText.asText(slice.primary.subtitle )}</p>
+											:
+											null
+										}
+										<div className="post-body">
+											{RichText.render(slice.primary.body1 )}
+										</div>
+										{
+											(slice.primary.button_link.length !== 0) && (slice.primary.button_label.length !==0)
+											?
+											<CalloutButton className="mt-4">{RichText.asText(slice.primary.button_label)}</CalloutButton>
+											:
+											null
+										}
+	  							</Col>
+	  						</Row>
+  						</Container>
+  					</ContentBlock>
+  				);
+  			} else if (slice.slice_type === 'callout_centered') {
+				  return(
+				    <ContentBlock key={index}>
+				      <TriangleLeftTopRed />
+				      <TriangleLeftBottomYellow />
+				      <TriangleBlueRight />
+				      <Container>
+				        <Row>
+				          <Col lg="10" className="text-center mx-auto">
+				            {
+				              (Object.keys(slice.primary.icon).length !== 0)
+				              ?
+				              <CalloutIcon src={slice.primary.icon.url} />
+				              :
+				              null
+				            }
+				            <h3 className=" mb-3">{RichText.asText(slice.primary.title )}</h3>
+				            <p className="lead text-muted mb-4">{RichText.asText(slice.primary.subtitle )}</p>
+				            <CalloutButton>{RichText.asText(slice.primary.button_label)}</CalloutButton>
+				          </Col>
+				        </Row>
+				      </Container>
+				    </ContentBlock>
+				  );
 				} else {
   				return null;
   			}
@@ -322,9 +483,8 @@ class Page extends Component {
 	      		subheader={RichText.asText(document.page_blurb)}
 						headerImage={document.page_image.url}
 	      	/>
-	      	<div>
+
 					{blockContent}
-					</div>
 
 	     </div>
 	    );

@@ -1,10 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import {
-  Button,
   FormGroup,
   Label,
   Input,
 } from 'reactstrap'
+import styled from 'styled-components';
+
+const WizardButton = styled.button`
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: ${props => props.prev ? '1px solid #D9D458' : '1px solid #005891' };
+	background-color: ${props => props.prev ? '#D9D458' : '#005891' };
+	color: ${props => props.prev ? '#212529' : '#fff' };
+`
 
 class SupplierStepOne extends Component {
   saveAndContinue = (e) => {
@@ -14,7 +25,7 @@ class SupplierStepOne extends Component {
   render(){
     const { values } = this.props;
     return(
-      <div>
+      <Fragment>
           <legend className="mb-4">Social Enterprise Information</legend>
           <FormGroup>
             <Label htmlFor="organizationName">Organization Name</Label>
@@ -105,9 +116,12 @@ class SupplierStepOne extends Component {
           </FormGroup>
 
           <div className="mt-4">
-            <Button color="primary" onClick={this.saveAndContinue}>Save & Continue</Button>
+            <WizardButton prev className="mr-1" onClick={this.back}>Back</WizardButton>
+
+
+            <WizardButton color="primary" onClick={this.saveAndContinue}>Save & Continue</WizardButton>
           </div>
-      </div>
+      </Fragment>
     )
   }
 }

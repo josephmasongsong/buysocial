@@ -4,11 +4,17 @@ Carousel,
 CarouselItem, } from 'reactstrap';
 import styled from 'styled-components';
 import images from '../ThemeImages';
+import { DeviceSize } from '../DeviceSize';
 
 const Masthead = styled.section`
 	position: relative;
+	/* height: calc(100vh - 110px); */
 	height: 600px;
-	background: #f8f9fa;
+	background: #fbfbfb;
+	@media ${DeviceSize.xs} {
+		height: inherit;
+		padding: 3rem 0;
+	}
 `
 const TriangleLarge = styled.div`
 	width: 25%;
@@ -18,6 +24,9 @@ const TriangleLarge = styled.div`
     top: 0;
     z-index: 1;
     clip-path: polygon(0 0, 0 100%, 50% 50%);
+		@media ${DeviceSize.xs} {
+			display: none;
+	  }
 `
 const TriangleRed = styled.div`
     width: 12.5%;
@@ -28,6 +37,10 @@ const TriangleRed = styled.div`
     right: 0;
     z-index: 2;
     clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+		@media ${DeviceSize.xs} {
+			width: 20%;
+			height: 20%;
+	  }
 `
 
 const TriangleYellow = styled.div`
@@ -39,11 +52,18 @@ const TriangleYellow = styled.div`
     right: 0;
     z-index: 2;
     clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+		@media ${DeviceSize.xs} {
+			width: 20%;
+			height: 20%;
+	  }
 `
 
 const Arrows = styled.img`
     margin-bottom: 1rem!important;
 		width: 64px;
+		@media ${DeviceSize.xs} {
+			width: 48px;
+	  }
 `
 class Header extends Component {
 	constructor(props) {
@@ -89,7 +109,7 @@ class Header extends Component {
         >
 					<Arrows src={images.arrowRight} alt=""/>
 					<h1 className="display-4 mb-3">{item.headline[0].text}</h1>
-					<p className="lead mb-3">{item.subheader[0].text}</p>
+					<p className="lead mb-3 text-muted">{item.subheader[0].text}</p>
 					<a href={item.link.uid} className="rounded-0 btn btn-warning btn-lg text-dark">Learn More</a>
         </CarouselItem>
 			)

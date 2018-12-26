@@ -1,5 +1,17 @@
-import React, { Component } from 'react'
-import { Button, FormGroup, Label, Input } from 'reactstrap'
+import React, { Component, Fragment } from 'react'
+import { FormGroup, Label, Input } from 'reactstrap'
+import styled from 'styled-components';
+
+const WizardButton = styled.button`
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border: ${props => props.prev ? '1px solid #D9D458' : '1px solid #005891' };
+	background-color: ${props => props.prev ? '#D9D458' : '#005891' };
+	color: ${props => props.prev ? '#212529' : '#fff' };
+`
 
 class SupplierStepTwo extends Component {
   saveAndContinue = (e) => {
@@ -13,7 +25,7 @@ class SupplierStepTwo extends Component {
   render(){
     const { values } = this.props;
     return(
-      <div>
+      <Fragment>
         <legend className="mb-4">Organization Details</legend>
         <FormGroup>
           <Label htmlFor="organizationType">Organization Type</Label>
@@ -74,10 +86,10 @@ class SupplierStepTwo extends Component {
           <p className="text-muted">The annual pricing for certification is based upon your business revenue</p>
         </FormGroup>
         <div className="mt-5">
-          <Button color="warning" className="mr-1" onClick={this.back}>Back</Button>
-          <Button color="primary" onClick={this.saveAndContinue}>Save And Continue </Button>
+          <WizardButton prev className="mr-1" onClick={this.back}>Back</WizardButton>
+          <WizardButton onClick={this.saveAndContinue}>Save & Continue </WizardButton>
         </div>
-      </div>
+      </Fragment>
     )
   }
 

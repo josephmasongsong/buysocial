@@ -9,15 +9,15 @@ const LinkToArticle = Styled.a`
 	}
 `
 
-class NewsItem extends Component {
+class ArticleItem extends Component {
 
 	render() {
 		const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-		const pubDate = new Date(this.props.doc.publication_date)
+		const pubDate = new Date(this.props.doc.first_publication_date)
 		return(
 			<Col lg="6">
 				<div className="mb-3 pb-3 border-bottom">
-					<LinkToArticle href={this.props.doc.articles_to_link.uid}><h5 className="text-dark">{this.props.doc.article_title[0].text}</h5></LinkToArticle>
+					<LinkToArticle href={/news/ + this.props.doc.uid}><h5 className="text-dark">{this.props.doc.data.post_title[0].text}</h5></LinkToArticle>
 					<p className="text-muted mb-0">{pubDate.toLocaleDateString("en-US", options)}</p>
 				</div>
 			</Col>
@@ -26,4 +26,4 @@ class NewsItem extends Component {
 
 }
 
-export default NewsItem
+export default ArticleItem

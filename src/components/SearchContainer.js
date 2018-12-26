@@ -5,7 +5,7 @@ import {
   SearchBox,
   Hits,
   Pagination,
-  Menu,
+  HierarchicalMenu,
 } from 'react-instantsearch-dom';
 
 import { Document, Page } from 'react-pdf';
@@ -19,23 +19,34 @@ const Hit = ({hit}) =>
     <Document
       className="mr-4 light-shadow"
       file={{
-        url: `${hit.data.document_link.url}`
+        url: `${hit.link}`
       }}
     >
       <Page pageNumber={1} width={160} />
     </Document>
 
     <div className="hit-body">
-      <h4 className="mb-3">{hit.data.title[0].text}</h4>
-      <p>{hit.data.document_blurb.length ? hit.data.document_blurb[0].text : ''}</p>
-      <a href={hit.data.document_link.url} className="hit-download-link">Download</a>
+      <h4 className="mb-3">{hit.name}</h4>
+      <p>{hit.description}</p>
+      <a href={hit.link} className="hit-download-link">Download</a>
     </div>
   </div>
 
 const Sidebar = () =>
   <Col lg="3" className="sidebar">
     <SearchBox translations={{ placeholder: 'Begin typing...' }} />
-    <Menu attribute="data.document_tags.document_tag.data.name.text" />
+
+    <HierarchicalMenu
+      attributes={[
+        'categories.lvl0',
+        'categories.lvl1'
+      ]}
+      limit={10}
+      rootPath={null}
+      separator=" > "
+      showParentLevel
+    />
+
   </Col>
 
 const Content = () =>
@@ -54,7 +65,7 @@ class SearchContainer extends Component {
       <InstantSearch
         appId="UVPOJDU7AN"
         apiKey="0ce11a5ad2a8fd5e0068ec55d40f0e80"
-        indexName="bsc_production"
+        indexName="bsc_google_sheet"
       >
 
         <Row>

@@ -9,7 +9,7 @@ const LinkToArticle = Styled.a`
 	}
 `
 
-class NewsItem extends Component {
+class ArticleItem extends Component {
 
 	render() {
 		const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -26,4 +26,4 @@ class NewsItem extends Component {
 
 }
 
-export default NewsItem
+export default ArticleItem

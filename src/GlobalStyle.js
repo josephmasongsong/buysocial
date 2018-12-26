@@ -1,4 +1,5 @@
 import { css, createGlobalStyle } from 'styled-components'
+import { DeviceSize } from './DeviceSize';
 
 const bscBlue = css`
   color: #005891 !important;
@@ -9,6 +10,39 @@ const GlobalStyle = createGlobalStyle`
   .App {
     overflow-x: hidden;
   }
+
+  body {
+    font-family: 'SofiaProLight', sans-serif;
+    // padding-top: 110px;
+    // @media ${DeviceSize.xs} {
+    //   padding-top: 88px;
+    // }
+  }
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Roboto Slab', sans-serif;
+    ${bscBlue};
+  }
+  h3 {
+    @media ${DeviceSize.xs} {
+      font-size: 1.625rem;
+    }
+  }
+  h4 {
+    @media ${DeviceSize.xs} {
+      font-size: 1.375rem;
+    }
+  }
+  h5 {
+    @media ${DeviceSize.xs} {
+      font-size: 1.125rem;
+    }
+  }
+
+  .buysocial-navigation {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+  }
+
   .btn-primary {
     background-color: #005891;
     border-color: #005891;
@@ -21,6 +55,19 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 50px;
   }
 
+  .postList {
+    .media {
+      margin-bottom: 3rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+
   .footer {
     .social .list-inline-item i {
       font-size: 1.5rem;
@@ -31,25 +78,21 @@ const GlobalStyle = createGlobalStyle`
     }
     .form-control {
       border: 0;
+      padding: .375rem .75rem;
     }
-    .list-unstyled a { color: #fff !important; }
-    a {
+    .list-unstyled a {
+      color: #fff !important;
     }
   }
 
-  body {
-    font-family: 'SofiaProLight', sans-serif;
-    padding-top: 110px;
-  }
-  h1,h2,h3,h4,h5,h6 {
-    font-family: 'Roboto Slab', sans-serif;
-    ${bscBlue};
-  }
-  .buysocial-navigation {
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
-  }
+
+
+
   .navbar-brand img {
     width: 84px;
+    @media ${DeviceSize.xs} {
+      width: 64px;
+    }
   }
   .nav-item {
     .nav-link {
@@ -124,10 +167,10 @@ const GlobalStyle = createGlobalStyle`
   .btn {
     border-radius: 0;
   }
+
   .hit {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 3rem;
     .hit-body {
       flex: 1;
       color: #212529;
@@ -145,7 +188,7 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     padding:0;
     box-shadow: none;
-    margin: 0;
+    margin: 0 0 3rem 0;
   }
   .ais-Menu-item:last-child .ais-Menu-link {
     border-bottom: 0;
@@ -161,10 +204,10 @@ const GlobalStyle = createGlobalStyle`
   .ais-SearchBox-form {
     margin-bottom: 3rem;
   }
-  .ais-Breadcrumb-item--selected, .ais-HierarchicalMenu-item--selected, .ais-Menu-item--selected {
-    font-family: 'SofiaProMedium';
-    font-weight: normal !important;
-  }
+  // .ais-Breadcrumb-item--selected, .ais-HierarchicalMenu-item--selected, .ais-Menu-item--selected {
+  //   font-family: 'SofiaProMedium';
+  //   font-weight: normal !important;
+  // }
   .ais-SearchBox-input {
     border-radius: 0;
   }
@@ -180,5 +223,59 @@ const GlobalStyle = createGlobalStyle`
   .ais-Menu-count {
     display: none;
   }
+
+  .post-body {
+    font-size: 1.125rem;
+    p:last-child {
+      margin-bottom: 0;
+    }
+    img {
+      max-width: 100%;
+      margin: auto;
+      display: block;
+    }
+  }
+  .filedIn {
+    font-family: 'SofiaProMedium';
+  }
+  .badge-primary {
+    background: #005891;
+  }
+
+  @media ${DeviceSize.xs} {
+    .display-4 {
+      font-size: 1.875rem;
+    }
+    .lead {
+      font-size: 1rem;
+    }
+  }
+
+
+  .ais-HierarchicalMenu-link, .ais-Menu-link {
+    color: rgb(33, 37, 41) !important;
+    padding: 0.75rem 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  .ais-HierarchicalMenu-count, .ais-Menu-count, .ais-RefinementList-count, .ais-ToggleRefinement-count {
+    display:none;
+  }
+  .ais-HierarchicalMenu-list .ais-HierarchicalMenu-list {
+    margin-left: 0;
+  }
+  .ais-HierarchicalMenu-list--child .ais-HierarchicalMenu-link {
+    padding-left: 1em;
+  }
+  .ais-HierarchicalMenu-item--selected > .ais-HierarchicalMenu-link {
+      font-family: 'SofiaProMedium';
+      font-weight: normal !important;
+  }
+  .ais-HierarchicalMenu-item--selected {
+    font-weight: normal !important;
+  }
+  .ais-HierarchicalMenu-list .ais-HierarchicalMenu-item:last-child .ais-HierarchicalMenu-link {
+    // border-bottom: 0;
+  }
+
 `
 export default GlobalStyle

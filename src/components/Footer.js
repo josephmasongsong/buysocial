@@ -5,12 +5,16 @@ import images from '../ThemeImages';
 import Prismic from 'prismic-javascript';
 import {Link, RichText} from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
+import { DeviceSize } from '../DeviceSize';
 
 const FooterStyle = styled.div`
   padding: 6rem 0;
   position: relative;
   background-color: #005891;
   color: #fff;
+  @media ${DeviceSize.xs} {
+    padding: 3rem 0;
+  }
 `
 const Arrows = styled.img`
   position: absolute;

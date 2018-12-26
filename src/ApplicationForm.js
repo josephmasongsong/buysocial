@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 import SupplierForm from './SupplierForm';
+import SlimHeader from './components/SlimHeader';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -16,17 +17,18 @@ class ApplicationForm extends Component {
   }
   render(){
     return(
-      <div>
+      <Fragment>
+				<SlimHeader headline="Social Enterprise Application Form" subheader="Fill out the form below and we will contact you regarding next steps."/>
         <ContentBlock>
           <Container>
 						<Row>
-							<Col lg="9" className="mx-auto">
+							<Col lg="12" className="mx-auto">
 								<SupplierForm />
 							</Col>
 						</Row>
           </Container>
         </ContentBlock>
-      </div>
+      </Fragment>
     )
   }
 }
