@@ -41,6 +41,16 @@ const GlobalStyle = createGlobalStyle`
   .buysocial-navigation {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
     z-index: 1;
+    .dropdown-menu {
+      border-radius: 0;
+      top: 72px;
+      padding: 0;
+      .dropdown-item {
+        padding: .75rem 1.5rem;
+        font-family: 'Museo Slab 500';
+
+      }
+    }
   }
 
   .btn-primary {
@@ -84,7 +94,6 @@ const GlobalStyle = createGlobalStyle`
       color: #fff !important;
     }
   }
-
 
 
 

@@ -1,4 +1,17 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const CalloutButton = styled.button`
+	border: ${props => props.outline ? '2px solid #005891' : '1px solid #005891' };
+	background-color: ${props => props.outline ? 'transparent' : '#005891' };
+	color: ${props => props.outline ? '#005891' : '#fff' } !important;
+	text-decoration: none;
+	font-family: 'Roboto Slab', sans-serif;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	padding: 0.75rem 1.25rem;
+	cursor: pointer;
+`
 
 const ContactForm = props => {
   return(
@@ -17,19 +30,7 @@ const ContactForm = props => {
         <textarea id="message" name="message" cols="40" rows="5" required="required" className="form-control rounded-0"></textarea>
       </div>
       <div className="form-group">
-        <label>Newsletter</label>
-        <div>
-        <div className="form-check form-check-inline">
-          <label className="form-check-label">
-          <input name="checkbox" type="checkbox" className="form-check-input" value="subscribe" aria-describedby="checkboxHelpBlock" defaultChecked></input>
-              Subscribe
-          </label>
-        </div>
-        <span id="checkboxHelpBlock" className="form-text text-muted">You may unsubscribe at any time</span>
-        </div>
-      </div>
-      <div className="form-group">
-        <button name="submit" type="submit" className="btn btn-primary btn-lg rounded-0">Submit</button>
+        <CalloutButton name="submit" type="submit" className="btn btn-primary btn-lg rounded-0">Send Message</CalloutButton>
       </div>
     </form>
   )

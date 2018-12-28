@@ -5,6 +5,9 @@ CarouselItem, } from 'reactstrap';
 import styled from 'styled-components';
 import images from '../ThemeImages';
 import { DeviceSize } from '../DeviceSize';
+import { Link, RichText } from 'prismic-reactjs';
+import PrismicConfig from '../prismic-configuration';
+
 
 const Masthead = styled.section`
 	position: relative;
@@ -100,17 +103,17 @@ class Header extends Component {
 
 		const items = this.props.slides || [];
 
-		const carouselSlides =  items.map((item) => {
+		const carouselSlides =  items.map((item, itemIndex) => {
 			return(
 				<CarouselItem
           onExiting={this.onExiting}
           onExited={this.onExited}
-          key={item.link.uid}
+          key={itemIndex}
         >
 					<Arrows src={images.arrowRight} alt=""/>
-					<h1 className="display-4 mb-3">{item.headline[0].text}</h1>
-					<p className="lead mb-3 text-muted">{item.subheader[0].text}</p>
-					<a href={item.link.uid} className="rounded-0 btn btn-warning btn-lg text-dark">Learn More</a>
+					<h1 className="display-4 mb-3">{RichText.asText(item.headline)}</h1>
+					<p className="lead mb-3 text-muted">{RichText.asText(item.subheader)}</p>
+					<a href={Link.url(item.link, PrismicConfig.linkResolver)} className="rounded-0 btn btn-warning btn-lg text-dark">Learn More</a>
         </CarouselItem>
 			)
 		});

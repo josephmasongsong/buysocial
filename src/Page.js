@@ -6,21 +6,27 @@ import {Link, RichText} from 'prismic-reactjs';
 import SlimHeader from './components/SlimHeader';
 import NewsItem from './components/NewsItem';
 import PostList from './components/PostList';
-// import PostTags from './components/PostTags';
 import ContactForm from './components/ContactForm';
 import SearchContainer from './components/SearchContainer';
 import PrismicConfig from './prismic-configuration';
+import GoogleMapContainer from './components/GoogleMapContainer';
 
-const CalloutButton = styled.button`
+const CalloutButton = styled.a`
 	border: ${props => props.outline ? '2px solid #005891' : '1px solid #005891' };
 	background-color: ${props => props.outline ? 'transparent' : '#005891' };
-	color: ${props => props.outline ? '#005891' : '#fff' };
+	color: ${props => props.outline ? '#005891' : '#fff' } !important;
+	text-decoration: none;
 	font-family: 'Roboto Slab', sans-serif;
 	font-size: 1.25rem;
 	line-height: 1.5;
 	padding: 0.75rem 1.25rem;
 	cursor: pointer;
 `
+const MapContainer = styled.div`
+	width: 100%;
+	height: 292px;
+`
+
 const ContentBlock = styled.section`
 	position: relative;
 	padding: 6rem 0;
@@ -357,7 +363,7 @@ class Page extends Component {
 						<ContentBlock key={index}>
 							<Container>
 								<Row className="justify-content-center">
-									<div>
+									<div className="post-body">
 										<p className="mb-5">{RichText.asText(slice.primary.form_blurb)}</p>
 									</div>
 									<ContactForm />
@@ -405,7 +411,6 @@ class Page extends Component {
   					</ContentBlock>
   				);
   			} else if (slice.slice_type === 'content_block_no_image') {
-
   				return(
   					<ContentBlock key={index}>
   						<Container>
@@ -431,7 +436,7 @@ class Page extends Component {
 										{
 											(slice.primary.button_link.length !== 0) && (slice.primary.button_label.length !==0)
 											?
-											<CalloutButton className="mt-4">{RichText.asText(slice.primary.button_label)}</CalloutButton>
+											<CalloutButton href={Link.url(slice.primary.button_link, PrismicConfig.linkResolver)} className="mt-4 d-inline-block">{RichText.asText(slice.primary.button_label)}</CalloutButton>
 											:
 											null
 										}
@@ -464,7 +469,21 @@ class Page extends Component {
 				      </Container>
 				    </ContentBlock>
 				  );
-				} else {
+				} else if (slice.slice_type === 'google_map') {
+  				return(
+  					<ContentBlock key={index}>
+  						<Container>
+	  						<Row>
+	  							<Col lg="12">
+										<MapContainer >
+											<GoogleMapContainer location={slice.primary}/>
+										</MapContainer>
+	  							</Col>
+	  						</Row>
+  						</Container>
+  					</ContentBlock>
+  				);
+  			} else {
   				return null;
   			}
   		});

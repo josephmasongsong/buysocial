@@ -13,7 +13,7 @@ class ArticleItem extends Component {
 
 	render() {
 		const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-		const pubDate = new Date(this.props.doc.first_publication_date)
+		const pubDate = new Date(this.props.doc.data.publication_date)
 		return(
 			<Col lg="6">
 				<div className="mb-3 pb-3 border-bottom">
