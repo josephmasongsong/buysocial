@@ -113,7 +113,7 @@ class Header extends Component {
 					<Arrows src={images.arrowRight} alt=""/>
 					<h1 className="display-4 mb-3">{RichText.asText(item.headline)}</h1>
 					<p className="lead mb-3 text-muted">{RichText.asText(item.subheader)}</p>
-					<a href={Link.url(item.link, PrismicConfig.linkResolver)} className="rounded-0 btn btn-warning btn-lg text-dark">Learn More</a>
+					<a href={Link.url(item.link, PrismicConfig.linkResolver)} className="rounded-0 btn btn-warning btn-lg text-dark">{RichText.asText(item.link_label)}</a>
         </CarouselItem>
 			)
 		});

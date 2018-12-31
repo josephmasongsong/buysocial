@@ -60,7 +60,7 @@ class GoogleMapContainer extends Component {
           visible = { this.state.showingInfoWindow }
         >
           <div>
-            <h4>{this.props.location.venue_name[0].text}</h4>
+            <h5 className="text-dark">{this.props.location.venue_name[0].text}</h5>
 
             <p>{this.props.location.readable_address[0].text}</p>
           </div>

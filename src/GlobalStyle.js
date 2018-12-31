@@ -176,6 +176,9 @@ const GlobalStyle = createGlobalStyle`
   .btn {
     border-radius: 0;
   }
+  .carousel-inner .active {
+    z-index: 2;
+  }
 
   .hit {
     display: flex;
