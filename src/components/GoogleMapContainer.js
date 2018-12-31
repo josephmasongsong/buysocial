@@ -33,7 +33,7 @@ class GoogleMapContainer extends Component {
   render() {
     const mapStyle = {
       width: '100%',
-      height: '292px',
+      height: '242px',
       position: 'relative',
     }
     const lat = this.props.location.location.latitude;
