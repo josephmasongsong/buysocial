@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Col } from 'reactstrap';
-import Styled from 'styled-components';
+import styled from 'styled-components';
 
-const LinkToArticle = Styled.a`
+const LinkToArticle = styled.a`
 	color: #343a40;
 	&:hover {
 		text-decoration: none;

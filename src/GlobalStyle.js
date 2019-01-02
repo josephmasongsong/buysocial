@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  .display-4, legend {
+    font-weight: 700;
+  }
+
   body {
     font-family: 'SofiaProLight', sans-serif;
     // padding-top: 110px;
@@ -20,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h1,h2,h3,h4,h5,h6 {
     font-family: 'Roboto Slab', sans-serif;
+    font-weight: 700;
     ${bscBlue};
   }
   h3 {
@@ -37,7 +42,13 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1.125rem;
     }
   }
-
+  .btn {
+    font-family: 'Roboto Slab';
+  }
+  .dropdown-item.active, .dropdown-item:active {
+    background-color: #005891 !important;
+    color: #fff !important;
+  }
   .buysocial-navigation {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
     z-index: 1;
@@ -288,6 +299,10 @@ const GlobalStyle = createGlobalStyle`
   .ais-HierarchicalMenu-list .ais-HierarchicalMenu-item:last-child .ais-HierarchicalMenu-link {
     // border-bottom: 0;
   }
+
+  /*------------------------SLICES-------------------------------*/
+
+
 
 `
 export default GlobalStyle

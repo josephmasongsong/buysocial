@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'reactstrap';
+import { Col, Row, Container } from 'reactstrap';
 import {
   InstantSearch,
   SearchBox,
@@ -7,9 +7,18 @@ import {
   Pagination,
   HierarchicalMenu,
 } from 'react-instantsearch-dom';
-
+import styled from 'styled-components';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
+
+const ContentBlock = styled.section`
+	position: relative;
+	padding: 6rem 0;
+	border-top: 1px solid #f8f9fa;
+	@media (max-width: 575.98px) {
+		padding: 3rem 0;
+  }
+`
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -58,24 +67,26 @@ const Content = () =>
   </Col>
 
 class SearchContainer extends Component {
-
-
   render(){
     return(
-      <InstantSearch
-        appId="UVPOJDU7AN"
-        apiKey="0ce11a5ad2a8fd5e0068ec55d40f0e80"
-        indexName="bsc_google_sheet"
-      >
+      <ContentBlock>
+        <Container>
+          <InstantSearch
+            appId="UVPOJDU7AN"
+            apiKey="0ce11a5ad2a8fd5e0068ec55d40f0e80"
+            indexName="bsc_google_sheet"
+          >
 
-        <Row>
-          <Sidebar/>
+            <Row>
+              <Sidebar/>
 
 
-          <Content/>
-        </Row>
+              <Content/>
+            </Row>
 
-      </InstantSearch>
+          </InstantSearch>
+        </Container>
+      </ContentBlock>
     )
   }
 }

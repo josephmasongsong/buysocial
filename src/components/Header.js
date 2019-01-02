@@ -8,10 +8,8 @@ import { DeviceSize } from '../DeviceSize';
 import { Link, RichText } from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 
-
 const Masthead = styled.section`
 	position: relative;
-	/* height: calc(100vh - 110px); */
 	height: 600px;
 	background: #fbfbfb;
 	@media ${DeviceSize.xs} {
@@ -21,52 +19,58 @@ const Masthead = styled.section`
 `
 const TriangleLarge = styled.div`
 	width: 25%;
-    height: 100%;
-    background: #005891;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    clip-path: polygon(0 0, 0 100%, 50% 50%);
-		@media ${DeviceSize.xs} {
-			display: none;
-	  }
+  height: 100%;
+  background: #005891;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  clip-path: polygon(0 0, 0 100%, 50% 50%);
+	@media ${DeviceSize.xs} {
+		display: none;
+  }
 `
 const TriangleRed = styled.div`
-    width: 12.5%;
-    height: 50%;
-    background: #D12331;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
-		@media ${DeviceSize.xs} {
-			width: 20%;
-			height: 20%;
-	  }
+  width: 12.5%;
+  height: 50%;
+  background: #D12331;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+	@media ${DeviceSize.xs} {
+		width: 20%;
+		height: 20%;
+  }
 `
-
 const TriangleYellow = styled.div`
-    width: 12.5%;
-    height: 50%;
-    background: #D9D458;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 2;
-    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-		@media ${DeviceSize.xs} {
-			width: 20%;
-			height: 20%;
-	  }
+  width: 12.5%;
+  height: 50%;
+  background: #D9D458;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+	@media ${DeviceSize.xs} {
+		width: 20%;
+		height: 20%;
+  }
 `
-
 const Arrows = styled.img`
-    margin-bottom: 1rem!important;
-		width: 64px;
-		@media ${DeviceSize.xs} {
-			width: 48px;
-	  }
+  margin-bottom: 1rem!important;
+	width: 64px;
+	@media ${DeviceSize.xs} {
+		width: 48px;
+  }
+`
+const Header1 = styled.h1`
+	font-size: 3rem;
+	margin-bottom: 1rem;
+`
+const CarouselLink = styled.a`
+	font-size: 1.25rem;
+	text-decoration: underline;
 `
 class Header extends Component {
 	constructor(props) {
@@ -111,9 +115,9 @@ class Header extends Component {
           key={itemIndex}
         >
 					<Arrows src={images.arrowRight} alt=""/>
-					<h1 className="display-4 mb-3">{RichText.asText(item.headline)}</h1>
+					<Header1>{RichText.asText(item.headline)}</Header1>
 					<p className="lead mb-3 text-muted">{RichText.asText(item.subheader)}</p>
-					<a href={Link.url(item.link, PrismicConfig.linkResolver)} className="rounded-0 btn btn-warning btn-lg text-dark">{RichText.asText(item.link_label)}</a>
+					<CarouselLink href={Link.url(item.link, PrismicConfig.linkResolver)}>{RichText.asText(item.link_label)}</CarouselLink>
         </CarouselItem>
 			)
 		});

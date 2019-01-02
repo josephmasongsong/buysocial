@@ -63,23 +63,6 @@ class Footer extends Component {
   				<Arrows src={images.arrowLeft} alt="" />
   				<Container>
   					<Row className="justify-content-center">
-  						<Col lg="4" className="mr-auto">
-  							<h5 className="mb-4 text-white">Newsletter</h5>
-                <p>{RichText.asText(document.newsletter_blurb)}</p>
-                <form name="newsletter_signup" method="post">
-                  <input type="hidden" name="form-name" value="newsletter_signup" />
-                  <div className="input-group mb-5">
-                    <input name="email" type="email" placeholder="Email" className="form-control py-2 rounded-0" />
-                    <span className="input-group-append">
-                      <button name="submit" type="submit" className="btn btn-warning rounded-0">
-                        Sign Up
-                      </button>
-                    </span>
-                  </div>
-                </form>
-
-
-  						</Col>
   						<Col lg="3" className="mx-auto">
   							<h5 className="mb-4 text-white">Contact Information</h5>
                 <Address className="fa-ul pl-0">
@@ -94,7 +77,22 @@ class Footer extends Component {
                   {footerNavigation}
                 </ul>
   						</Col>
-  						<Col lg="2">
+              <Col lg="4" className="mr-auto">
+  							<h5 className="mb-4 text-white">Newsletter</h5>
+                <p>{RichText.asText(document.newsletter_blurb)}</p>
+                <form name="newsletter_signup" method="post">
+                  <input type="hidden" name="form-name" value="newsletter_signup" />
+                  <div className="input-group mb-5">
+                    <input name="email" type="email" placeholder="Email" className="form-control py-2 rounded-0" />
+                    <span className="input-group-append">
+                      <button name="submit" type="submit" className="btn btn-warning rounded-0">
+                        Sign Up
+                      </button>
+                    </span>
+                  </div>
+                </form>
+  						</Col>
+              <Col lg="2">
   							<h5 className="mb-4 text-white">Social</h5>
                 <ul className="social list-inline">
                   <li className="list-inline-item"><a className="text-white" href={Link.url(document.facebook_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a></li>
@@ -102,7 +100,7 @@ class Footer extends Component {
                   <li className="list-inline-item"><a className="text-white" href={Link.url(document.linkedin_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
                   <li className="list-inline-item"><a className="text-white" href={Link.url(document.instagram_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a></li>
                 </ul>
-  						</Col>
+  						</Col>              
   					</Row>
   				</Container>
   			</FooterStyle>
