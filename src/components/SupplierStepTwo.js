@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { FormGroup, Label, Input } from 'reactstrap'
 import styled from 'styled-components';
+import SimpleReactValidator from 'simple-react-validator'
 
 const WizardButton = styled.button`
   font-family: 'Roboto Slab', sans-serif;
@@ -14,9 +15,18 @@ const WizardButton = styled.button`
 `
 
 class SupplierStepTwo extends Component {
+  constructor(props){
+    super(props)
+    this.validator = new SimpleReactValidator();
+  }
   saveAndContinue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
+    e.preventDefault()
+    if (this.validator.allValid()) {
+      this.props.nextStep()
+    } else {
+      this.validator.showMessages();
+      this.forceUpdate();
+    }
   }
   back = (e) => {
     e.preventDefault();
@@ -44,6 +54,8 @@ class SupplierStepTwo extends Component {
             <option>Cooperative</option>
             <option>Hybrid (ex. CCC or CIC)</option>
           </Input>
+          {this.validator.message('organizationType', values.organizationType, 'required')}
+
         </FormGroup>
         <FormGroup>
           <Label htmlFor="organizationMission">Organization Mission</Label>
@@ -56,6 +68,8 @@ class SupplierStepTwo extends Component {
             onChange={this.props.handleChange('organizationMission')}
             defaultValue={values.organizationMission}
           />
+          {this.validator.message('organizationMission', values.organizationMission, 'required')}
+
         </FormGroup>
         <FormGroup>
           <Label htmlFor="">Canada Revenue Agency Business Registration Number</Label>
@@ -67,6 +81,8 @@ class SupplierStepTwo extends Component {
             onChange={this.props.handleChange('businessNumber')}
             defaultValue={values.businessNumber}
           />
+          {this.validator.message('businessNumber', values.businessNumber, 'required|alpha_num_dash')}
+
         </FormGroup>
         <FormGroup>
           <Label htmlFor="">Revenue</Label>
@@ -83,6 +99,8 @@ class SupplierStepTwo extends Component {
             <option>$5 - 20 million</option>
             <option>Over $20 million</option>
           </Input>
+          {this.validator.message('revenue', values.revenue, 'required')}
+
           <p className="text-muted">The annual pricing for certification is based upon your business revenue</p>
         </FormGroup>
         <div className="mt-5">

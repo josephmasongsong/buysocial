@@ -52,6 +52,7 @@ class SupplierForm extends Component {
       confirm: '',
     }
   }
+
   nextStep = () => {
     const { step } = this.state
     this.setState({
@@ -191,6 +192,7 @@ class SupplierForm extends Component {
           return <SupplierStepSix
                  prevStep={this.prevStep}
                  handleChange={this.handleChange}
+                 handleSubmit={this.handleSubmit}
                  values={values}
                 />
         default: return null
@@ -198,7 +200,7 @@ class SupplierForm extends Component {
     }
 
     return(
-      <Form onSubmit={this.handleSubmit}>
+      <Form>
         {whichStep(step)}
       </Form>
     )

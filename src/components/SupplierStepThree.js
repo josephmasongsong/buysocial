@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { FormGroup, Label, Input } from 'reactstrap'
 import styled from 'styled-components';
+import SimpleReactValidator from 'simple-react-validator'
 
 const WizardButton = styled.button`
   font-family: 'Roboto Slab', sans-serif;
@@ -13,9 +14,18 @@ const WizardButton = styled.button`
 	color: ${props => props.prev ? '#212529' : '#fff' };
 `
 class SupplierStepThree extends Component {
+  constructor(props){
+    super(props)
+    this.validator = new SimpleReactValidator();
+  }
   saveAndContinue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
+    e.preventDefault()
+    if (this.validator.allValid()) {
+      this.props.nextStep()
+    } else {
+      this.validator.showMessages();
+      this.forceUpdate();
+    }
   }
   back = (e) => {
     e.preventDefault();
@@ -37,6 +47,8 @@ class SupplierStepThree extends Component {
             onChange={this.props.handleChange('contactName')}
             defaultValue={values.contactName}
           />
+          {this.validator.message('contactName', values.contactName, 'required')}
+
         </FormGroup>
         <FormGroup>
           <Label htmlFor="">Position</Label>
@@ -48,6 +60,8 @@ class SupplierStepThree extends Component {
             onChange={this.props.handleChange('contactPosition')}
             defaultValue={values.contactPosition}
           />
+          {this.validator.message('contactPosition', values.contactPosition, 'required')}
+
         </FormGroup>
         <FormGroup>
           <Label htmlFor="">Email</Label>
@@ -59,6 +73,8 @@ class SupplierStepThree extends Component {
             onChange={this.props.handleChange('email')}
             defaultValue={values.email}
           />
+          {this.validator.message('email', values.email, 'required|email')}
+
         </FormGroup>
         <FormGroup>
           <Label htmlFor="">Phone</Label>
@@ -70,6 +86,8 @@ class SupplierStepThree extends Component {
             onChange={this.props.handleChange('phone')}
             defaultValue={values.phone}
           />
+          {this.validator.message('phone', values.phone, 'required|phone')}
+
         </FormGroup>
         <div className="mt-5">
           <WizardButton prev className="mr-1" onClick={this.back}>Back</WizardButton>

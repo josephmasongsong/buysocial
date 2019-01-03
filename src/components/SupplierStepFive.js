@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { FormGroup, Label, Input } from 'reactstrap'
 import styled from 'styled-components';
+import SimpleReactValidator from 'simple-react-validator'
 
 const WizardButton = styled.button`
   font-family: 'Roboto Slab', sans-serif;
@@ -13,9 +14,18 @@ const WizardButton = styled.button`
 	color: ${props => props.prev ? '#212529' : '#fff' };
 `
 class SupplierStepFive extends Component {
+  constructor(props){
+    super(props)
+    this.validator = new SimpleReactValidator();
+  }
   saveAndContinue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
+    e.preventDefault()
+    if (this.validator.allValid()) {
+      this.props.nextStep()
+    } else {
+      this.validator.showMessages();
+      this.forceUpdate();
+    }
   }
   back = (e) => {
     e.preventDefault();
@@ -53,6 +63,7 @@ class SupplierStepFive extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q6', values.q6, 'required')}
 
         <FormGroup tag="fieldset">
           <p>Are at least 50% of profits reinvested in the mission of your organization?</p>
@@ -81,6 +92,7 @@ class SupplierStepFive extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q7', values.q7, 'required')}
 
         <FormGroup tag="fieldset">
           <p>Is the sale of goods or services a principal revenue source of the enterprise being certified?</p>
@@ -109,6 +121,7 @@ class SupplierStepFive extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q8', values.q8, 'required')}
 
         <FormGroup tag="fieldset">
           <p>Is the enterprise incorporated in a manner to support, promote, and ensure stakeholder value over shareholder value?</p>
@@ -137,6 +150,8 @@ class SupplierStepFive extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q9', values.q9, 'required')}
+
 
         <FormGroup tag="fieldset">
           <p>Does the organization and/or enterprise operate in a transparent and responsible manner?</p>
@@ -165,6 +180,7 @@ class SupplierStepFive extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q10', values.q10, 'required')}
 
         <FormGroup tag="fieldset">
           <p>In the event of the organization's dissolution, are its remaining properties given to another entity working in a similar field?</p>
@@ -193,6 +209,7 @@ class SupplierStepFive extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q11', values.q11, 'required')}
 
         <div className="mt-4">
           <WizardButton prev className="mr-1" onClick={this.back}>Back</WizardButton>

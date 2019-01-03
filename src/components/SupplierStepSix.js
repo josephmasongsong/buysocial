@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { FormGroup, Label, Input } from 'reactstrap'
 import styled from 'styled-components';
+import SimpleReactValidator from 'simple-react-validator'
 
 const WizardButton = styled.button`
   font-family: 'Roboto Slab', sans-serif;
@@ -13,9 +14,18 @@ const WizardButton = styled.button`
 	color: ${props => props.prev ? '#212529' : '#fff' };
 `
 class SupplierStepSix extends Component {
+  constructor(props){
+    super(props)
+    this.validator = new SimpleReactValidator();
+  }
   saveAndContinue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
+    e.preventDefault()
+    if (this.validator.allValid()) {
+      this.props.handleSubmit(e);
+    } else {
+      this.validator.showMessages();
+      this.forceUpdate();
+    }
   }
   back = (e) => {
     e.preventDefault();
@@ -54,6 +64,7 @@ class SupplierStepSix extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('seccMembership', values.seccMembership, 'required')}
 
         <FormGroup>
           <Label htmlFor="region">Referring Agency</Label>
@@ -75,6 +86,7 @@ class SupplierStepSix extends Component {
             <option>Other</option>
           </Input>
         </FormGroup>
+        {this.validator.message('referringAgency', values.referringAgency, 'required')}
 
         <FormGroup>
           <legend>Akcelos Social Enterprise Directory and Online Sales Service</legend>
@@ -119,6 +131,7 @@ class SupplierStepSix extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('akcelosDirectory', values.akcelosDirectory, 'required')}
 
         <legend>Confirmation</legend>
 
@@ -139,6 +152,8 @@ class SupplierStepSix extends Component {
             Yes I confirm that everything in this application is true to the best of my knowledge
           </Label>
         </FormGroup>
+        {this.validator.message('confirm', values.confirm, 'required')}
+
 
         <div className="mt-4">
           <WizardButton prev className="mr-1" onClick={this.back}>Back</WizardButton>

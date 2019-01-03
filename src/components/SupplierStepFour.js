@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { FormGroup, Label, Input } from 'reactstrap'
 import styled from 'styled-components';
+import SimpleReactValidator from 'simple-react-validator'
 
 const WizardButton = styled.button`
   font-family: 'Roboto Slab', sans-serif;
@@ -13,9 +14,18 @@ const WizardButton = styled.button`
 	color: ${props => props.prev ? '#212529' : '#fff' };
 `
 class SupplierStepFour extends Component {
+  constructor(props){
+    super(props)
+    this.validator = new SimpleReactValidator();
+  }
   saveAndContinue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
+    e.preventDefault()
+    if (this.validator.allValid()) {
+      this.props.nextStep()
+    } else {
+      this.validator.showMessages();
+      this.forceUpdate();
+    }
   }
   back = (e) => {
     e.preventDefault();
@@ -37,6 +47,8 @@ class SupplierStepFour extends Component {
             onChange={this.props.handleChange('organizationSize')}
             defaultValue={values.organizationSize}
           />
+          {this.validator.message('organizationSize', values.organizationSize, 'required|numeric')}
+
         </FormGroup>
         <FormGroup tag="fieldset">
           <p>Do you follow the principle of one member, one vote?</p>
@@ -65,6 +77,7 @@ class SupplierStepFour extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q1', values.q1, 'required')}
 
 
         <FormGroup tag="fieldset">
@@ -94,6 +107,7 @@ class SupplierStepFour extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q2', values.q2, 'required')}
 
         <FormGroup tag="fieldset">
           <p>Are most board members appointed by one or more public agencies?</p>
@@ -122,6 +136,7 @@ class SupplierStepFour extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q3', values.q3, 'required')}
 
         <FormGroup tag="fieldset">
           <p>Are most board members appointed by one or more private corporations?</p>
@@ -150,6 +165,7 @@ class SupplierStepFour extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q4', values.q4, 'required')}
 
         <FormGroup tag="fieldset">
           <p>Are most board members appointed by one or more religious communities?</p>
@@ -178,6 +194,8 @@ class SupplierStepFour extends Component {
             </Label>
           </FormGroup>
         </FormGroup>
+        {this.validator.message('q5', values.q5, 'required')}
+
 
         <div className="mt-4">
           <WizardButton prev className="mr-1" onClick={this.back}>Back</WizardButton>

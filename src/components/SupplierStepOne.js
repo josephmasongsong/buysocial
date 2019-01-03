@@ -5,6 +5,7 @@ import {
   Input,
 } from 'reactstrap'
 import styled from 'styled-components';
+import SimpleReactValidator from 'simple-react-validator'
 
 const WizardButton = styled.button`
   font-family: 'Roboto Slab', sans-serif;
@@ -18,9 +19,18 @@ const WizardButton = styled.button`
 `
 
 class SupplierStepOne extends Component {
+  constructor(props){
+    super(props)
+    this.validator = new SimpleReactValidator();
+  }
   saveAndContinue = (e) => {
     e.preventDefault()
-    this.props.nextStep()
+    if (this.validator.allValid()) {
+      this.props.nextStep()
+    } else {
+      this.validator.showMessages();
+      this.forceUpdate();
+    }
   }
   render(){
     const { values } = this.props;
@@ -36,8 +46,8 @@ class SupplierStepOne extends Component {
               placeholder=""
               onChange={this.props.handleChange('organizationName')}
               defaultValue={values.organizationName}
-              required="required"
               />
+              {this.validator.message('organizationName', values.organizationName, 'required')}
           </FormGroup>
           <FormGroup>
             <Label htmlFor="inceptionYear">Year of Inception</Label>
@@ -49,6 +59,8 @@ class SupplierStepOne extends Component {
               onChange={this.props.handleChange('inceptionYear')}
               defaultValue={values.inceptionYear}
               />
+              {this.validator.message('inceptionYear', values.inceptionYear, 'required|numeric')}
+
           </FormGroup>
           <FormGroup>
             <Label htmlFor="organizationAddress">Organization Address</Label>
@@ -60,6 +72,8 @@ class SupplierStepOne extends Component {
               onChange={this.props.handleChange('organizationAddress')}
               defaultValue={values.organizationAddress}
               />
+              {this.validator.message('organizationAddress', values.organizationAddress, 'required')}
+
           </FormGroup>
           <FormGroup>
             <Label htmlFor="region">Region</Label>
@@ -79,6 +93,7 @@ class SupplierStepOne extends Component {
               <option>Quebec</option>
               <option>Prairies & North</option>
             </Input>
+            {this.validator.message('region', values.region, 'required')}
           </FormGroup>
 
           <FormGroup>
@@ -116,9 +131,6 @@ class SupplierStepOne extends Component {
           </FormGroup>
 
           <div className="mt-4">
-            <WizardButton prev className="mr-1" onClick={this.back}>Back</WizardButton>
-
-
             <WizardButton color="primary" onClick={this.saveAndContinue}>Save & Continue</WizardButton>
           </div>
       </Fragment>
