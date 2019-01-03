@@ -102,7 +102,7 @@ class SupplierStepOne extends Component {
               type="text"
               name="website"
               id="website"
-              placeholder="https://www.yourcompany.com"
+              placeholder=""
               onChange={this.props.handleChange('website')}
               defaultValue={values.website}
               />
@@ -113,7 +113,7 @@ class SupplierStepOne extends Component {
               type="text"
               name="facebook"
               id="facebook"
-              placeholder="https://www.facebook.com/yourcompany"
+              placeholder=""
               onChange={this.props.handleChange('facebook')}
               defaultValue={values.facebook}
               />
@@ -124,7 +124,7 @@ class SupplierStepOne extends Component {
               type="text"
               name="twitter"
               id="twitter"
-              placeholder="https://www.twitter.com/yourcompany"
+              placeholder=""
               onChange={this.props.handleChange('twitter')}
               defaultValue={values.twitter}
               />

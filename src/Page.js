@@ -18,6 +18,7 @@ import SearchContainer from './components/slices/SearchContainer';
 import PostList from './components/slices/PostList';
 import EventMap from './components/slices/EventMap';
 import SupplierForm from './components/slices/SupplierForm';
+import CalloutCenter from './components/slices/CalloutCenter';
 
 class Page extends Component {
 	constructor(props) {
@@ -117,6 +118,10 @@ class Page extends Component {
 					return(
 						<SupplierForm key={index} slice={slice} />
 					)
+  			} else if (slice.slice_type === 'callout_centered') {
+					return(
+						<CalloutCenter key={index} slice={slice} />
+					)
   			} else {
   				return null;
   			}
@@ -133,7 +138,7 @@ class Page extends Component {
 
 	      	<SlimHeader
 	      		headline={RichText.asText(document.page_title)}
-	      		subheader={RichText.asText(document.page_blurb)}
+	      		subheader={RichText.render(document.page_blurb)}
 						headerImage={document.page_image.url}
 	      	/>
 

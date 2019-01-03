@@ -60,7 +60,7 @@ const TriangleBlueRight = styled.div`
 `
 const CalloutIcon = styled.img`
 	margin-bottom: 1.5rem;
-	width: 100px;
+	width: 64px;
 `
 
 <a href={Link.url(item.link, PrismicConfig.linkResolver)} className="rounded-0 btn btn-warning btn-lg text-dark">{RichText.asText(item.link_label)}</a>
