@@ -17,6 +17,7 @@ import ContactForm from './components/slices/ContactForm';
 import SearchContainer from './components/slices/SearchContainer';
 import PostList from './components/slices/PostList';
 import EventMap from './components/slices/EventMap';
+import SupplierForm from './components/slices/SupplierForm';
 
 class Page extends Component {
 	constructor(props) {
@@ -111,6 +112,10 @@ class Page extends Component {
   			} else if (slice.slice_type === 'google_map') {
 					return(
 						<EventMap key={index} slice={slice} />
+					)
+  			} else if (slice.slice_type === 'supplier_form') {
+					return(
+						<SupplierForm key={index} slice={slice} />
 					)
   			} else {
   				return null;

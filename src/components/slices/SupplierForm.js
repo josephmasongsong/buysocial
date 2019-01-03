@@ -1,18 +1,31 @@
 import React, { Component } from 'react'
-import { Form } from 'reactstrap'
-import SupplierStepOne from './components/SupplierStepOne'
-import SupplierStepTwo from './components/SupplierStepTwo'
-import SupplierStepThree from './components/SupplierStepThree'
-import SupplierStepFour from './components/SupplierStepFour'
-import SupplierStepFive from './components/SupplierStepFive'
-import SupplierStepSix from './components/SupplierStepSix'
-
+import { withRouter } from 'react-router-dom'
+import styled from 'styled-components'
+import { Form, Container, Row, Col } from 'reactstrap'
+import SupplierStepOne from './SupplierStepOne'
+import SupplierStepTwo from './SupplierStepTwo'
+import SupplierStepThree from './SupplierStepThree'
+import SupplierStepFour from './SupplierStepFour'
+import SupplierStepFive from './SupplierStepFive'
+import SupplierStepSix from './SupplierStepSix'
 
 const encode = (data) => {
    return Object.keys(data)
        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
        .join("&");
  }
+
+ const ContentBlock = styled.section`
+ 	position: relative;
+ 	padding: 6rem 0;
+ 	border-top: 1px solid #f8f9fa;
+   h2,h3,h4,h5 {
+     margin-bottom: 1rem;
+   }
+ 	@media (max-width: 575.98px) {
+ 		padding: 3rem 0;
+   }
+ `
 
 class SupplierForm extends Component {
   constructor(props){
@@ -70,15 +83,18 @@ class SupplierForm extends Component {
   }
 
   handleSubmit = e => {
+    const redirect = this.props.slice.primary.redirect_link.uid
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "supplier", ...this.state })
     })
-      .then(() => alert("Success!"))
+      // .then(() => alert("Success!"))
       .catch(error => alert(error));
 
     e.preventDefault();
+    this.props.history.push('/' + redirect);
   };
 
 
@@ -200,10 +216,18 @@ class SupplierForm extends Component {
     }
 
     return(
-      <Form>
-        {whichStep(step)}
-      </Form>
+      <ContentBlock>
+        <Container>
+          <Row>
+            <Col lg="12">
+              <Form>
+                {whichStep(step)}
+              </Form>
+            </Col>
+          </Row>
+        </Container>
+      </ContentBlock>
     )
   }
 }
-export default SupplierForm
+export default withRouter(SupplierForm)

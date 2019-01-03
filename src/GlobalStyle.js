@@ -66,7 +66,10 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
-
+  .srv-validation-message {
+    color: red;
+    font-size: 0.9rem;
+  }
   .btn-primary {
     background-color: #005891;
     border-color: #005891;
@@ -172,16 +175,18 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto Slab', sans-serif;
     color: #005891;
   }
-  label { font-family: 'SofiaProMedium'; margin-bottom: 0; }
+  label { font-family: 'SofiaProMedium';
+  // margin-bottom: 0;
+}
   .form-control {
-    outline: 0;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
+    // outline: 0;
+    // border-top: 0;
+    // border-left: 0;
+    // border-right: 0;
     border-radius: 0;
-    padding: .375rem 0;
+    padding: .5rem .75rem;
     -webkit-appearance: none;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.5rem;
   }
   .form-control:focus {
     border-color: #005891;
