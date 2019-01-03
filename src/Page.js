@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { Container, Row, Col } from 'reactstrap';
-import styled from 'styled-components';
-import { Link, RichText, Date } from 'prismic-reactjs';
+import { RichText } from 'prismic-reactjs';
 import SlimHeader from './components/SlimHeader';
-
-import PostList from './components/PostList';
-import PrismicConfig from './prismic-configuration';
-import GoogleMapContainer from './components/GoogleMapContainer';
 
 import ThreeColumnBlock from './components/slices/ThreeColumnBlock';
 import PeopleContainer from './components/slices/PeopleContainer';
@@ -21,37 +15,8 @@ import ContentImageLeft from './components/slices/ContentImageLeft';
 import ContentImage from './components/slices/ContentImage';
 import ContactForm from './components/slices/ContactForm';
 import SearchContainer from './components/slices/SearchContainer';
-
-
-
-const CalloutButton = styled.a`
-	border: ${props => props.outline ? '2px solid #005891' : '1px solid #005891' };
-	background-color: ${props => props.outline ? 'transparent' : '#005891' };
-	color: ${props => props.outline ? '#005891' : '#fff' } !important;
-	text-decoration: none;
-	font-family: 'Roboto Slab', sans-serif;
-	font-size: 1.25rem;
-	line-height: 1.5;
-	text-align: center;
-	padding: 0.75rem 1.25rem;
-	cursor: pointer;
-	&:hover {
-		text-decoration: none;
-	}
-`
-const MapContainer = styled.div`
-	width: 100%;
-	height: 242px;
-`
-
-const ContentBlock = styled.section`
-	position: relative;
-	padding: 6rem 0;
-	border-top: 1px solid #f8f9fa;
-	@media (max-width: 575.98px) {
-		padding: 3rem 0;
-  }
-`
+import PostList from './components/slices/PostList';
+import EventMap from './components/slices/EventMap';
 
 class Page extends Component {
 	constructor(props) {
@@ -125,13 +90,7 @@ class Page extends Component {
 					);
 				} else if (slice.slice_type === 'news_index') {
 					return(
-						<ContentBlock key={index}>
-							<Container>
-								<Row className="justify-content-center">
-									<PostList />
-								</Row>
-							</Container>
-						</ContentBlock>
+						<PostList key={index} />
 					);
 				} else if (slice.slice_type === 'contact_form') {
 					return(
@@ -150,64 +109,16 @@ class Page extends Component {
 						<ContentNoImage key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'google_map') {
-
-
-					const days = slice.items.map(function(day, dayIndex){
-						const options = { hour: 'numeric', minute: 'numeric' };
-						const start = new Date(day.day_start)
-						const end = new Date(day.day_end)
-
-						return(
-							<div index={dayIndex} className="justify-content-between d-flex">
-
-								<h6 className="mb-3 text-dark">{RichText.asText(day.day_label)}</h6>
-								<span className="eventHours">{start.toLocaleTimeString("en-US", options)} - {end.toLocaleTimeString("en-US", options)}</span>
-
-							</div>
-						);
-					});
-
-  				return(
-  					<ContentBlock key={index}>
-  						<Container>
-	  						<Row >
-									<Col lg="4"  className="mr-auto">
-
-										<MapContainer className="mb-4">
-											<GoogleMapContainer location={slice.primary}/>
-										</MapContainer>
-
-										<h5 className="mb-2">{RichText.asText(slice.primary.venue_name)}</h5>
-										<div className="post-body mb-4 text-muted">
-											{RichText.asText(slice.primary.readable_address)}
-										</div>
-										{days}
-									</Col>
-									<Col lg="7">
-										<h2 className="mb-4">{RichText.asText(slice.primary.title)}</h2>
-										<div className="post-body mb-4">
-											{RichText.render(slice.primary.description)}
-										</div>
-										{
-											(slice.primary.button_link.length !== 0) && (slice.primary.button_label.length !==0)
-											?
-											<CalloutButton href={Link.url(slice.primary.button_link, PrismicConfig.linkResolver)} className="d-block mt-4">{RichText.asText(slice.primary.button_label)}</CalloutButton>
-											:
-											null
-										}
-
-									</Col>
-	  						</Row>
-  						</Container>
-  					</ContentBlock>
-  				);
+					return(
+						<EventMap key={index} slice={slice} />
+					)
   			} else {
   				return null;
   			}
   		});
 
 	    return (
-	      <div>
+	      <React.Fragment>
 					<Helmet>
             <title>{RichText.asText(document.page_title) + " - Buy Social Canada"}</title>
             <meta name="description" content={RichText.asText(document.page_blurb)} />
@@ -223,7 +134,7 @@ class Page extends Component {
 
 					{blockContent}
 
-	     </div>
+	     </React.Fragment>
 	    );
   	}
   	return <SlimHeader headline="Loading..." />;

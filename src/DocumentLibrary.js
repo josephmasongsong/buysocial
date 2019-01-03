@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
-import SupplierForm from './SupplierForm';
 import SlimHeader from './components/SlimHeader';
 import Prismic from 'prismic-javascript';
 import { RichText, Link } from 'prismic-reactjs'

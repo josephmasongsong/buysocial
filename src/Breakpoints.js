@@ -1,3 +1,25 @@
+if (slice.slice_type === '4_column_content_block') {
+  const blocks = slice.items.map(function(block, blockIndex){
+    return(
+      <Col lg="3" key={blockIndex}>
+        <img src={block.blurb_image.url} alt="" height="64" className="mb-3" />
+        <h4 className=" mb-3">{block.block_title[0].text}</h4>
+        <p className="mb-3">{block.block_blurb[0].text}</p>
+        <LinkTo href={block.block_link.uid}>Learn More</LinkTo>
+      </Col>
+    )
+  });
+  return(
+    <ContentBlock key={index}>
+      <Container>
+        <Row>
+          {blocks}
+        </Row>
+      </Container>
+    </ContentBlock>
+  )
+}
+
 
 const size = {
   xs

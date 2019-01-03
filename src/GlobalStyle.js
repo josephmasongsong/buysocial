@@ -14,6 +14,9 @@ const GlobalStyle = createGlobalStyle`
   .display-4, legend {
     font-weight: 700;
   }
+  .display-4 {
+    font-size: 3.25rem;
+  }
 
   body {
     font-family: 'SofiaProLight', sans-serif;

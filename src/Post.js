@@ -6,7 +6,22 @@ import PrismicConfig from './prismic-configuration';
 import BlogHeader from './components/BlogHeader'
 import styled from 'styled-components';
 import { DeviceSize } from './DeviceSize';
-import RecentArticles from './components/RecentArticles';
+
+import RecentArticles from './components/slices/RecentArticles';
+import ThreeColumnBlock from './components/slices/ThreeColumnBlock';
+import PeopleContainer from './components/slices/PeopleContainer';
+import LogoGrid from './components/slices/LogoGrid';
+import BulletList from './components/slices/BulletList';
+import TwoColumnsCentered from './components/slices/TwoColumnsCentered';
+import ThreeColumnGray from './components/slices/ThreeColumnGray';
+import ListOfLinks from './components/slices/ListOfLinks';
+import ContentNoImage from './components/slices/ContentNoImage';
+import ContentImageLeft from './components/slices/ContentImageLeft';
+import ContentImage from './components/slices/ContentImage';
+import ContactForm from './components/slices/ContactForm';
+import SearchContainer from './components/slices/SearchContainer';
+import PostList from './components/slices/PostList';
+import EventMap from './components/slices/EventMap';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -16,33 +31,6 @@ const ContentBlock = styled.section`
 	@media ${DeviceSize.xs} {
 		padding: 3rem 0;
 	}
-`
-const NewsItems = styled.div`
-	padding: 6rem 0;
-	position: relative;
-	/* background: #f8f9fa; */
-	background: #fbfbfb;
-`
-
-const TriangleRed = styled.div`
-	width: 10%;
-  height: 50%;
-  background: #D12331;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  clip-path: polygon(0% 50%, 0% 100%, 100% 100%);
-`
-const TriangleBlue = styled.div`
-	width: 10%;
-  height: 50%;
-  background: #005891;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  clip-path: polygon(100% 50%, 0% 0%, 100% 0%);
 `
 
 class Post extends Component {
@@ -81,6 +69,73 @@ class Post extends Component {
 
     if (this.state.doc) {
       const document = this.state.doc.data;
+
+			const sliceContent = document.body.map(function(slice, index){
+				if (slice.slice_type === '3_column_content_block') {
+					return(
+						<ThreeColumnBlock key={index} slice={slice} />
+					);
+				} else if (slice.slice_type === 'people') {
+					return(
+						<PeopleContainer key={index} slice={slice} />
+					)
+				} else if (slice.slice_type === 'bullet_list') {
+					return(
+						<BulletList key={index} slice={slice} />
+					)
+				} else if (slice.slice_type === '2_narrow_columns') {
+					return(
+						<TwoColumnsCentered key={index} slice={slice} />
+					)
+				} else if (slice.slice_type === 'gray_3_column_content_block') {
+					return(
+						<ThreeColumnGray key={index} slice={slice} />
+					)
+				} else if (slice.slice_type === 'logo_grid') {
+					return(
+						<LogoGrid key={index} slice={slice} />
+					);
+				} else if (slice.slice_type === 'list_of_articles') {
+					return(
+						<ListOfLinks key={index} slice={slice} />
+					)
+				} else if (slice.slice_type === 'knowledge_base') {
+					return(
+						<SearchContainer key={index} slice={slice} />
+					);
+				} else if (slice.slice_type === 'news_index') {
+					return(
+						<PostList key={index} />
+					);
+				} else if (slice.slice_type === 'contact_form') {
+					return(
+						<ContactForm key={index} slice={slice} />
+					);
+				}  else if (slice.slice_type === 'content_block_with_image') {
+					return(
+						<ContentImage key={index} slice={slice} />
+					);
+				} else if (slice.slice_type === 'content_block_with_image_left') {
+					return(
+						<ContentImageLeft key={index} slice={slice} />
+					);
+				} else if (slice.slice_type === 'content_block_no_image') {
+					return(
+						<ContentNoImage key={index} slice={slice} />
+					);
+				} else if (slice.slice_type === 'google_map') {
+					return(
+						<EventMap key={index} slice={slice} />
+					)
+				} else if (slice.slice_type === 'recent_articles') {
+					return(
+						<RecentArticles key={index} slice={slice} />
+					)
+				} else {
+					return null;
+				}
+			});
+
       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
       const pubDate = new Date(this.state.doc.data.publication_date)
 			const postTags = document.post_tags.map(function(tag, tagIndex){
@@ -91,7 +146,7 @@ class Post extends Component {
 				)
 			});
       return(
-        <div>
+        <React.Fragment>
           <Helmet>
             <title>{RichText.asText(document.post_title) + " - Buy Social Canada"}</title>
             <meta name="description" content={RichText.asText(document.post_excerpt)} />
@@ -111,19 +166,8 @@ class Post extends Component {
               </Row>
             </Container>
           </ContentBlock>
-					<NewsItems>
-						<TriangleRed />
-						<TriangleBlue />
-						<Container>
-							<Row>
-								<Col lg="8">
-									<h3 className="mb-5">Latest Articles</h3>
-								</Col>
-							</Row>
-							<RecentArticles />
-						</Container>
-					</NewsItems>
-        </div>
+					{sliceContent}
+        </React.Fragment>
       )
     }
     return <BlogHeader headline="Loading news post..." />;

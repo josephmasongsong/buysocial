@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import Prismic from 'prismic-javascript';
-import PrismicConfig from '../prismic-configuration';
-import { Col } from 'reactstrap';
+import PrismicConfig from '../../prismic-configuration';
+import { Col, Row, Container } from 'reactstrap';
+import styled from 'styled-components';
 import Post from './Post';
 import Pagination from './Pagination';
+
+const ContentBlock = styled.section`
+	position: relative;
+	padding: 6rem 0;
+	border-top: 1px solid #f8f9fa;
+	@media (max-width: 575.98px) {
+		padding: 3rem 0;
+  }
+`
 
 class PostList extends Component {
   constructor(props){
@@ -50,26 +60,36 @@ class PostList extends Component {
 
 
       return(
-          <Col lg="12" className="postList">
+        <ContentBlock>
+          <Container>
+            <Row>
+              <Col lg="12" className="postList">
+                {currentDoc.map(post => (
+                  <Post key={post.uid} post={post} />
+                ))}
+                <Pagination
+                  totalRecords={totalDoc}
+                  pageLimit={6}
+                  pageNeighbours={1}
+                  onPageChanged={this.onPageChanged}
+                />
+              </Col>
+            </Row>
+          </Container>
+        </ContentBlock>
 
-
-            {currentDoc.map(post => (
-              <Post key={post.uid} post={post} />
-            ))}
-            <Pagination
-              totalRecords={totalDoc}
-              pageLimit={6}
-              pageNeighbours={1}
-              onPageChanged={this.onPageChanged}
-            />
-
-        </Col>
       )
     }
     return(
-      <Col lg="12">
-        <h1>Loading Posts...</h1>
-      </Col>
+      <ContentBlock>
+        <Container>
+          <Row>
+            <Col lg="12">
+              <h1>Loading Posts...</h1>
+            </Col>
+          </Row>
+        </Container>
+      </ContentBlock>
     )
   }
 }

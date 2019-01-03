@@ -65,7 +65,7 @@ const Arrows = styled.img`
   }
 `
 const Header1 = styled.h1`
-	font-size: 3rem;
+	font-size: 3.25rem;
 	margin-bottom: 1rem;
 `
 const CarouselLink = styled.a`
