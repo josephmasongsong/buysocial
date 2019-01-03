@@ -55,7 +55,7 @@ class Navigation extends Component {
   				const navItems = slice.items.map(function(navItem, navItemIndex){
 						if (typeof navItem.sub_nav_link_lable[0] !== "undefined") {
 							return(
-								<a className="dropdown-item" key={navItemIndex} href={navItem.sub_nav_link.slug}>{navItem.sub_nav_link_lable[0].text}</a>
+								<a className="dropdown-item" key={navItemIndex} href={navItem.sub_nav_link.uid}>{navItem.sub_nav_link_lable[0].text}</a>
 	  					);
 						} else {
 							return null;

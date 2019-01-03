@@ -49,7 +49,7 @@ class Home extends Component {
   		const document = this.state.doc.data;
 
   		const sliceContent = document.body.map(function(slice, index){
-  			if (slice.slice_type === '3_column_content_block') {
+  			if (slice.slice_type === '3_column_content_block1') {
   				return(
 						<ThreeColumnBlock key={index} slice={slice} />
   				);
