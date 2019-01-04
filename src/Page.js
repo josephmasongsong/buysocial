@@ -19,6 +19,7 @@ import PostList from './components/slices/PostList';
 import EventMap from './components/slices/EventMap';
 import SupplierForm from './components/slices/SupplierForm';
 import CalloutCenter from './components/slices/CalloutCenter';
+import PurchaserForm from './components/slices/PurchaserForm';
 
 class Page extends Component {
 	constructor(props) {
@@ -121,6 +122,10 @@ class Page extends Component {
   			} else if (slice.slice_type === 'callout_centered') {
 					return(
 						<CalloutCenter key={index} slice={slice} />
+					)
+  			} else if (slice.slice_type === 'purchaser_form') {
+					return(
+						<PurchaserForm key={index} slice={slice} />
 					)
   			} else {
   				return null;

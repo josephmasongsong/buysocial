@@ -59,6 +59,7 @@ const GlobalStyle = createGlobalStyle`
       border-radius: 0;
       top: 72px;
       padding: 0;
+      border: 0;
       .dropdown-item {
         padding: .75rem 1.5rem;
         font-family: 'Museo Slab 500';

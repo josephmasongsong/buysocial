@@ -38,7 +38,7 @@ class SupplierStepThree extends Component {
         <legend className="mb-4">Organization Contact</legend>
 
         <FormGroup>
-          <Label htmlFor="">Full Name</Label>
+          <Label htmlFor="">Contact Name</Label>
           <Input
             type="text"
             name="contactName"

@@ -100,7 +100,7 @@ class Footer extends Component {
                   <li className="list-inline-item"><a className="text-white" href={Link.url(document.linkedin_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
                   <li className="list-inline-item"><a className="text-white" href={Link.url(document.instagram_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a></li>
                 </ul>
-  						</Col>              
+  						</Col>
   					</Row>
   				</Container>
   			</FooterStyle>

@@ -14,17 +14,6 @@ const ContentBlock = styled.section`
   }
 `
 
-// const CalloutButton = styled.button`
-// 	border: ${props => props.outline ? '2px solid #005891' : '1px solid #005891' };
-// 	background-color: ${props => props.outline ? 'transparent' : '#005891' };
-// 	color: ${props => props.outline ? '#005891' : '#fff' } !important;
-// 	text-decoration: none;
-// 	font-family: 'Roboto Slab', sans-serif;
-// 	font-size: 1.25rem;
-// 	line-height: 1.5;
-// 	padding: 0.75rem 1.25rem;
-// 	cursor: pointer;
-// `
 const encode = (data) => {
    return Object.keys(data)
        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
