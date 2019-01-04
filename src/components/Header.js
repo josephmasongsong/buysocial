@@ -129,7 +129,7 @@ class Header extends Component {
 				<TriangleYellow />
 				<Container className="h-100">
 					<Row className="h-100 align-items-center">
-						<Col lg="9" className="mx-auto">
+						<Col lg="8" className="mx-auto">
 							<Carousel
 								ride="carousel"
 								slide={false}
