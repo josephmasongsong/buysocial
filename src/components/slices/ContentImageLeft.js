@@ -30,6 +30,9 @@ const LinkTo = styled.a`
   margin-bottom: 0;
   font-size: 1.25rem;
 `
+const Blurb = styled.div`
+	font-size: 1.125rem;
+`
 
 class ContentImageLeft extends React.Component {
   render() {
@@ -44,7 +47,7 @@ class ContentImageLeft extends React.Component {
             <Col lg="6" className="align-self-center">
               {RichText.render(this.props.slice.primary.title )}
               <ContentSubTitle>{RichText.render(this.props.slice.primary.subtitle )}</ContentSubTitle>
-              {RichText.render(this.props.slice.primary.blurb )}
+              <Blurb>{RichText.render(this.props.slice.primary.blurb )}</Blurb>
               <LinkTo href={Link.url(this.props.slice.primary.link, PrismicConfig.linkResolver)}>{RichText.asText(this.props.slice.primary.link_label)}</LinkTo>
             </Col>
 

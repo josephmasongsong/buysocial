@@ -39,7 +39,7 @@ class PurchaserStepThree extends Component {
         <legend>Verification Process</legend>
         <FormText className="mb-4">Please select the following commitments, to determine if your purchasing organization is eligible for a Buy Social certification.  If we have any questions we will follow up with the contact information provided above.</FormText>
         <FormGroup tag="fieldset">
-          <p>Is the primary purpose of the enterprise to create social, environmental or cultural value and impact?</p>
+          <p>We will endeavor to buy goods and services from social enterprises, businesses that reinvest their profits for good, benefiting people and planet.</p>
           <FormGroup check inline>
             <Label check>
               <Input
@@ -68,7 +68,7 @@ class PurchaserStepThree extends Component {
         {this.validator.message('q1', values.q1, 'required')}
 
         <FormGroup tag="fieldset">
-          <p>Are at least 50% of profits reinvested in the mission of your organization?</p>
+          <p>We have a fair, accessible and open procurement process and services.</p>
           <FormGroup check inline>
             <Label check>
               <Input
@@ -97,7 +97,7 @@ class PurchaserStepThree extends Component {
         {this.validator.message('q2', values.q2, 'required')}
 
         <FormGroup tag="fieldset">
-          <p>Is the sale of goods or services a principal revenue source of the enterprise being certified?</p>
+          <p>We are raising awareness of social enterprises across our organization.</p>
           <FormGroup check inline>
             <Label check>
               <Input
@@ -126,7 +126,7 @@ class PurchaserStepThree extends Component {
         {this.validator.message('q3', values.q3, 'required')}
 
         <FormGroup tag="fieldset">
-          <p>Is the enterprise incorporated in a manner to support, promote, and ensure stakeholder value over shareholder value?</p>
+          <p>We have trained or intend to train relevant staff about buying from social enterprises.</p>
           <FormGroup check inline>
             <Label check>
               <Input
@@ -156,7 +156,7 @@ class PurchaserStepThree extends Component {
 
 
         <FormGroup tag="fieldset">
-          <p>Does the organization and/or enterprise operate in a transparent and responsible manner?</p>
+          <p>We will work with Buy Social Canada to find social enterprise suppliers where possible.</p>
           <FormGroup check inline>
             <Label check>
               <Input
@@ -185,7 +185,7 @@ class PurchaserStepThree extends Component {
         {this.validator.message('q5', values.q5, 'required')}
 
         <FormGroup tag="fieldset">
-          <p>In the event of the organization's dissolution, are its remaining properties given to another entity working in a similar field?</p>
+          <p>We are committed to developing metrics to measure the impact of buying social.</p>
           <FormGroup check inline>
             <Label check>
               <Input
