@@ -78,7 +78,7 @@ class RecentArticles extends Component {
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     		const pubDate = new Date(post.data.publication_date)
     		return(
-    			<Col lg="6">
+    			<Col lg="6" key={postIndex}>
     				<div className="mb-3 pb-3 border-bottom">
     					<LinkToArticle href={/news/ + post.uid}><h5 className="text-dark">{RichText.asText(post.data.post_title)}</h5></LinkToArticle>
     					<p className="text-muted mb-0">By {RichText.asText(post.data.author.data.name)} | {pubDate.toLocaleDateString("en-US", options)}</p>

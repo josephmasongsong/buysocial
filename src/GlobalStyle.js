@@ -57,13 +57,16 @@ const GlobalStyle = createGlobalStyle`
     z-index: 1;
     .dropdown-menu {
       border-radius: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       top: 72px;
       padding: 0;
       border: 0;
       .dropdown-item {
         padding: .75rem 1.5rem;
         font-family: 'Museo Slab 500';
-
+        &:focus {
+          outline: 0;
+        }
       }
     }
   }

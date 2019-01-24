@@ -15,7 +15,7 @@ const Name = styled.span`
 `
 const NavLink = props => {
   const pageURI = window.location.pathname+window.location.search
-  const aClassName = (props.path === pageURI) ? "px-3 nav-link active" : "px-3 nav-link"
+  const aClassName = (props.path === pageURI) ? "px-4 nav-link active" : "px-4 nav-link"
   return(
     <a href={props.path} className={aClassName}>
     {

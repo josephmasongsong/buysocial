@@ -9,6 +9,7 @@ import {
 	NavItem,
 	UncontrolledDropdown,
 	DropdownToggle,
+	DropdownItem,
 	DropdownMenu } from 'reactstrap';
 import images from '../ThemeImages';
 import styled from 'styled-components';
@@ -55,7 +56,7 @@ class Navigation extends Component {
   				const navItems = slice.items.map(function(navItem, navItemIndex){
 						if (typeof navItem.sub_nav_link_lable[0] !== "undefined") {
 							return(
-								<a className="dropdown-item" key={navItemIndex} href={navItem.sub_nav_link.uid}>{navItem.sub_nav_link_lable[0].text}</a>
+								<DropdownItem key={navItemIndex} tag="a" href={Link.url(navItem.sub_nav_link, PrismicConfig.linkResolver)}>{navItem.sub_nav_link_lable[0].text}</DropdownItem>
 	  					);
 						} else {
 							return null;
@@ -77,7 +78,7 @@ class Navigation extends Component {
 							</UncontrolledDropdown>
 							:
 							<NavItem>
-	              <NavLink className="px-3" name={RichText.asText(slice.primary.label)} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)} />
+	              <NavLink className="px-4" name={RichText.asText(slice.primary.label)} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)} />
 	            </NavItem>
 						}
 						</Fragment>
@@ -105,12 +106,6 @@ class Navigation extends Component {
 			<Navbar color="white" light expand="lg" className="buysocial-navigation">
 	      <Container>
 	        <NavbarBrand href="/"><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
-	        <NavbarToggler onClick={this.toggle} />
-	        <Collapse isOpen={this.state.isOpen} navbar>
-	          <Nav className="ml-auto" navbar>
-
-	          </Nav>
-	        </Collapse>
 	      </Container>
 	    </Navbar>
 		)
