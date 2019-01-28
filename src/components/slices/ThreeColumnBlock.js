@@ -2,13 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
+import { DeviceSize } from '../../DeviceSize';
 
 const ContentBlock = styled.section`
 	position: relative;
 	padding: 6rem 0;
 	border-top: 1px solid #f8f9fa;
-	@media (max-width: 575.98px) {
-		padding: 3rem 0;
+	@media ${DeviceSize.xs} {
+    padding: 3rem 0;
   }
 `
 const BlockContainer = styled.div`
@@ -21,6 +22,9 @@ const BlockContainer = styled.div`
   p:last-child {
     margin-bottom: 0;
   }
+	@media ${DeviceSize.xs} {
+		margin-bottom: 1.5rem;
+	}
 `
 
 class ThreeColumnBlock extends React.Component {

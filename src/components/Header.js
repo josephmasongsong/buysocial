@@ -67,6 +67,9 @@ const Arrows = styled.img`
 const Header1 = styled.h1`
 	font-size: 3.25rem;
 	margin-bottom: 1rem;
+	@media ${DeviceSize.xs} {
+		font-size: 2.25rem;
+  }
 `
 const CarouselLink = styled.a`
 	font-size: 1.25rem;

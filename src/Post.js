@@ -6,7 +6,6 @@ import PrismicConfig from './prismic-configuration';
 import BlogHeader from './components/BlogHeader'
 import styled from 'styled-components';
 import { DeviceSize } from './DeviceSize';
-
 import RecentArticles from './components/slices/RecentArticles';
 import ThreeColumnBlock from './components/slices/ThreeColumnBlock';
 import PeopleContainer from './components/slices/PeopleContainer';
@@ -22,6 +21,7 @@ import ContactForm from './components/slices/ContactForm';
 import SearchContainer from './components/slices/SearchContainer';
 import PostList from './components/slices/PostList';
 import EventMap from './components/slices/EventMap';
+
 
 const ContentBlock = styled.section`
 	position: relative;

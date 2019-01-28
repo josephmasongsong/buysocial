@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link, RichText } from 'prismic-reactjs'
 import PrismicConfig from '../../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap'
+import { DeviceSize } from '../../DeviceSize';
 
 const GrayBlock = styled.div`
 	padding: 6rem 0;
@@ -11,6 +12,9 @@ const GrayBlock = styled.div`
   h1,h2,h3 {
     margin-bottom: 3rem;
   }
+	@media ${DeviceSize.xs} {
+		padding: 3rem 0;
+	}
 `
 const LinkContainer = styled.div`
   margin-bottom: 1rem;
@@ -42,6 +46,10 @@ const TriangleRed = styled.div`
   left: 0;
   z-index: 2;
   clip-path: polygon(0% 50%, 0% 100%, 100% 100%);
+	@media ${DeviceSize.xs} {
+		width: 20%;
+		height: 20%;
+	}
 `
 const TriangleBlue = styled.div`
 	width: 10%;
@@ -52,6 +60,10 @@ const TriangleBlue = styled.div`
   right: 0;
   z-index: 2;
   clip-path: polygon(100% 50%, 0% 0%, 100% 0%);
+	@media ${DeviceSize.xs} {
+		width: 20%;
+		height: 20%;
+	}	
 `
 
 class ListOfLinks extends React.Component {

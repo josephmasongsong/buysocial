@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
+import { DeviceSize } from '../../DeviceSize';
 
 const ContentBlock = styled.section`
 	position: relative;
 	padding: 6rem 0 0;
 	border-top: 1px solid #f8f9fa;
-	@media (max-width: 575.98px) {
+	@media ${DeviceSize.xs} {
 		padding: 3rem 0;
   }
 `
@@ -16,7 +17,7 @@ class LogoGrid extends React.Component {
   render () {
     const items = this.props.slice.items.map(function(item, itemIndex){
       return(
-        <Col lg="3" key={itemIndex}>
+        <Col lg="3" xs="6" key={itemIndex}>
           <img src={item.image.url} alt="" className="img-fluid" />
         </Col>
       );

@@ -20,10 +20,6 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'SofiaProLight', sans-serif;
-    // padding-top: 110px;
-    // @media ${DeviceSize.xs} {
-    //   padding-top: 88px;
-    // }
   }
   h1,h2,h3,h4,h5,h6 {
     font-family: 'Roboto Slab', sans-serif;
@@ -32,12 +28,12 @@ const GlobalStyle = createGlobalStyle`
   }
   h3 {
     @media ${DeviceSize.xs} {
-      font-size: 1.625rem;
+      font-size: 1.5rem;
     }
   }
   h4 {
     @media ${DeviceSize.xs} {
-      font-size: 1.375rem;
+      font-size: 1.25rem;
     }
   }
   h5 {
@@ -47,6 +43,9 @@ const GlobalStyle = createGlobalStyle`
   }
   .btn {
     font-family: 'Roboto Slab';
+  }
+  span[class^="burger_hamburger-inner__"],span[class^="burger_hamburger-inner__"]:before, span[class^="burger_hamburger-inner__"]:after {
+    border-radius: 0;
   }
   .dropdown-item.active, .dropdown-item:active {
     background-color: #005891 !important;
@@ -67,6 +66,12 @@ const GlobalStyle = createGlobalStyle`
         &:focus {
           outline: 0;
         }
+      }
+    }
+    @media ${DeviceSize.xs} {
+      .dropdown-menu {
+        box-shadow: none;
+        padding-left: 1rem;
       }
     }
   }
@@ -139,7 +144,6 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     ${bscBlue};
-    // text-decoration: underline;
   }
   .input-group-append .btn-primary {
     background:#005891;
@@ -180,13 +184,8 @@ const GlobalStyle = createGlobalStyle`
     color: #005891;
   }
   label { font-family: 'SofiaProMedium';
-  // margin-bottom: 0;
 }
   .form-control {
-    // outline: 0;
-    // border-top: 0;
-    // border-left: 0;
-    // border-right: 0;
     border-radius: 0;
     padding: .5rem .75rem;
     -webkit-appearance: none;
@@ -239,10 +238,6 @@ const GlobalStyle = createGlobalStyle`
   .ais-SearchBox-form {
     margin-bottom: 3rem;
   }
-  // .ais-Breadcrumb-item--selected, .ais-HierarchicalMenu-item--selected, .ais-Menu-item--selected {
-  //   font-family: 'SofiaProMedium';
-  //   font-weight: normal !important;
-  // }
   .ais-SearchBox-input {
     border-radius: 0;
   }
@@ -279,7 +274,7 @@ const GlobalStyle = createGlobalStyle`
 
   @media ${DeviceSize.xs} {
     .display-4 {
-      font-size: 1.875rem;
+      font-size: 2.25rem;
     }
     .lead {
       font-size: 1rem;

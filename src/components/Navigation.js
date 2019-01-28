@@ -3,7 +3,6 @@ import {
 	Container,
 	Collapse,
 	Navbar,
-	NavbarToggler,
 	NavbarBrand,
 	Nav,
 	NavItem,
@@ -17,6 +16,7 @@ import NavLink from './NavLink';
 import Prismic from 'prismic-javascript';
 import {Link, RichText} from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
+import Burger from 'react-css-burger';
 
 const Logo = styled.img`
 	width: 84px;
@@ -69,7 +69,7 @@ class Navigation extends Component {
 							(slice.items.length > 1)
 							?
 							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav className="px-3">
+								<DropdownToggle nav className="px-4">
 									{RichText.asText(slice.primary.label)}
 								</DropdownToggle>
 								<DropdownMenu right>
@@ -92,7 +92,16 @@ class Navigation extends Component {
 				<Navbar color="white" light expand="lg" className="buysocial-navigation">
 		      <Container>
 		        <NavbarBrand href="/"><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
-		        <NavbarToggler onClick={this.toggle} />
+
+						<Burger
+			        onClick={this.toggle}
+			        active={this.state.isOpen}
+							burger="squeeze"
+							color="#005891"
+							hoverOpacity={0.8}
+							scale={1}
+							marginTop='0.625rem'
+			      />
 		        <Collapse isOpen={this.state.isOpen} navbar>
 		          <Nav className="ml-auto" navbar>
 								{navContent}

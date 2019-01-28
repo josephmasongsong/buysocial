@@ -21,6 +21,9 @@ const Arrows = styled.img`
   right: 0;
   bottom: 0;
   width: 200px;
+  @media ${DeviceSize.xs} {
+    width: 140px;
+  }
 `
 const Address = styled.ul`
   padding-left: 2rem;

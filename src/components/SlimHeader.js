@@ -8,6 +8,9 @@ const Masthead = styled.section`
 	position: relative;
   padding: 6rem 0;
 	background: #fbfbfb;
+	p:last-child {
+		margin-bottom: 0;
+	}
 	@media ${DeviceSize.xs} {
 		padding: 3rem 0;
   }
@@ -35,7 +38,7 @@ const TriangleRed = styled.div`
   clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
 	@media ${DeviceSize.xs} {
 		width: 20%;
-		height: 20%;
+    height: 15%;
   }
 `
 
@@ -50,7 +53,7 @@ const TriangleYellow = styled.div`
   clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
 	@media ${DeviceSize.xs} {
 		width: 20%;
-		height: 20%;
+    height: 15%;
   }
 `
 
@@ -66,7 +69,7 @@ const HeaderImage = styled.img`
 	max-width: 100%;
 	height: auto;
 	@media ${DeviceSize.xs} {
-		margin-top: 1rem;
+		margin-bottom: 1.5rem;
 		z-index: 2;
 		position: relative;
   }
@@ -79,20 +82,20 @@ const SlimHeader = props => {
 
 	if (headerImg) {
 		headerContent = 	<Row className="h-100 justify-content-center">
-												<Col lg="6" className="align-self-center mx-auto">
+												<Col lg="5" className="align-self-center mx-auto order-sm-12">
+													<HeaderImage src={props.headerImage} alt="" />
+												</Col>
+												<Col lg="6" className="align-self-center mx-auto order-sm-1">
 													<Arrows src={images.arrowRight} alt=""/>
 													<h1 className="display-4  mb-3">{props.headline}</h1>
 													<div className="lead mb-0 text-muted">{props.subheader}</div>
-												</Col>
-												<Col lg="5" className="align-self-center mx-auto">
-													<HeaderImage src={props.headerImage} alt="" />
 												</Col>
 											</Row>
 	} else {
 		headerContent = 	<Col lg="12" className="align-self-center">
 												<Arrows src={images.arrowRight} alt=""/>
 												<h1 className="mb-3">{props.headline}</h1>
-												<p className="text-muted lead mb-0">{props.subheader}</p>
+												<div className="text-muted lead mb-0">{props.subheader}</div>
 											</Col>
 	}
 

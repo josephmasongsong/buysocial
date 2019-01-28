@@ -69,7 +69,7 @@ class PostList extends Component {
                 ))}
                 <Pagination
                   totalRecords={totalDoc}
-                  pageLimit={6}
+                  pageLimit={5}
                   pageNeighbours={1}
                   onPageChanged={this.onPageChanged}
                 />

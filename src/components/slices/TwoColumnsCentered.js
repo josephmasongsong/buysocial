@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col, Media } from 'reactstrap'
+import { DeviceSize } from '../../DeviceSize';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -38,8 +39,18 @@ const ContentBlock = styled.section`
       margin-bottom: 0;
     }
   }
-	@media (max-width: 575.98px) {
+	@media ${DeviceSize.xs} {
 		padding: 3rem 0;
+		.headerContainer {
+			p {
+				font-size: 1.125rem;
+			}
+		}
+		.column:nth-last-child(-n+2) {
+			.media {
+				margin-bottom: 1.5rem;
+			}
+		}
   }
 `
 

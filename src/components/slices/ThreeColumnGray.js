@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
+import { DeviceSize } from '../../DeviceSize';
 
 const GrayBlock = styled.div`
 	padding: 6rem 0 3rem 0;
@@ -16,6 +17,12 @@ const GrayBlock = styled.div`
     p:last-child {
       margin-bottom: 0;
     }
+  }
+	@media ${DeviceSize.xs} {
+    padding: 3rem 0;
+		.column:last-child {
+			margin-bottom: 0;
+		}
   }
 `
 
