@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 0;
   }
   .navbar-toggler {
-    padding: 0;
+    padding: 0 1rem 0 0;
     font-size: 1.25rem;
     line-height: 1;
     background-color: transparent;
@@ -82,6 +82,9 @@ const GlobalStyle = createGlobalStyle`
       }
     }
     @media ${DeviceSize.xs} {
+      padding: 0;
+      .navbar-nav {
+      }
       .dropdown-menu {
         box-shadow: none;
         padding-left: 1rem;
@@ -135,7 +138,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
-
+  .navbar-brand {
+    @media ${DeviceSize.xs} {
+      padding-top: 1rem;
+      padding-left: 1rem;
+      margin-right: 0;
+      padding-bottom: 1rem;
+    }
+  }
   .navbar-brand img {
     width: 84px;
     @media ${DeviceSize.xs} {

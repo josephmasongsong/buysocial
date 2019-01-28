@@ -56,7 +56,7 @@ class Navigation extends Component {
   				const navItems = slice.items.map(function(navItem, navItemIndex){
 						if (typeof navItem.sub_nav_link_lable[0] !== "undefined") {
 							return(
-								<DropdownItem key={navItemIndex} tag="a" href={Link.url(navItem.sub_nav_link, PrismicConfig.linkResolver)}>{navItem.sub_nav_link_lable[0].text}</DropdownItem>
+								<DropdownItem key={navItemIndex} className="px-4 py-3" tag="a" href={Link.url(navItem.sub_nav_link, PrismicConfig.linkResolver)}>{navItem.sub_nav_link_lable[0].text}</DropdownItem>
 	  					);
 						} else {
 							return null;
@@ -69,7 +69,7 @@ class Navigation extends Component {
 							(slice.items.length > 1)
 							?
 							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav className="px-4">
+								<DropdownToggle nav className="px-4 py-3 py-sm-2">
 									{RichText.asText(slice.primary.label)}
 								</DropdownToggle>
 								<DropdownMenu right>

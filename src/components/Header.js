@@ -68,12 +68,15 @@ const Header1 = styled.h1`
 	font-size: 3.25rem;
 	margin-bottom: 1rem;
 	@media ${DeviceSize.xs} {
-		font-size: 2.25rem;
+		font-size: 2.5rem;
   }
 `
 const CarouselLink = styled.a`
 	font-size: 1.25rem;
 	text-decoration: underline;
+	@media ${DeviceSize.xs} {
+		font-size: 1.125rem;
+  }
 `
 class Header extends Component {
 	constructor(props) {
@@ -116,6 +119,7 @@ class Header extends Component {
           onExiting={this.onExiting}
           onExited={this.onExited}
           key={itemIndex}
+					className="h-100"
         >
 					<Arrows src={images.arrowRight} alt=""/>
 					<Header1>{RichText.asText(item.headline)}</Header1>
