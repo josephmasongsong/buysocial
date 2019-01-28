@@ -47,6 +47,14 @@ const GlobalStyle = createGlobalStyle`
   span[class^="burger_hamburger-inner__"],span[class^="burger_hamburger-inner__"]:before, span[class^="burger_hamburger-inner__"]:after {
     border-radius: 0;
   }
+  .navbar-toggler {
+    padding: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+  }
   .dropdown-item.active, .dropdown-item:active {
     background-color: #005891 !important;
     color: #fff !important;

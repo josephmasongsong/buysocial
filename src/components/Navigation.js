@@ -92,16 +92,17 @@ class Navigation extends Component {
 				<Navbar color="white" light expand="lg" className="buysocial-navigation">
 		      <Container>
 		        <NavbarBrand href="/"><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
-
-						<Burger
-			        onClick={this.toggle}
-			        active={this.state.isOpen}
-							burger="squeeze"
-							color="#005891"
-							hoverOpacity={0.8}
-							scale={1}
-							marginTop='0.625rem'
-			      />
+						<div className="navbar-toggler">
+							<Burger
+				        onClick={this.toggle}
+				        active={this.state.isOpen}
+								burger="squeeze"
+								color="#005891"
+								hoverOpacity={0.8}
+								scale={1}
+								marginTop='0.625rem'
+				      />
+						</div>
 		        <Collapse isOpen={this.state.isOpen} navbar>
 		          <Nav className="ml-auto" navbar>
 								{navContent}
