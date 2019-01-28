@@ -41,6 +41,11 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1.125rem;
     }
   }
+  .media {
+    @media ${DeviceSize.xs} {
+      display: block;
+    }
+  }
   .btn {
     font-family: 'Roboto Slab';
   }
@@ -262,17 +267,7 @@ const GlobalStyle = createGlobalStyle`
     display: none;
   }
 
-  .post-body {
-    font-size: 1.125rem;
-    p:last-child {
-      margin-bottom: 0;
-    }
-    img {
-      max-width: 100%;
-      margin: auto;
-      display: block;
-    }
-  }
+
   .filedIn {
     font-family: 'SofiaProMedium';
   }
@@ -288,8 +283,14 @@ const GlobalStyle = createGlobalStyle`
       font-size: 1rem;
     }
   }
-
-
+  button:focus {
+    outline: 0;
+  }
+  .ais-HierarchicalMenu {
+    @media ${DeviceSize.xs} {
+      margin-bottom: 3rem;
+    }
+  }
   .ais-HierarchicalMenu-link, .ais-Menu-link {
     color: rgb(33, 37, 41) !important;
     padding: 0.75rem 0px;

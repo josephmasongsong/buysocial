@@ -35,8 +35,8 @@ const TriangleRed = styled.div`
   clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
 	@media ${DeviceSize.xs} {
 		width: 20%;
-		height: 20%;
-	}
+    height: 15%;
+  }
 `
 
 const TriangleYellow = styled.div`
@@ -50,31 +50,56 @@ const TriangleYellow = styled.div`
   clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
 	@media ${DeviceSize.xs} {
 		width: 20%;
-		height: 20%;
-	}
+    height: 15%;
+  }
 `
 
 const Arrows = styled.img`
   margin-bottom: 1rem!important;
 	width: 64px;
+	@media ${DeviceSize.xs} {
+		width: 48px;
+  }
 `
-// const HeaderImage = styled.img`
-// 	box-shadow: 0 0 5px rgba(0,0,0,0.2);
-// 	max-width: 100%;
-// 	height: auto;
-// `
-
+const HeaderImage = styled.img`
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	max-width: 100%;
+	height: auto;
+	@media ${DeviceSize.xs} {
+		margin-bottom: 1.5rem;
+		z-index: 2;
+		position: relative;
+  }
+`
+const Header = styled.h1`
+	margin-bottom: 1rem;
+	@media ${DeviceSize.xs} {
+		font-size: 2rem;
+	}
+`
 const BlogHeader = props => {
-	// const headerImg = props.headerImage;
-	// let img;
+	const headerImg = props.headerImage;
+	let headerContent;
 
-	// if (headerImg) {
-	// 	img =  <Col lg="5" className="align-self-center mx-auto">
-	// 	         <HeaderImage src={props.headerImage} alt="" />
-	// 	       </Col>
-	// } else {
-	// 	img = null;
-	// }
+
+	if (headerImg) {
+		headerContent = 	<Row className="h-100 justify-content-center">
+												<Col lg="5" className="align-self-center mx-auto order-sm-12">
+													<HeaderImage src={props.headerImage} alt="" />
+												</Col>
+												<Col lg="6" className="align-self-center mx-auto order-sm-1">
+													<Arrows src={images.arrowRight} alt=""/>
+													<Header>{props.headline}</Header>
+													<p className="text-muted lead mb-0">By {props.author} | {props.pubdate}</p>
+												</Col>
+											</Row>
+	} else {
+		headerContent = 	<Col lg="12" className="align-self-center">
+												<Arrows src={images.arrowRight} alt=""/>
+												<Header>{props.headline}</Header>
+												<div className="text-muted lead mb-0">{props.subheader}</div>
+											</Col>
+	}
 
 	return(
 		<Masthead>
@@ -82,14 +107,7 @@ const BlogHeader = props => {
 			<TriangleRed />
 			<TriangleYellow />
 			<Container className="h-100">
-				<Row className="h-100 justify-content-center">
-					<Col lg="12" className="align-self-center">
-						<Arrows src={images.arrowRight} alt=""/>
-						<h1 className="mb-3">{props.headline}</h1>
-						<p className="text-muted lead mb-0">By {props.author} | {props.pubdate}</p>
-					</Col>
-
-				</Row>
+				{headerContent}
 			</Container>
 		</Masthead>
 	);

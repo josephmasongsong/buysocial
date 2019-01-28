@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Media } from 'reactstrap';
 import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
+import { DeviceSize } from '../../DeviceSize';
 
 const PostImage = styled.div`
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
@@ -10,6 +11,13 @@ const PostImage = styled.div`
   background-position: center;
   background-size: cover;
   background-image: ${props => `url(${props.background})`};
+  @media ${DeviceSize.xs} {
+    width: 100%;
+    max-width: 100%;
+    height: 220px;
+    margin-right: 0 !important;
+    margin-bottom: 1rem;
+  }
 `
 
 const LinkTo = styled.a`

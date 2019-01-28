@@ -13,7 +13,7 @@ const Masthead = styled.section`
 	height: 600px;
 	background: #fbfbfb;
 	@media ${DeviceSize.xs} {
-		height: inherit;
+		height: calc(100vh - 90px);
 		padding: 3rem 0;
 	}
 `

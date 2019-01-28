@@ -32,6 +32,20 @@ const ContentBlock = styled.section`
 		padding: 3rem 0;
 	}
 `
+const PostBody = styled.div`
+	font-size: 1.125rem;
+	p:last-child {
+		margin-bottom: 0;
+	}
+	img {
+		max-width: 100%;
+		margin: auto;
+		display: block;
+	}
+	@media ${DeviceSize.xs} {
+		font-size: 1rem;
+	}
+`
 
 class Post extends Component {
   constructor(props) {
@@ -152,16 +166,16 @@ class Post extends Component {
             <meta name="description" content={RichText.asText(document.post_excerpt)} />
             <meta name="og:image" content={document.post_image.url} />
           </Helmet>
-					<BlogHeader headline={RichText.asText(document.post_title)} author={RichText.asText(document.author.data.name)} pubdate={pubDate.toLocaleDateString("en-US", options)} />
+					<BlogHeader headline={RichText.asText(document.post_title)} author={RichText.asText(document.author.data.name)} pubdate={pubDate.toLocaleDateString("en-US", options)} headerImage={document.post_image.url} />
           <ContentBlock>
             <Container>
               <Row>
                 <Col lg="12" className="mx-auto">
 									<p className="lead text-muted">{RichText.asText(document.post_excerpt)}</p>
-                  <div className="post-body">
+                  <PostBody>
                   	{RichText.render(document.post_body)}
 										<span className="filedIn d-inline-block mr-2 mt-4">Filed Under:</span> {postTags}
-                  </div>
+                  </PostBody>
                 </Col>
               </Row>
             </Container>

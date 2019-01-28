@@ -28,6 +28,15 @@ const Arrows = styled.img`
 const Address = styled.ul`
   padding-left: 2rem;
 `
+const Header = styled.h5`
+  margin-bottom: 1.5rem;
+  color: #fff !important;
+  @media ${DeviceSize.xs} {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0.75rem;
+  }
+`
 
 class Footer extends Component {
   constructor(props) {
@@ -67,7 +76,7 @@ class Footer extends Component {
   				<Container>
   					<Row className="justify-content-center">
   						<Col lg="3" className="mx-auto">
-  							<h5 className="mb-4 text-white">Contact Information</h5>
+  							<Header>Contact Information</Header>
                 <Address className="fa-ul pl-0">
                   <li className="mb-2"><span className="fa-li"><i className="fas fa-map-marker-alt text-warning"></i></span>{RichText.render(document.address)}</li>
                   <li className="mb-2"><span className="fa-li"><i className="fas fa-envelope text-warning"></i></span><a href={"mailto:" + RichText.asText(document.email)} className="text-white">{RichText.asText(document.email)}</a></li>
@@ -75,13 +84,13 @@ class Footer extends Component {
                 </Address>
   						</Col>
   						<Col lg="2">
-  							<h5 className="mb-4 text-white">Navigation</h5>
+  							<Header>Navigation</Header>
                 <ul className="list-unstyled">
                   {footerNavigation}
                 </ul>
   						</Col>
               <Col lg="4" className="mr-auto">
-  							<h5 className="mb-4 text-white">Newsletter</h5>
+  							<Header>Newsletter</Header>
                 <p>{RichText.asText(document.newsletter_blurb)}</p>
                 <form name="newsletter_signup" method="post">
                   <input type="hidden" name="form-name" value="newsletter_signup" />
@@ -96,7 +105,7 @@ class Footer extends Component {
                 </form>
   						</Col>
               <Col lg="2">
-  							<h5 className="mb-4 text-white">Social</h5>
+  							<Header>Social</Header>
                 <ul className="social list-inline">
                   <li className="list-inline-item"><a className="text-white" href={Link.url(document.facebook_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a></li>
                   <li className="list-inline-item"><a className="text-white" href={Link.url(document.twitter_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a></li>
