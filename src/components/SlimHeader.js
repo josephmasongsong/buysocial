@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 import images from '../ThemeImages';
 import { DeviceSize } from '../DeviceSize';
+import LazyLoad from 'react-lazyload';
 
 const Masthead = styled.section`
 	position: relative;
@@ -83,7 +84,9 @@ const SlimHeader = props => {
 	if (headerImg) {
 		headerContent = 	<Row className="h-100 justify-content-center">
 												<Col lg="5" className="align-self-center mx-auto order-sm-12">
+												<LazyLoad>
 													<HeaderImage src={props.headerImage} alt="" />
+												</LazyLoad>
 												</Col>
 												<Col lg="6" className="align-self-center mx-auto order-sm-1">
 													<Arrows src={images.arrowRight} alt=""/>

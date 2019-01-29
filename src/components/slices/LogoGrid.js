@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
 import { DeviceSize } from '../../DeviceSize';
+import LazyLoad from 'react-lazyload';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -18,7 +19,9 @@ class LogoGrid extends React.Component {
     const items = this.props.slice.items.map(function(item, itemIndex){
       return(
         <Col lg="3" xs="6" key={itemIndex}>
-          <img src={item.image.url} alt="" className="img-fluid" />
+					<LazyLoad>
+          	<img src={item.image.url} alt="" className="img-fluid" />
+					</LazyLoad>
         </Col>
       );
     });

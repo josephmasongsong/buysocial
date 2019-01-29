@@ -4,6 +4,7 @@ import { Link, RichText } from 'prismic-reactjs'
 import PrismicConfig from '../../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap'
 import { DeviceSize } from '../../DeviceSize';
+import LazyLoad from 'react-lazyload';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -56,7 +57,9 @@ class ContentImage extends React.Component {
         <Container>
           <Row>
 						<Col lg="5" className="align-self-center ml-auto order-sm-12">
+						<LazyLoad>
 							<BlockImage src={this.props.slice.primary.image.url} alt=""/>
+						</LazyLoad>
 						</Col>
             <Col lg="6" className="align-self-center order-sm-1">
               {RichText.render(this.props.slice.primary.title )}

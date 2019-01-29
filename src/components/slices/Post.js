@@ -3,6 +3,7 @@ import { Media } from 'reactstrap';
 import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
 import { DeviceSize } from '../../DeviceSize';
+import LazyLoad from 'react-lazyload';
 
 const PostImage = styled.div`
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
@@ -35,7 +36,9 @@ class Post extends Component {
       <Media>
 
         <Media left>
-          <PostImage background={this.props.post.data.post_image.url} className="mr-4" />
+          <LazyLoad height={160}>
+            <PostImage background={this.props.post.data.post_image.url} className="mr-4" />
+          </LazyLoad>
         </Media>
 
         <Media body>

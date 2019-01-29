@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
 import { DeviceSize } from '../../DeviceSize';
-
+import LazyLoad from 'react-lazyload';
 
 const Person = styled.div`
 	text-align: center;
@@ -70,7 +70,9 @@ class PeopleContainer extends React.Component {
       return(
         <Col sm="3" xs="6" key={memberIndex}>
           <Person>
-            <PersonPhoto src={member.image.url} alt="" />
+						<LazyLoad>
+            	<PersonPhoto src={member.image.url} alt="" />
+						</LazyLoad>
             {RichText.render(member.name)}
             {RichText.render(member.position)}
           </Person>

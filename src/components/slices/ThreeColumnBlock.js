@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
 import { DeviceSize } from '../../DeviceSize';
+import LazyLoad from 'react-lazyload';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -33,7 +34,9 @@ class ThreeColumnBlock extends React.Component {
       return(
         <Col lg="4" key={itemIndex}>
           <BlockContainer>
-            <img src={item.icon.url} alt=""/>
+						<LazyLoad>
+            	<img src={item.icon.url} alt=""/>
+						</LazyLoad>
             {RichText.render(item.title)}
             {RichText.render(item.blurb)}
           </BlockContainer>
