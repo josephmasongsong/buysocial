@@ -2,28 +2,33 @@ import React, { Component } from 'react';
 import Prismic from 'prismic-javascript';
 import PrismicConfig from './prismic-configuration';
 import { RichText } from 'prismic-reactjs';
-import Header from './components/Header';
 import Helmet from 'react-helmet';
 import images from './ThemeImages';
+import Loading from './Loading';
+import Loadable from 'react-loadable';
 
+import {
+  AsyncBulletList,
+  AsyncContactForm,
+  AsyncContentImage,
+  AsyncContentImageLeft,
+  AsyncContentNoImage,
+  AsyncEventMap,
+  AsyncListOfLinks,
+  AsyncLogoGrid,
+  AsyncPeopleContainer,
+  AsyncPostList,
+  AsyncRecentArticles,
+  AsyncSearchContainer,
+  AsyncThreeColumnBlock,
+  AsyncThreeColumnGray,
+  AsyncTwoColumnsCentered
+} from './components/slices/async'
 
-import RecentArticles from './components/slices/RecentArticles';
-import ThreeColumnBlock from './components/slices/ThreeColumnBlock';
-import PeopleContainer from './components/slices/PeopleContainer';
-import LogoGrid from './components/slices/LogoGrid';
-import BulletList from './components/slices/BulletList';
-import TwoColumnsCentered from './components/slices/TwoColumnsCentered';
-import ThreeColumnGray from './components/slices/ThreeColumnGray';
-import ListOfLinks from './components/slices/ListOfLinks';
-import ContentNoImage from './components/slices/ContentNoImage';
-import ContentImageLeft from './components/slices/ContentImageLeft';
-import ContentImage from './components/slices/ContentImage';
-import ContactForm from './components/slices/ContactForm';
-import SearchContainer from './components/slices/SearchContainer';
-import PostList from './components/slices/PostList';
-import EventMap from './components/slices/EventMap';
-
-
+const Header = Loadable({
+  loader: () => import('./components/Header'),
+  loading: Loading
+})
 
 class Home extends Component {
   constructor(props) {
@@ -51,63 +56,63 @@ class Home extends Component {
   		const sliceContent = document.body.map(function(slice, index){
   			if (slice.slice_type === '3_column_content_block1') {
   				return(
-						<ThreeColumnBlock key={index} slice={slice} />
+						<AsyncThreeColumnBlock key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'people') {
   				return(
-						<PeopleContainer key={index} slice={slice} />
+						<AsyncPeopleContainer key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'bullet_list') {
 					return(
-						<BulletList key={index} slice={slice} />
+						<AsyncBulletList key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === '2_narrow_columns') {
 					return(
-						<TwoColumnsCentered key={index} slice={slice} />
+						<AsyncTwoColumnsCentered key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'gray_3_column_content_block') {
 					return(
-						<ThreeColumnGray key={index} slice={slice} />
+						<AsyncThreeColumnGray key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'logo_grid') {
   				return(
-						<LogoGrid key={index} slice={slice} />
+						<AsyncLogoGrid key={index} slice={slice} />
   				);
 				} else if (slice.slice_type === 'list_of_articles') {
 					return(
-						<ListOfLinks key={index} slice={slice} />
+						<AsyncListOfLinks key={index} slice={slice} />
 					)
 				} else if (slice.slice_type === 'knowledge_base') {
 					return(
-						<SearchContainer key={index} slice={slice} />
+						<AsyncSearchContainer key={index} slice={slice} />
 					);
 				} else if (slice.slice_type === 'news_index') {
 					return(
-						<PostList key={index} />
+						<AsyncPostList key={index} />
 					);
 				} else if (slice.slice_type === 'contact_form') {
 					return(
-						<ContactForm key={index} slice={slice} />
+						<AsyncContactForm key={index} slice={slice} />
 					);
 				}  else if (slice.slice_type === 'content_block_with_image') {
   				return(
-						<ContentImage key={index} slice={slice} />
+						<AsyncContentImage key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'content_block_with_image_left') {
   				return(
-						<ContentImageLeft key={index} slice={slice} />
+						<AsyncContentImageLeft key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'content_block_no_image') {
   				return(
-						<ContentNoImage key={index} slice={slice} />
+						<AsyncContentNoImage key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'google_map') {
 					return(
-						<EventMap key={index} slice={slice} />
+						<AsyncEventMap key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'recent_articles') {
 					return(
-						<RecentArticles key={index} slice={slice} />
+						<AsyncRecentArticles key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'featured_pages') {
 					const slides = slice.items
