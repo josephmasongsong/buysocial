@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import Home from './Home';
-import Page from './Page';
-import Post from './Post';
-import ApplicationForm from './ApplicationForm';
-import DocumentLibrary from './DocumentLibrary';
+
+import asyncComponent from "./AsyncComponents";
 
 import GlobalStyle from './GlobalStyle';
+
+const AsyncHome = asyncComponent(() => import("./Home"));
+const AsyncPage = asyncComponent(() => import("./Page"));
+const AsyncPost = asyncComponent(() => import("./Post"));
+
+
 
 class App extends Component {
 
@@ -18,13 +21,9 @@ class App extends Component {
         <GlobalStyle />
         <Navigation />
           <Switch>
-            <Route exact path='/' component={Home}/>
-            <Route exact path='/application' component={ApplicationForm}/>
-            <Route exact path='/documents' component={DocumentLibrary}/>
-
-
-            <Route exact path="/:uid" render={routeProps => <Page {...routeProps} prismicCtx={this.props.prismicCtx} />} />
-            <Route exact path="/news/:uid" render={routeProps => <Post {...routeProps} prismicCtx={this.props.prismicCtx} />} />
+            <Route exact path='/' component={AsyncHome}/>
+            <Route exact path="/:uid" render={routeProps => <AsyncPage {...routeProps} prismicCtx={this.props.prismicCtx} />} />
+            <Route exact path="/news/:uid" render={routeProps => <AsyncPost {...routeProps} prismicCtx={this.props.prismicCtx} />} />
 
           </Switch>
         <Footer />
