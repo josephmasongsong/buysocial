@@ -8,7 +8,6 @@ import Post from './Post';
 import ApplicationForm from './ApplicationForm';
 import DocumentLibrary from './DocumentLibrary';
 
-
 import GlobalStyle from './GlobalStyle';
 
 class App extends Component {

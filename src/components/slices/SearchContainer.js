@@ -11,6 +11,7 @@ import styled from 'styled-components';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 
+
 const ContentBlock = styled.section`
 	position: relative;
 	padding: 6rem 0;
