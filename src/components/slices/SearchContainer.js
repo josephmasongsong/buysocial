@@ -10,7 +10,7 @@ import {
 import styled from 'styled-components';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
-
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -20,8 +20,6 @@ const ContentBlock = styled.section`
 		padding: 3rem 0;
   }
 `
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Hit = ({hit}) =>
   <div className="hit">
