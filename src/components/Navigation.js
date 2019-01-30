@@ -78,7 +78,7 @@ class Navigation extends Component {
 							</UncontrolledDropdown>
 							:
 							<NavItem>
-	              <NavLink className="px-4" name={RichText.asText(slice.primary.label)} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)} />
+	              <NavLink className="px-4" name={RichText.asText(slice.primary.label)} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)}  />
 	            </NavItem>
 						}
 						</Fragment>

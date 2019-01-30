@@ -2,6 +2,10 @@
 import Loadable from "react-loadable";
 import Loading from "../../Loading";
 
+const AsyncBiography = Loadable({
+  loader: () => import("./index" /* webpackChunkName: "biography" */).then(m => m.Biography),
+  loading: Loading
+});
 const AsyncBulletList = Loadable({
   loader: () => import("./index" /* webpackChunkName: "bulletlist" */).then(m => m.BulletList),
   loading: Loading
@@ -76,6 +80,7 @@ const AsyncTwoColumnsCentered = Loadable({
 });
 
 export {
+  AsyncBiography,
   AsyncBulletList,
   AsyncCalloutCenter,
   AsyncContactForm,

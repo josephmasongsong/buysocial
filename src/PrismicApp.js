@@ -18,13 +18,13 @@ export default class PrismicApp extends React.Component {
     });
   }
 
-  // refreshToolbar() {
-  //   const maybeCurrentExperiment = this.api.currentExperiment();
-  //   if (maybeCurrentExperiment) {
-  //     window.PrismicToolbar.startExperiment(maybeCurrentExperiment.googleId());
-  //   }
-  //   window.PrismicToolbar.setup(PrismicConfig.apiEndpoint);
-  // }
+  refreshToolbar() {
+    const maybeCurrentExperiment = this.api.currentExperiment();
+    if (maybeCurrentExperiment) {
+      window.PrismicToolbar.startExperiment(maybeCurrentExperiment.googleId());
+    }
+    window.PrismicToolbar.setup(PrismicConfig.apiEndpoint);
+  }
 
   buildContext() {
     const accessToken = PrismicConfig.accessToken;

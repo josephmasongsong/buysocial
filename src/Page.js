@@ -5,6 +5,7 @@ import Loadable from 'react-loadable';
 import Loading from './Loading'
 
 import {
+	AsyncBiography,
 	AsyncBulletList,
   AsyncCalloutCenter,
   AsyncContactForm,
@@ -74,6 +75,10 @@ class Page extends Component {
   			} else if (slice.slice_type === 'people') {
   				return(
 						<AsyncPeopleContainer key={index} slice={slice} />
+					)
+  			} else if (slice.slice_type === 'biography') {
+  				return(
+						<AsyncBiography key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'bullet_list') {
 					return(

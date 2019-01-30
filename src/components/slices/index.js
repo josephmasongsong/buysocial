@@ -1,3 +1,4 @@
+import Biography from './Biography';
 import BulletList from './BulletList';
 import CalloutCenter from './CalloutCenter';
 import ContactForm from './ContactForm';
@@ -18,6 +19,7 @@ import ThreeColumnGray from './ThreeColumnGray';
 import TwoColumnsCentered from './TwoColumnsCentered';
 
 export {
+  Biography,
   BulletList,
   CalloutCenter,
   ContactForm,

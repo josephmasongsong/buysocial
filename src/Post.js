@@ -45,7 +45,7 @@ const PostBody = styled.div`
 		margin-bottom: 0;
 	}
 	img {
-		max-width: 100%;
+		max-width: 100% !important;
 		margin: auto;
 		display: block;
 	}

@@ -3,21 +3,17 @@ import { Route, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import Loading from './Loading'
 import GlobalStyle from './GlobalStyle';
+import Navigation from './components/Navigation'
+import Footer from './components/Footer'
+import NotFound from './NotFound';
+import Preview from './Preview';
 
-const AsyncNav = Loadable({
-  loader: () => import("./components/Navigation" /* webpackChunkName: "navigation" */),
-  loading: Loading
-});
-const AsyncFooter = Loadable({
-  loader: () => import("./components/Footer" /* webpackChunkName: "footer" */),
-  loading: Loading
-});
 const AsyncHome = Loadable({
   loader: () => import("./Home" /* webpackChunkName: "home" */),
   loading: Loading
 });
 const AsyncPage = Loadable({
-  loader: () => import("./Page" /* webpackChunkName: "page" */),
+  loader: () => import("./Page" /* webpackChunkName: "page", wepbackPreload: true */),
   loading: Loading
 });
 const AsyncPost = Loadable({
@@ -31,13 +27,15 @@ class App extends Component {
     return (
       <div className="App">
         <GlobalStyle />
-        <AsyncNav />
+        <Navigation />
           <Switch>
+            <Route exact path="/preview" render={routeProps => <Preview {...routeProps} />} />
             <Route exact path='/' component={AsyncHome}/>
             <Route exact path="/:uid" render={routeProps => <AsyncPage {...routeProps} prismicCtx={this.props.prismicCtx} />} />
             <Route exact path="/news/:uid" render={routeProps => <AsyncPost {...routeProps} prismicCtx={this.props.prismicCtx} />} />
+             <Route component={NotFound} />
           </Switch>
-        <AsyncFooter />
+        <Footer />
       </div>
     );
   }
