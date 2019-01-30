@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const Loader = styled.div`
- margin: 6rem auto;
+ margin-top: calc(50vh - 126px);
+ margin-bottom: calc(50vh - 126px);
+ margin-left: auto;
+ margin-right: auto;
  border: 16px solid #f3f3f3;
  border-radius: 50%;
  border-top: 16px solid #005891;

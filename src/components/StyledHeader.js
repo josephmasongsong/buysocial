@@ -1,8 +1,5 @@
-import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
-import images from './ThemeImages';
-import { DeviceSize } from './DeviceSize';
+import { DeviceSize } from '../DeviceSize';
 
 const Masthead = styled.section`
 	position: relative;
@@ -64,24 +61,28 @@ const Arrows = styled.img`
 		width: 48px;
   }
 `
-
-export default class NotFound extends React.Component {
-  render(){
-    return(
-      <Masthead>
-        <TriangleLarge />
-        <TriangleRed />
-        <TriangleYellow />
-        <Container className="h-100">
-          <Row className="h-100 justify-content-center">
-            <Col lg="12" className="align-self-center">
-              <Arrows src={images.arrowRight} alt=""/>
-              <h1 className="mb-3">Page Not Found</h1>
-              <div className="text-muted lead mb-0">We're sorry, either the link you hit was incorrect or the page has been archived.</div>
-            </Col>
-          </Row>
-        </Container>
-      </Masthead>
-    )
+const Header = styled.h1`
+	margin-bottom: 1rem;
+	@media ${DeviceSize.xs} {
+		font-size: 2rem;
+	}
+`
+const HeaderImage = styled.img`
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	max-width: 100%;
+	height: auto;
+	@media ${DeviceSize.xs} {
+		margin-bottom: 1.5rem;
+		z-index: 2;
+		position: relative;
   }
+`
+export {
+  Arrows,
+  Header,
+  HeaderImage,
+  Masthead,
+  TriangleLarge,
+  TriangleRed,
+  TriangleYellow
 }

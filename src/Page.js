@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
-import SlimHeader from './components/SlimHeader';
+import Loadable from 'react-loadable';
+import Loading from './Loading'
+
 import {
 	AsyncBulletList,
   AsyncCalloutCenter,
@@ -21,6 +23,11 @@ import {
   AsyncThreeColumnGray,
   AsyncTwoColumnsCentered
 } from './components/slices/async'
+
+const SlimHeader = Loadable({
+  loader: () => import('./components/SlimHeader'),
+  loading: Loading
+})
 
 class Page extends Component {
 	constructor(props) {

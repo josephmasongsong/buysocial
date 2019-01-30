@@ -7,10 +7,6 @@ const bscBlue = css`
 
 const GlobalStyle = createGlobalStyle`
 
-  .App {
-    overflow-x: hidden;
-  }
-
   .display-4, legend {
     font-weight: 700;
   }

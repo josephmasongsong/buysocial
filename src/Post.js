@@ -3,10 +3,10 @@ import Helmet from 'react-helmet';
 import { Container, Row, Col, Badge } from 'reactstrap';
 import { Link, RichText } from 'prismic-reactjs';
 import PrismicConfig from './prismic-configuration';
-import BlogHeader from './components/BlogHeader'
 import styled from 'styled-components';
 import { DeviceSize } from './DeviceSize';
-
+import Loading from './Loading';
+import Loadable from 'react-loadable';
 import {
 	AsyncBulletList,
   AsyncContactForm,
@@ -24,6 +24,11 @@ import {
   AsyncThreeColumnGray,
   AsyncTwoColumnsCentered
 } from './components/slices/async'
+
+const BlogHeader = Loadable({
+  loader: () => import('./components/BlogHeader'),
+  loading: Loading
+})
 
 const ContentBlock = styled.section`
 	position: relative;

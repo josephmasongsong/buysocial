@@ -2,11 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { RichText, Link } from 'prismic-reactjs'
 import PrismicConfig from '../../prismic-configuration';
-import {
-  Container,
-  Row,
-  Col,
-} from 'reactstrap'
+import { Container, Row, Col } from 'reactstrap'
 
 const ContentBlock = styled.section`
 	position: relative;
