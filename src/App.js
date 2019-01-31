@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import Loading from './Loading'
-import GlobalStyle from './GlobalStyle';
+
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import NotFound from './NotFound';
@@ -26,7 +26,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <GlobalStyle />
         <Navigation />
           <Switch>
             <Route exact path="/preview" render={routeProps => <Preview {...routeProps} />} />

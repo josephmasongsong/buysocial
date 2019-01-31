@@ -14,8 +14,89 @@
     font-style: normal;
 }
 
+$brand-blue: #005891;
+$brand-red: #D12331;
+$brand-yellow: #D9D458;
 
+$theme-colors: (
+  "primary": $brand-blue,
+  "secondary": $brand-yellow
+);
+
+@import "bootstrap/scss/bootstrap.scss";
 
 .App {
   overflow-x: hidden;
+}
+
+body {
+  font-family: 'SofiaProLight';
+}
+
+h1,h2,h3,h4,h5,h6, legend {
+  font-family: 'SofiaProMedium';
+  color: $brand-blue;
+}
+
+h3 {
+  @include media-breakpoint-only(xs) {
+    font-size: 1.5rem;
+  }
+}
+h4 {
+  @include media-breakpoint-only(xs) {
+    font-size: 1.25rem;
+  }
+}
+h5 {
+  @include media-breakpoint-only(xs) {
+    font-size: 1.125rem;
+  }
+}
+.media {
+  @include media-breakpoint-only(xs) {
+    display: block;
+  }
+}
+
+span[class^="burger_hamburger-inner__"],span[class^="burger_hamburger-inner__"]:before, span[class^="burger_hamburger-inner__"]:after {
+  border-radius: 0;
+}
+
+.srv-validation-message {
+  color: red;
+  font-size: 0.9rem;
+}
+
+.carousel-inner {
+  .carousel-item {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    position: absolute;
+    transition: opacity 1s ease-in-out;
+    &:first-of-type {
+      position: relative;
+    }
+  }
+  .active {
+    opacity: 1;
+  }
+  .active {
+    z-index: 2;
+  }
+}
+
+label { font-family: 'SofiaProMedium'; }
+.form-control {
+  border-radius: 0;
+  padding: .5rem .75rem;
+  -webkit-appearance: none;
+  margin-bottom: 0.5rem;
+}
+.form-control:focus {
+  border-color: #005891;
+  box-shadow: none;
 }

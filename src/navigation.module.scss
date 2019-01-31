@@ -1,0 +1,79 @@
+@import "bootstrap/scss/bootstrap-grid.scss";
+
+$brand-blue: #005891;
+$brand-red: #D12331;
+$brand-yellow: #D9D458;
+
+.buysocialNavbar {
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  a {
+    color: $brand-blue;
+  }
+  @include media-breakpoint-only(xs) {
+    padding: 0;
+  }
+  @include media-breakpoint-only(md) {
+    padding: 0;
+  }
+}
+
+.navLinkStyle {
+  color: $brand-blue !important;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.togglerStyle {
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  button:focus {
+    outline: 0;
+  }
+}
+
+.navbarBrandStyle {
+  img {
+    width: 84px;
+    @include media-breakpoint-only(xs) {
+      width: 64px;
+    }
+  }
+  @include media-breakpoint-only(xs) {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    margin-right: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+.dropdownStyle {
+  border-radius: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  top: 72px;
+  padding: 0;
+  border: 0;
+  @include media-breakpoint-only(xs) {
+    box-shadow: none;
+    background: #f8f9fa;
+  }
+  @include media-breakpoint-only(md) {
+    box-shadow: none;
+    background: #f8f9fa;
+  }
+}
+
+.dropdownItemStyle {
+  padding: .75rem 1.5rem;
+  &:focus {
+    outline: 0;
+  }
+  &.active, &:active {
+    background-color: #005891 !important;
+    color: #fff !important;
+  }
+}

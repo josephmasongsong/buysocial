@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom'
 import './index.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'instantsearch.css/themes/algolia-min.css';
 import PrismicApp from './PrismicApp';
 import * as serviceWorker from './serviceWorker';
 

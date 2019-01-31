@@ -20,7 +20,10 @@ const PostImage = styled.div`
     margin-bottom: 1rem;
   }
 `
-
+const MediaWrapper = styled(Media)`
+  margin-bottom: 3rem;
+  a { text-decoration: underline; };
+`
 const LinkTo = styled.a`
   text-decoration: none !important;
 `
@@ -33,7 +36,7 @@ class Post extends Component {
 
     return(
 
-      <Media>
+      <MediaWrapper>
 
         <Media left>
           <LazyLoad height={160}>
@@ -42,12 +45,12 @@ class Post extends Component {
         </Media>
 
         <Media body>
-          <LinkTo href={"/news/" + this.props.post.uid}><h4 className="mb-2">{this.props.post.data.post_title[0].text}</h4></LinkTo>
+          <LinkTo href={"/news/" + this.props.post.uid}><h4 className="mb-2">{RichText.asText(this.props.post.data.post_title)}</h4></LinkTo>
           <p className="text-muted mb-2">By {RichText.asText(this.props.post.data.author.data.name)} | {pubDate.toLocaleDateString("en-US", options)}</p>
           <p>{RichText.asText(this.props.post.data.post_excerpt)}</p>
           <a href={"/news/" + this.props.post.uid}>Read more...</a>
         </Media>
-      </Media>
+      </MediaWrapper>
 
     )
   }

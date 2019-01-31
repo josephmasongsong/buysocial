@@ -7,6 +7,9 @@ import {
   Pagination,
   HierarchicalMenu,
 } from 'react-instantsearch-dom';
+import 'instantsearch.css/themes/algolia-min.css';
+import './search.scss';
+
 import styled from 'styled-components';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
@@ -36,7 +39,7 @@ const Hit = ({hit}) =>
     <div className="hit-body">
       <h4 className="mb-3">{hit.name}</h4>
       <p>{hit.description}</p>
-      <a href={hit.link} className="hit-download-link">Download</a>
+      <a href={hit.link}>Download</a>
     </div>
   </div>
 

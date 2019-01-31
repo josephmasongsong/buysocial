@@ -17,6 +17,7 @@ import Prismic from 'prismic-javascript';
 import {Link, RichText} from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import Burger from 'react-css-burger';
+import styles from '../navigation.module.scss';
 
 const Logo = styled.img`
 	width: 84px;
@@ -56,7 +57,7 @@ class Navigation extends Component {
   				const navItems = slice.items.map(function(navItem, navItemIndex){
 						if (typeof navItem.sub_nav_link_lable[0] !== "undefined") {
 							return(
-								<DropdownItem key={navItemIndex} className="px-4 py-3" tag="a" href={Link.url(navItem.sub_nav_link, PrismicConfig.linkResolver)}>{navItem.sub_nav_link_lable[0].text}</DropdownItem>
+								<DropdownItem key={navItemIndex} className={styles.dropdownItemStyle} tag="a" href={Link.url(navItem.sub_nav_link, PrismicConfig.linkResolver)}>{navItem.sub_nav_link_lable[0].text}</DropdownItem>
 	  					);
 						} else {
 							return null;
@@ -69,16 +70,16 @@ class Navigation extends Component {
 							(slice.items.length > 1)
 							?
 							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav className="px-4 py-3 py-sm-2">
+								<DropdownToggle nav className="px-4 py-3 py-sm-2 text-primary">
 									{RichText.asText(slice.primary.label)}
 								</DropdownToggle>
-								<DropdownMenu right>
+								<DropdownMenu right className={styles.dropdownStyle}>
 									{navItems}
 								</DropdownMenu>
 							</UncontrolledDropdown>
 							:
 							<NavItem>
-	              <NavLink className="px-4" name={RichText.asText(slice.primary.label)} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)}  />
+	              <NavLink name={RichText.asText(slice.primary.label)} path={Link.url(slice.primary.link, PrismicConfig.linkResolver)}  />
 	            </NavItem>
 						}
 						</Fragment>
@@ -89,10 +90,10 @@ class Navigation extends Component {
   		});
 
 	    return (
-				<Navbar color="white" light expand="lg" className="buysocial-navigation">
+				<Navbar color="white" light expand="lg" className={styles.buysocialNavbar}>
 		      <Container>
-		        <NavbarBrand href="/"><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
-						<div className="navbar-toggler">
+		        <NavbarBrand href="/" className={styles.navbarBrandStyle}><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
+						<div className={"navbar-toggler " + styles.togglerStyle}>
 							<Burger
 				        onClick={this.toggle}
 				        active={this.state.isOpen}

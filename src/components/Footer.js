@@ -6,6 +6,7 @@ import Prismic from 'prismic-javascript';
 import {Link, RichText} from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import { DeviceSize } from '../DeviceSize';
+import styles from '../footer.module.scss';
 
 const FooterStyle = styled.div`
   padding: 6rem 0;
@@ -63,7 +64,7 @@ class Footer extends Component {
         if (slice.slice_type === 'nav_item') {
           return(
             <li key={index}>
-              <a href={Link.url(slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(slice.primary.label)}</a>
+              <a className="text-white" href={Link.url(slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(slice.primary.label)}</a>
             </li>
           )
         } else {
@@ -78,9 +79,9 @@ class Footer extends Component {
   						<Col sm="6" lg="3" className="mx-auto">
   							<Header>Contact Information</Header>
                 <Address className="fa-ul pl-0">
-                  <li className="mb-2"><span className="fa-li"><i className="fas fa-map-marker-alt text-warning"></i></span>{RichText.render(document.address)}</li>
-                  <li className="mb-2"><span className="fa-li"><i className="fas fa-envelope text-warning"></i></span><a href={"mailto:" + RichText.asText(document.email)} className="text-white">{RichText.asText(document.email)}</a></li>
-                  <li><span className="fa-li"><i className="fas fa-phone text-warning"></i></span><a href={"tel:" + RichText.asText(document.phone)} className="text-white">{RichText.asText(document.phone)}</a></li>
+                  <li className="mb-2"><span className={"fa-li " + styles.listStyle}><i className="fas fa-map-marker-alt text-warning"></i></span>{RichText.render(document.address)}</li>
+                  <li className="mb-2"><span className={"fa-li " + styles.listStyle}><i className="fas fa-envelope text-warning"></i></span><a href={"mailto:" + RichText.asText(document.email)} className="text-white">{RichText.asText(document.email)}</a></li>
+                  <li><span className={"fa-li" + styles.list}><i className="fas fa-phone text-warning"></i></span><a href={"tel:" + RichText.asText(document.phone)} className="text-white">{RichText.asText(document.phone)}</a></li>
                 </Address>
   						</Col>
   						<Col sm="6" lg="2">
@@ -95,9 +96,9 @@ class Footer extends Component {
                 <form name="newsletter_signup" method="post">
                   <input type="hidden" name="form-name" value="newsletter_signup" />
                   <div className="input-group mb-5">
-                    <input name="email" type="email" placeholder="Email" className="form-control py-2 rounded-0" />
+                    <input name="email" type="email" placeholder="Email" className={"form-control rounded-0 " + styles.formStyle} />
                     <span className="input-group-append">
-                      <button name="submit" type="submit" className="btn btn-warning rounded-0">
+                      <button name="submit" type="submit" className="btn btn-secondary rounded-0">
                         Sign Up
                       </button>
                     </span>
@@ -107,10 +108,10 @@ class Footer extends Component {
               <Col sm="6" lg="2">
   							<Header>Social</Header>
                 <ul className="social list-inline">
-                  <li className="list-inline-item"><a className="text-white" href={Link.url(document.facebook_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a></li>
-                  <li className="list-inline-item"><a className="text-white" href={Link.url(document.twitter_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a></li>
-                  <li className="list-inline-item"><a className="text-white" href={Link.url(document.linkedin_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
-                  <li className="list-inline-item"><a className="text-white" href={Link.url(document.instagram_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a></li>
+                  <li className="list-inline-item"><a className={styles.socialIcon} href={Link.url(document.facebook_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a></li>
+                  <li className="list-inline-item"><a className={styles.socialIcon} href={Link.url(document.twitter_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a></li>
+                  <li className="list-inline-item"><a className={styles.socialIcon} href={Link.url(document.linkedin_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
+                  <li className="list-inline-item"><a className={styles.socialIcon} href={Link.url(document.instagram_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a></li>
                 </ul>
   						</Col>
   					</Row>

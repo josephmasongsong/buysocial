@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col, Button, FormGroup, Label } from 'reactstrap';
 import { RichText } from 'prismic-reactjs'
 import SimpleReactValidator from 'simple-react-validator'
 import GoogleMapContainer from './GoogleMapContainer'
@@ -99,26 +99,26 @@ class ContactForm extends React.Component {
 						<Col lg="7" className="ml-auto">
 					    <form className="w-100" onSubmit={this.handleSubmit}>
 
-					      <div className="form-group">
-					        <label>Name</label>
+					      <FormGroup>
+					        <Label>Name</Label>
 					        <input id="name" name="name" type="text" value={name} onChange={this.handleChange} className="form-control rounded-0 here"/>
 									{this.validator.message('name', values.name, 'required')}
 
-					      </div>
-					      <div className="form-group">
-					        <label>Email</label>
+					      </FormGroup>
+					      <FormGroup>
+					        <Label>Email</Label>
 					        <input id="email" name="email" type="text" value={email} onChange={this.handleChange} className="form-control rounded-0 here"/>
 									{this.validator.message('email', values.email, 'required|email')}
 
-					      </div>
-					      <div className="form-group">
-					        <label>Message</label>
+					      </FormGroup>
+					      <FormGroup>
+					        <Label>Message</Label>
 					        <textarea id="message" name="message" value={message} onChange={this.handleChange} cols="40" rows="5" className="form-control rounded-0"></textarea>
 									{this.validator.message('message', values.message, 'required')}
-					      </div>
-					      <div className="form-group">
-					        <Button name="submit" type="submit" className="btn btn-primary btn-lg rounded-0">Send Message</Button>
-					      </div>
+					      </FormGroup>
+					      <FormGroup>
+					        <Button color="primary" name="submit" type="submit" className="btn-lg rounded-0">Send Message</Button>
+					      </FormGroup>
 					    </form>
 						</Col>
 					</Row>

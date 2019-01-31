@@ -63,7 +63,7 @@ class PostList extends Component {
         <ContentBlock>
           <Container>
             <Row>
-              <Col lg="12" className="postList">
+              <Col lg="12">
                 {currentDoc.map(post => (
                   <Post key={post.uid} post={post} />
                 ))}

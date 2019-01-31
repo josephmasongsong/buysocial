@@ -1,0 +1,90 @@
+@import "bootstrap/scss/bootstrap-grid.scss";
+
+.light-shadow {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.hit {
+  display: flex;
+  align-items: flex-start;
+  .hit-body {
+    flex: 1;
+    color: #212529;
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+.ais-Hits-list, .ais-InfiniteHits-list, .ais-InfiniteResults-list, .ais-Results-list {
+  display: block;
+  margin: 0;
+}
+.ais-Hits-item, .ais-InfiniteHits-item, .ais-InfiniteResults-item, .ais-Results-item {
+  width: 100%;
+  border: 0;
+  padding:0;
+  box-shadow: none;
+  margin: 0 0 3rem 0;
+}
+
+.ais-Menu-item:last-child .ais-Menu-link {
+  border-bottom: 0;
+}
+.ais-Menu-link {
+  padding: .75rem 0;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  color:  #212529 !important;
+}
+.ais-Menu-count {
+  margin-left: .25rem;
+}
+.ais-SearchBox-form {
+  margin-bottom: 3rem;
+}
+.ais-SearchBox-input {
+  border-radius: 0;
+}
+.ais-Pagination-link {
+  padding: .25rem 0.75rem;
+  border-radius: 0;
+}
+.ais-Pagination-item--selected .ais-Pagination-link {
+  color: #fff !important;
+  background-color: #005891;
+  border-color: #005891;
+}
+.ais-Menu-count {
+  display: none;
+}
+.filedIn {
+  font-family: 'SofiaProMedium';
+}
+.badge-primary {
+  background: #005891;
+}
+
+.ais-HierarchicalMenu {
+  @include media-breakpoint-only(xs) {
+    margin-bottom: 3rem;
+  }
+}
+.ais-HierarchicalMenu-link, .ais-Menu-link {
+  color: rgb(33, 37, 41) !important;
+  padding: 0.75rem 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.ais-HierarchicalMenu-count, .ais-Menu-count, .ais-RefinementList-count, .ais-ToggleRefinement-count {
+  display:none;
+}
+.ais-HierarchicalMenu-list .ais-HierarchicalMenu-list {
+  margin-left: 0;
+}
+.ais-HierarchicalMenu-list--child .ais-HierarchicalMenu-link {
+  padding-left: 1em;
+}
+.ais-HierarchicalMenu-item--selected > .ais-HierarchicalMenu-link {
+    font-family: 'SofiaProMedium';
+}
+.ais-HierarchicalMenu-item--selected {
+
+}
