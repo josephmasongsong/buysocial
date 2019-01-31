@@ -63,14 +63,14 @@ const TriangleBlue = styled.div`
 	@media ${DeviceSize.xs} {
 		width: 20%;
 		height: 20%;
-	}	
+	}
 `
 
 class ListOfLinks extends React.Component {
   render () {
     const items = this.props.slice.items.map(function(item, itemIndex){
       return(
-        <Col lg="6" key={itemIndex}>
+        <Col md="6" key={itemIndex}>
   				<LinkContainer>
   					<LinkTo href={Link.url(item.link, PrismicConfig.linkResolver)}>{RichText.render(item.title)}</LinkTo>
             {RichText.render(item.description)}

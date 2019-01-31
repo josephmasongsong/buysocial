@@ -41,7 +41,7 @@ const Hit = ({hit}) =>
   </div>
 
 const Sidebar = () =>
-  <Col lg="3" className="sidebar">
+  <Col md="3" className="sidebar">
     <SearchBox translations={{ placeholder: 'Begin typing...' }} />
 
     <HierarchicalMenu
@@ -58,7 +58,7 @@ const Sidebar = () =>
   </Col>
 
 const Content = () =>
-  <Col lg="8" className="ml-auto">
+  <Col md="8" className="ml-auto">
     <Hits hitComponent={Hit} />
     <div className="pagination">
       <Pagination showLast/>

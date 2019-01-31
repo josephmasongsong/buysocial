@@ -8,72 +8,28 @@ import { DeviceSize } from '../DeviceSize';
 import { Link, RichText } from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 
-const Masthead = styled.section`
-	position: relative;
+import {
+	Arrows,
+  Masthead,
+	SubTitle,
+	Title,
+  TriangleLarge,
+  TriangleRed,
+  TriangleYellow
+} from './StyledHeader'
+
+const MastheadHome = styled(Masthead)`
 	height: 600px;
-	background: #fbfbfb;
 	@media ${DeviceSize.xs} {
-		height: calc(100vh - 90px);
-		padding: 3rem 0;
+		height: calc(100vh - 96px);
 	}
 `
-const TriangleLarge = styled.div`
-	width: 25%;
-  height: 100%;
-  background: #005891;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  clip-path: polygon(0 0, 0 100%, 50% 50%);
-	@media ${DeviceSize.xs} {
-		display: none;
-  }
-`
-const TriangleRed = styled.div`
-  width: 12.5%;
-  height: 50%;
-  background: #D12331;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
-	@media ${DeviceSize.xs} {
-		width: 20%;
-		height: 20%;
-  }
-`
-const TriangleYellow = styled.div`
-  width: 12.5%;
-  height: 50%;
-  background: #D9D458;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
-  clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-	@media ${DeviceSize.xs} {
-		width: 20%;
-		height: 20%;
-  }
-`
-const Arrows = styled.img`
-  margin-bottom: 1rem!important;
-	width: 64px;
-	@media ${DeviceSize.xs} {
-		width: 48px;
-  }
-`
-const Header1 = styled.h1`
-	font-size: 3.25rem;
-	margin-bottom: 1rem;
-	@media ${DeviceSize.xs} {
-		font-size: 2.5rem;
-  }
-`
+
 const CarouselLink = styled.a`
 	font-size: 1.25rem;
 	text-decoration: underline;
+	margin-top: 1rem;
+	display:block;
 	@media ${DeviceSize.xs} {
 		font-size: 1.125rem;
   }
@@ -122,15 +78,15 @@ class Header extends Component {
 					className="h-100"
         >
 					<Arrows src={images.arrowRight} alt=""/>
-					<Header1>{RichText.asText(item.headline)}</Header1>
-					<p className="lead mb-3 text-muted">{RichText.asText(item.subheader)}</p>
+					<Title>{RichText.asText(item.headline)}</Title>
+					<SubTitle>{RichText.asText(item.subheader)}</SubTitle>
 					<CarouselLink href={Link.url(item.link, PrismicConfig.linkResolver)}>{RichText.asText(item.link_label)}</CarouselLink>
         </CarouselItem>
 			)
 		});
 
 		return(
-			<Masthead>
+			<MastheadHome>
 				<TriangleLarge />
 				<TriangleRed />
 				<TriangleYellow />
@@ -150,7 +106,7 @@ class Header extends Component {
 						</Col>
 					</Row>
 				</Container>
-			</Masthead>
+			</MastheadHome>
 		);
 	}
 }

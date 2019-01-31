@@ -7,19 +7,11 @@ const bscBlue = css`
 
 const GlobalStyle = createGlobalStyle`
 
-  .display-4, legend {
-    font-weight: 700;
-  }
-  .display-4 {
-    font-size: 3.25rem;
-  }
-
   body {
     font-family: 'SofiaProLight', sans-serif;
   }
   h1,h2,h3,h4,h5,h6 {
-    font-family: 'Roboto Slab', sans-serif;
-    font-weight: 700;
+    font-family: 'SofiaProMedium';
     ${bscBlue};
   }
   h3 {
@@ -43,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   .btn {
-    font-family: 'Roboto Slab';
+    font-family: 'SofiaProLight';
   }
   span[class^="burger_hamburger-inner__"],span[class^="burger_hamburger-inner__"]:before, span[class^="burger_hamburger-inner__"]:after {
     border-radius: 0;
@@ -71,7 +63,7 @@ const GlobalStyle = createGlobalStyle`
       border: 0;
       .dropdown-item {
         padding: .75rem 1.5rem;
-        font-family: 'Museo Slab 500';
+
         &:focus {
           outline: 0;
         }
@@ -83,7 +75,16 @@ const GlobalStyle = createGlobalStyle`
       }
       .dropdown-menu {
         box-shadow: none;
-        padding-left: 1rem;
+        background: #f8f9fa;
+      }
+    }
+    @media ${DeviceSize.smMin} and ${DeviceSize.md} {
+      padding: 0;
+      .navbar-nav {
+      }
+      .dropdown-menu {
+        box-shadow: none;
+        background: #f8f9fa;
       }
     }
   }
@@ -150,7 +151,8 @@ const GlobalStyle = createGlobalStyle`
   }
   .nav-item {
     .nav-link {
-      font-family: 'Museo Slab 500';
+
+
       ${bscBlue};
     }
   }
@@ -199,7 +201,7 @@ const GlobalStyle = createGlobalStyle`
       ${bscBlue};
   }
   legend {
-    font-family: 'Roboto Slab', sans-serif;
+    font-family: 'SofiaProMedium';
     color: #005891;
   }
   label { font-family: 'SofiaProMedium';
@@ -281,14 +283,7 @@ const GlobalStyle = createGlobalStyle`
     background: #005891;
   }
 
-  @media ${DeviceSize.xs} {
-    .display-4 {
-      font-size: 2.25rem;
-    }
-    .lead {
-      font-size: 1rem;
-    }
-  }
+
   button:focus {
     outline: 0;
   }

@@ -7,6 +7,8 @@ import {
 	Arrows,
   HeaderImage,
   Masthead,
+	SubTitle,
+	Title,
   TriangleLarge,
   TriangleRed,
   TriangleYellow
@@ -19,23 +21,23 @@ const SlimHeader = props => {
 
 	if (headerImg) {
 		headerContent = 	<React.Fragment>
-												<Col lg="5" className="align-self-center mx-auto order-sm-12">
+												<Col md="5" lg="5" className="align-self-center mx-auto order-sm-12">
 												<LazyLoad>
 													<HeaderImage src={props.headerImage} alt="" />
 												</LazyLoad>
 												</Col>
-												<Col lg="6" className="align-self-center mx-auto order-sm-1">
+												<Col md="7" lg="6" className="align-self-center mx-auto order-sm-1">
 													<Arrows src={images.arrowRight} alt=""/>
-													<h1 className="display-4  mb-3">{props.headline}</h1>
-													<div className="lead mb-0 text-muted">{props.subheader}</div>
+													<Title>{props.headline}</Title>
+													<SubTitle>{props.subheader}</SubTitle>
 												</Col>
 											</React.Fragment>
 	} else {
 		headerContent =
 												<Col lg="12" className="align-self-center">
 													<Arrows src={images.arrowRight} alt=""/>
-													<h1 className="mb-3">{props.headline}</h1>
-													<div className="text-muted lead mb-0">{props.subheader}</div>
+													<Title>{props.headline}</Title>
+													<SubTitle>{props.subheader}</SubTitle>
 												</Col>
 
 	}

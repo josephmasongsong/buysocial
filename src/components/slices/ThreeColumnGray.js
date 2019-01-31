@@ -30,7 +30,7 @@ class ThreeColumnGray extends React.Component {
     render () {
       const items = this.props.slice.items.map((item, itemIndex) => {
         return(
-          <Col lg="4" key={itemIndex} className="column">
+          <Col md="4" key={itemIndex} className="column">
             {RichText.render(item.title)}
             {RichText.render(item.blurb)}
           </Col>

@@ -75,7 +75,7 @@ class Footer extends Component {
   				<Arrows src={images.arrowLeft} alt="" />
   				<Container>
   					<Row className="justify-content-center">
-  						<Col lg="3" className="mx-auto">
+  						<Col sm="6" lg="3" className="mx-auto">
   							<Header>Contact Information</Header>
                 <Address className="fa-ul pl-0">
                   <li className="mb-2"><span className="fa-li"><i className="fas fa-map-marker-alt text-warning"></i></span>{RichText.render(document.address)}</li>
@@ -83,13 +83,13 @@ class Footer extends Component {
                   <li><span className="fa-li"><i className="fas fa-phone text-warning"></i></span><a href={"tel:" + RichText.asText(document.phone)} className="text-white">{RichText.asText(document.phone)}</a></li>
                 </Address>
   						</Col>
-  						<Col lg="2">
+  						<Col sm="6" lg="2">
   							<Header>Navigation</Header>
                 <ul className="list-unstyled">
                   {footerNavigation}
                 </ul>
   						</Col>
-              <Col lg="4" className="mr-auto">
+              <Col sm="6" lg="4" className="mr-auto">
   							<Header>Newsletter</Header>
                 <p>{RichText.asText(document.newsletter_blurb)}</p>
                 <form name="newsletter_signup" method="post">
@@ -104,7 +104,7 @@ class Footer extends Component {
                   </div>
                 </form>
   						</Col>
-              <Col lg="2">
+              <Col sm="6" lg="2">
   							<Header>Social</Header>
                 <ul className="social list-inline">
                   <li className="list-inline-item"><a className="text-white" href={Link.url(document.facebook_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a></li>

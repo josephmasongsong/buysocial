@@ -13,15 +13,35 @@ const Masthead = styled.section`
   }
 `
 const TriangleLarge = styled.div`
-	width: 20%;
-  height: 100%;
-  background: #005891;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  clip-path: polygon(0 0, 0 100%, 50% 50%);
+  @media ${DeviceSize.xl} {
+    width: 20%;
+    height: 100%;
+    background: #005891;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    clip-path: polygon(0 0, 0 100%, 50% 50%);
+  }
+  @media ${DeviceSize.mdMin} and ${DeviceSize.lg} {
+    width: 10%;
+    height: 50%;
+    background: #005891;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    clip-path: polygon(0% 50%,0% 100%,100% 100%);
+  }
 	@media ${DeviceSize.xs} {
     display: none;
+  }
+  @media ${DeviceSize.smMin} and ${DeviceSize.md} {
+    width: 12.5%;
+    height: 25%;
+    background: #005891;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    clip-path: polygon(0% 100%,0% 0%,100% 100%);
   }
 `
 const TriangleRed = styled.div`
@@ -33,9 +53,16 @@ const TriangleRed = styled.div`
   right: 0;
   z-index: 2;
   clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+  @media ${DeviceSize.mdMin} and ${DeviceSize.lg} {
+    height: 25%;
+  }
 	@media ${DeviceSize.xs} {
 		width: 20%;
     height: 15%;
+  }
+  @media ${DeviceSize.smMin} and ${DeviceSize.md} {
+    width: 12.5%;
+    height: 25%;
   }
 `
 
@@ -48,9 +75,16 @@ const TriangleYellow = styled.div`
   right: 0;
   z-index: 2;
   clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+  @media ${DeviceSize.mdMin} and ${DeviceSize.lg} {
+    height: 25%;
+  }
 	@media ${DeviceSize.xs} {
 		width: 20%;
     height: 15%;
+  }
+  @media ${DeviceSize.smMin} and ${DeviceSize.md} {
+    width: 12.5%;
+    height: 25%;
   }
 `
 
@@ -60,6 +94,32 @@ const Arrows = styled.img`
 	@media ${DeviceSize.xs} {
 		width: 48px;
   }
+`
+const SubTitle = styled.div`
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #6c757d!important;
+  p:last-child {
+    margin-bottom: 0;
+  }
+  @media ${DeviceSize.smMin} and ${DeviceSize.md} {
+    font-size: 1rem;
+  }
+	@media ${DeviceSize.xs} {
+		font-size: 1rem;
+	}
+`
+const Title = styled.h1`
+  margin-bottom: 1rem;
+  @media ${DeviceSize.xl} {
+    font-size: 3.25rem;
+  }
+  @media ${DeviceSize.smMin} and ${DeviceSize.md} {
+    font-size: 2.5rem;
+  }
+	@media ${DeviceSize.xs} {
+		font-size: 2.25rem;
+	}
 `
 const Header = styled.h1`
 	margin-bottom: 1rem;
@@ -82,6 +142,8 @@ export {
   Header,
   HeaderImage,
   Masthead,
+  SubTitle,
+  Title,
   TriangleLarge,
   TriangleRed,
   TriangleYellow

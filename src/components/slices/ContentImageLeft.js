@@ -56,12 +56,12 @@ class ContentImageLeft extends React.Component {
       <ContentBlock>
         <Container>
           <Row>
-            <Col lg="5" className="align-self-center mr-auto">
+            <Col md="6" lg="5" className="align-self-center mr-auto">
 						<LazyLoad>
               <BlockImage src={this.props.slice.primary.image.url} alt=""/>
 						</LazyLoad>
             </Col>
-            <Col lg="6" className="align-self-center">
+            <Col md="6" className="align-self-center">
               {RichText.render(this.props.slice.primary.title )}
               <ContentSubTitle>{RichText.render(this.props.slice.primary.subtitle )}</ContentSubTitle>
               <Blurb>{RichText.render(this.props.slice.primary.blurb )}</Blurb>

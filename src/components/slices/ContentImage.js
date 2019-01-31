@@ -56,12 +56,12 @@ class ContentImage extends React.Component {
       <ContentBlock>
         <Container>
           <Row>
-						<Col lg="5" className="align-self-center ml-auto order-sm-12">
+						<Col md="6" lg="5" className="align-self-center ml-auto order-sm-12">
 						<LazyLoad>
 							<BlockImage src={this.props.slice.primary.image.url} alt=""/>
 						</LazyLoad>
 						</Col>
-            <Col lg="6" className="align-self-center order-sm-1">
+            <Col md="6" className="align-self-center order-sm-1">
               {RichText.render(this.props.slice.primary.title )}
               <ContentSubTitle>{RichText.asText(this.props.slice.primary.subtitle )}</ContentSubTitle>
               <Blurb>{RichText.render(this.props.slice.primary.blurb )}</Blurb>

@@ -32,7 +32,7 @@ class ThreeColumnBlock extends React.Component {
   render () {
     const items = this.props.slice.items.map(function(item, itemIndex) {
       return(
-        <Col lg="4" key={itemIndex}>
+        <Col md="4" key={itemIndex}>
           <BlockContainer>
 						<LazyLoad>
             	<img src={item.icon.url} alt=""/>

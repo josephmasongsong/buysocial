@@ -32,7 +32,7 @@ class Biography extends React.Component {
           <Row>
 						<Col lg="2">
 							<img src={this.props.slice.primary.image.url} className="img-responsive w-100 rounded-circle" alt="" />
-							<h5 className="mt-4 text-center text-dark">{RichText.asText(this.props.slice.primary.name)}</h5>
+							<h5 className="mt-4 text-center">{RichText.asText(this.props.slice.primary.name)}</h5>
 						</Col>
             <Col lg={{ size: 9, offset: 1 }}>
 

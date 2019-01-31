@@ -18,7 +18,7 @@ class LogoGrid extends React.Component {
   render () {
     const items = this.props.slice.items.map(function(item, itemIndex){
       return(
-        <Col lg="3" xs="6" key={itemIndex}>
+        <Col md="3" sm="4" xs="6" key={itemIndex}>
 					<LazyLoad>
           	<img src={item.image.url} alt="" className="img-fluid" />
 					</LazyLoad>
