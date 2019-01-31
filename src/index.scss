@@ -1,4 +1,20 @@
-@import 'bsc-theme-fonts.scss';
+@font-face {
+    font-family: 'SofiaProMedium';
+    src: url('./fonts/SofiaProMedium.woff2') format('woff2'),
+        url('./fonts/SofiaProMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SofiaProLight';
+    src: url('./fonts/SofiaProLight.woff2') format('woff2'),
+        url('./fonts/SofiaProLight.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+
 
 .App {
   overflow-x: hidden;
