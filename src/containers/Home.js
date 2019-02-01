@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Helmet from 'react-helmet';
+import Prismic from 'prismic-javascript';
+import PrismicConfig from '../prismic-configuration';
 import { RichText } from 'prismic-reactjs';
-import Loadable from 'react-loadable';
-import Loading from './Loading'
-
+import Helmet from 'react-helmet';
+import images from '../ThemeImages';
+import Loading from '../Loading';
+import Header from '../components/Header';
 import {
-	AsyncBiography,
-	AsyncBulletList,
-  AsyncCalloutCenter,
+  AsyncBulletList,
   AsyncContactForm,
   AsyncContentImage,
   AsyncContentImageLeft,
@@ -17,68 +17,45 @@ import {
   AsyncLogoGrid,
   AsyncPeopleContainer,
   AsyncPostList,
-  AsyncPurchaserForm,
+  AsyncRecentArticles,
   AsyncSearchContainer,
-  AsyncSupplierForm,
   AsyncThreeColumnBlock,
   AsyncThreeColumnGray,
   AsyncTwoColumnsCentered
-} from './components/slices/async'
+} from '../components/slices/async';
 
-const SlimHeader = Loadable({
-  loader: () => import('./components/SlimHeader'),
-  loading: Loading
-})
 
-class Page extends Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-		  doc: null,
-		  notFound: false,
-		}
-	}
+class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      doc: null,
+    }
+  }
 
   componentWillMount() {
-    this.fetchPage(this.props);
-  }
-
-  componentWillReceiveProps(props) {
-    this.fetchPage(props);
-  }
-
-  fetchPage(props) {
-    if (props.prismicCtx) {
-      // We are using the function to get a document by its uid
-      return props.prismicCtx.api.getByUID('page', props.match.params.uid, {}, (err, doc) => {
-        if (doc) {
-          // We put the retrieved content in the state as a doc variable
-          this.setState({ doc });
-        } else {
-          // We changed the state to display error not found if no matched doc
-          this.setState({ notFound: !doc });
+    const apiEndpoint = PrismicConfig.apiEndpoint;
+	  Prismic.api(apiEndpoint).then(api => {
+      api.query(Prismic.Predicates.at('document.type', 'homepage')).then(response => {
+        if (response) {
+          this.setState({ doc: response.results[0] });
         }
       });
-    }
-    return null;
+    });
   }
 
   render() {
-  	if (this.state.doc) {
+		if (this.state.doc) {
   		const document = this.state.doc.data;
 
-  		const blockContent = document.body.map(function(slice, index){
-  			if (slice.slice_type === '3_column_content_block') {
+  		const sliceContent = document.body.map(function(slice, index){
+  			if (slice.slice_type === '3_column_content_block1') {
   				return(
 						<AsyncThreeColumnBlock key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'people') {
   				return(
 						<AsyncPeopleContainer key={index} slice={slice} />
-					)
-  			} else if (slice.slice_type === 'biography') {
-  				return(
-						<AsyncBiography key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'bullet_list') {
 					return(
@@ -128,45 +105,34 @@ class Page extends Component {
 					return(
 						<AsyncEventMap key={index} slice={slice} />
 					)
-  			} else if (slice.slice_type === 'supplier_form') {
+  			} else if (slice.slice_type === 'recent_articles') {
 					return(
-						<AsyncSupplierForm key={index} slice={slice} />
+						<AsyncRecentArticles key={index} slice={slice} />
 					)
-  			} else if (slice.slice_type === 'callout_centered') {
+  			} else if (slice.slice_type === 'featured_pages') {
+					const slides = slice.items
 					return(
-						<AsyncCalloutCenter key={index} slice={slice} />
-					)
-  			} else if (slice.slice_type === 'purchaser_form') {
-					return(
-						<AsyncPurchaserForm key={index} slice={slice} />
-					)
+						<Header slides={slides} key={index}/>
+  				);
   			} else {
   				return null;
   			}
   		});
-
-	    return (
-	      <React.Fragment>
+      return(
+        <React.Fragment>
 					<Helmet>
-            <title>{RichText.asText(document.page_title) + " - Buy Social Canada"}</title>
-            <meta name="description" content={RichText.asText(document.page_blurb)} />
-            <meta name="og:image" content={document.page_image.url} />
-          </Helmet>
+						<title>{RichText.asText(document.page_title) + " - Buy Social Canada"}</title>
+						<meta name="description" content="Buy Social Canada brings socially driven purchasers and social enterprise suppliers together, building business relationships that generate social benefits to communities across the country." />
+						<meta name="og:image" content={images.logo} />
+					</Helmet>
 
 
-	      	<SlimHeader
-	      		headline={RichText.asText(document.page_title)}
-	      		subheader={RichText.render(document.page_blurb)}
-						headerImage={document.page_image.url}
-	      	/>
-
-					{blockContent}
-
-	     </React.Fragment>
-	    );
-  	}
-  	return <SlimHeader headline="Loading..." />;
+          {sliceContent}
+        </React.Fragment>
+      )
+    }
+    return <Loading />
   }
 }
 
-export default Page;
+export default Home;

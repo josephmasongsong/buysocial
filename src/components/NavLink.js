@@ -21,6 +21,9 @@ const Link = styled.a`
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
+  @media ${DeviceSize.smMin} and ${DeviceSize.md} {
+    padding: 1rem 1.5rem;
+  }
 `
 
 const NavLink = props => {

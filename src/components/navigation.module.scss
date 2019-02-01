@@ -18,10 +18,20 @@ $brand-yellow: #D9D458;
   }
 }
 
+.containerStyle {
+  @include media-breakpoint-only(md) {
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
 .navLinkStyle {
   color: $brand-blue !important;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  @include media-breakpoint-only(md) {
+    padding: 1rem 1.5rem;
+  }  
 }
 
 .togglerStyle {
@@ -42,8 +52,17 @@ $brand-yellow: #D9D458;
     @include media-breakpoint-only(xs) {
       width: 64px;
     }
+    @include media-breakpoint-only(md) {
+      width: 72px;
+    }
   }
   @include media-breakpoint-only(xs) {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    margin-right: 0;
+    padding-bottom: 1rem;
+  }
+  @include media-breakpoint-only(md) {
     padding-top: 1rem;
     padding-left: 1rem;
     margin-right: 0;
@@ -75,5 +94,8 @@ $brand-yellow: #D9D458;
   &.active, &:active {
     background-color: #005891 !important;
     color: #fff !important;
+  }
+  @include media-breakpoint-only(md) {
+    padding: 1rem 1.5rem;
   }
 }

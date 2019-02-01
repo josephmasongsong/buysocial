@@ -17,7 +17,7 @@ import Prismic from 'prismic-javascript';
 import {Link, RichText} from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import Burger from 'react-css-burger';
-import styles from '../navigation.module.scss';
+import styles from './navigation.module.scss';
 
 const Logo = styled.img`
 	width: 84px;
@@ -70,7 +70,7 @@ class Navigation extends Component {
 							(slice.items.length > 1)
 							?
 							<UncontrolledDropdown nav inNavbar>
-								<DropdownToggle nav className="px-4 py-3 py-sm-2 text-primary">
+								<DropdownToggle nav className={"px-4 " + styles.navLinkStyle}>
 									{RichText.asText(slice.primary.label)}
 								</DropdownToggle>
 								<DropdownMenu right className={styles.dropdownStyle}>
@@ -91,7 +91,7 @@ class Navigation extends Component {
 
 	    return (
 				<Navbar color="white" light expand="lg" className={styles.buysocialNavbar}>
-		      <Container>
+		      <Container className={styles.containerStyle}>
 		        <NavbarBrand href="/" className={styles.navbarBrandStyle}><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
 						<div className={"navbar-toggler " + styles.togglerStyle}>
 							<Burger

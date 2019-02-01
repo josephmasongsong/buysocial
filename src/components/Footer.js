@@ -6,7 +6,7 @@ import Prismic from 'prismic-javascript';
 import {Link, RichText} from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import { DeviceSize } from '../DeviceSize';
-import styles from '../footer.module.scss';
+import styles from './footer.module.scss';
 
 const FooterStyle = styled.div`
   padding: 6rem 0;

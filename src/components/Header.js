@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col,
-Carousel,
-CarouselItem, } from 'reactstrap';
+import { Container, Row, Col, Carousel, CarouselItem, } from 'reactstrap';
 import styled from 'styled-components';
 import images from '../ThemeImages';
 import { DeviceSize } from '../DeviceSize';

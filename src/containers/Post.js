@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { Container, Row, Col, Badge } from 'reactstrap';
 import { Link, RichText } from 'prismic-reactjs';
-import PrismicConfig from './prismic-configuration';
+import PrismicConfig from '../prismic-configuration';
 import styled from 'styled-components';
-import { DeviceSize } from './DeviceSize';
-import Loading from './Loading';
-import Loadable from 'react-loadable';
+import { DeviceSize } from '../DeviceSize';
+import Loading from '../Loading';
 import {
 	AsyncBulletList,
   AsyncContactForm,
@@ -23,12 +22,9 @@ import {
   AsyncThreeColumnBlock,
   AsyncThreeColumnGray,
   AsyncTwoColumnsCentered
-} from './components/slices/async'
-
-const BlogHeader = Loadable({
-  loader: () => import('./components/BlogHeader'),
-  loading: Loading
-})
+} from '../components/slices/async';
+import NotFound from '../NotFound';
+import BlogHeader from '../components/BlogHeader';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -191,7 +187,10 @@ class Post extends Component {
         </React.Fragment>
       )
     }
-    return <BlogHeader headline="Loading news post..." />;
+		if (this.state.notFound) {
+			return <NotFound />
+		}
+		return <Loading />
   }
 }
 export default Post
