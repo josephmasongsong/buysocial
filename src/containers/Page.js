@@ -4,25 +4,25 @@ import { RichText } from 'prismic-reactjs';
 import Loading from '../Loading';
 import NotFound from '../NotFound';
 import {
-	AsyncBiography,
-	AsyncBulletList,
-  AsyncCalloutCenter,
-  AsyncContactForm,
-  AsyncContentImage,
-  AsyncContentImageLeft,
-  AsyncContentNoImage,
-  AsyncEventMap,
-  AsyncListOfLinks,
-  AsyncLogoGrid,
-  AsyncPeopleContainer,
-  AsyncPostList,
-  AsyncPurchaserForm,
-  AsyncSearchContainer,
-  AsyncSupplierForm,
-  AsyncThreeColumnBlock,
-  AsyncThreeColumnGray,
-  AsyncTwoColumnsCentered
-} from '../components/slices/async';
+	Biography,
+	BulletList,
+  CalloutCenter,
+  ContactForm,
+  ContentImage,
+  ContentImageLeft,
+  ContentNoImage,
+  EventMap,
+  ListOfLinks,
+  LogoGrid,
+  PeopleContainer,
+  PostList,
+  PurchaserForm,
+  SearchContainer,
+  SupplierForm,
+  ThreeColumnBlock,
+  ThreeColumnGray,
+  TwoColumnsCentered
+} from '../components/slices';
 import SlimHeader from '../components/SlimHeader';
 
 
@@ -66,75 +66,75 @@ class Page extends Component {
   		const blockContent = document.body.map(function(slice, index){
   			if (slice.slice_type === '3_column_content_block') {
   				return(
-						<AsyncThreeColumnBlock key={index} slice={slice} />
+						<ThreeColumnBlock key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'people') {
   				return(
-						<AsyncPeopleContainer key={index} slice={slice} />
+						<PeopleContainer key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'biography') {
   				return(
-						<AsyncBiography key={index} slice={slice} />
+						<Biography key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'bullet_list') {
 					return(
-						<AsyncBulletList key={index} slice={slice} />
+						<BulletList key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === '2_narrow_columns') {
 					return(
-						<AsyncTwoColumnsCentered key={index} slice={slice} />
+						<TwoColumnsCentered key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'gray_3_column_content_block') {
 					return(
-						<AsyncThreeColumnGray key={index} slice={slice} />
+						<ThreeColumnGray key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'logo_grid') {
   				return(
-						<AsyncLogoGrid key={index} slice={slice} />
+						<LogoGrid key={index} slice={slice} />
   				);
 				} else if (slice.slice_type === 'list_of_articles') {
 					return(
-						<AsyncListOfLinks key={index} slice={slice} />
+						<ListOfLinks key={index} slice={slice} />
 					)
 				} else if (slice.slice_type === 'knowledge_base') {
 					return(
-						<AsyncSearchContainer key={index} slice={slice} />
+						<SearchContainer key={index} slice={slice} />
 					);
 				} else if (slice.slice_type === 'news_index') {
 					return(
-						<AsyncPostList key={index} />
+						<PostList key={index} />
 					);
 				} else if (slice.slice_type === 'contact_form') {
 					return(
-						<AsyncContactForm key={index} slice={slice} />
+						<ContactForm key={index} slice={slice} />
 					);
 				}  else if (slice.slice_type === 'content_block_with_image') {
   				return(
-						<AsyncContentImage key={index} slice={slice} />
+						<ContentImage key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'content_block_with_image_left') {
   				return(
-						<AsyncContentImageLeft key={index} slice={slice} />
+						<ContentImageLeft key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'content_block_no_image') {
   				return(
-						<AsyncContentNoImage key={index} slice={slice} />
+						<ContentNoImage key={index} slice={slice} />
   				);
   			} else if (slice.slice_type === 'google_map') {
 					return(
-						<AsyncEventMap key={index} slice={slice} />
+						<EventMap key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'supplier_form') {
 					return(
-						<AsyncSupplierForm key={index} slice={slice} />
+						<SupplierForm key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'callout_centered') {
 					return(
-						<AsyncCalloutCenter key={index} slice={slice} />
+						<CalloutCenter key={index} slice={slice} />
 					)
   			} else if (slice.slice_type === 'purchaser_form') {
 					return(
-						<AsyncPurchaserForm key={index} slice={slice} />
+						<PurchaserForm key={index} slice={slice} />
 					)
   			} else {
   				return null;
