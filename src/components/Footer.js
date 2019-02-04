@@ -81,7 +81,7 @@ class Footer extends Component {
                 <Address className="fa-ul pl-0">
                   <li className="mb-2"><span className={"fa-li " + styles.listStyle}><i className="fas fa-map-marker-alt text-warning"></i></span>{RichText.render(document.address)}</li>
                   <li className="mb-2"><span className={"fa-li " + styles.listStyle}><i className="fas fa-envelope text-warning"></i></span><a href={"mailto:" + RichText.asText(document.email)} className="text-white">{RichText.asText(document.email)}</a></li>
-                  <li><span className={"fa-li" + styles.list}><i className="fas fa-phone text-warning"></i></span><a href={"tel:" + RichText.asText(document.phone)} className="text-white">{RichText.asText(document.phone)}</a></li>
+                  <li><span className={"fa-li " + styles.listStyle}><i className="fas fa-phone text-warning"></i></span><a href={"tel:" + RichText.asText(document.phone)} className="text-white">{RichText.asText(document.phone)}</a></li>
                 </Address>
   						</Col>
   						<Col sm="6" lg="2">
