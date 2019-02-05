@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
+import { DeviceSize } from '../../DeviceSize';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -13,6 +14,15 @@ const ContentBlock = styled.section`
 	@media (max-width: 575.98px) {
 		padding: 3rem 0;
   }
+	@media ${DeviceSize.md} {
+		padding: 3rem 0;
+	}
+`
+const Image = styled.img`
+	max-width:100%;
+	width: 120px;
+	border-radius: 50%;
+	margin-bottom: 1.5rem;
 `
 
 const ContentSubTitle = styled.div`
@@ -30,11 +40,11 @@ class Biography extends React.Component {
       <ContentBlock>
         <Container>
           <Row>
-						<Col lg="2">
-							<img src={this.props.slice.primary.image.url} className="img-responsive w-100 rounded-circle" alt="" />
-							<h5 className="mt-4 text-center">{RichText.asText(this.props.slice.primary.name)}</h5>
+						<Col lg="2" md="3" className="text-center">
+							<Image src={this.props.slice.primary.image.url}/>
+							<h5 className="text-center">{RichText.asText(this.props.slice.primary.name)}</h5>
 						</Col>
-            <Col lg={{ size: 9, offset: 1 }}>
+            <Col lg={{ size: 9, offset: 1 }} md={{ size: 9, offset: 0 }}>
 
               {
                 (this.props.slice.primary.subtitle.length !== 0 )

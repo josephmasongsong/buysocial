@@ -4,6 +4,7 @@ import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
 import { DeviceSize } from '../../DeviceSize';
 import LazyLoad from 'react-lazyload';
+import PrismicConfig from '../../prismic-configuration';
 
 const Person = styled.div`
 	text-align: center;
@@ -87,7 +88,7 @@ class PeopleContainer extends React.Component {
           <Row>
             <Col lg="12">
               <h3 className="text-center mb-3">{RichText.asText(this.props.slice.primary.title)}</h3>
-              <div className="text-muted text-center lead mb-0">{RichText.render(this.props.slice.primary.subtitle)}</div>
+              <div className="text-muted text-center lead mb-0">{RichText.render(this.props.slice.primary.subtitle, PrismicConfig.linkResolver)}</div>
             </Col>
           </Row>
           <Row>
