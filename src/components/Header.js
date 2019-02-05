@@ -77,7 +77,7 @@ class Header extends Component {
         >
 					<Arrows src={images.arrowRight} alt=""/>
 					<Title>{RichText.asText(item.headline)}</Title>
-					<SubTitle>{RichText.asText(item.subheader)}</SubTitle>
+					<SubTitle>{RichText.render(item.subheader)}</SubTitle>
 					<CarouselLink href={Link.url(item.link, PrismicConfig.linkResolver)}>{RichText.asText(item.link_label)}</CarouselLink>
         </CarouselItem>
 			)

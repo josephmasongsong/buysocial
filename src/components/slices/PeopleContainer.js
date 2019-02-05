@@ -87,7 +87,7 @@ class PeopleContainer extends React.Component {
           <Row>
             <Col lg="12">
               <h3 className="text-center mb-3">{RichText.asText(this.props.slice.primary.title)}</h3>
-              <p className="text-muted text-center lead mb-0">{RichText.asText(this.props.slice.primary.subtitle)}</p>
+              <div className="text-muted text-center lead mb-0">{RichText.render(this.props.slice.primary.subtitle)}</div>
             </Col>
           </Row>
           <Row>

@@ -74,6 +74,7 @@ span[class^="burger_hamburger-inner__"],span[class^="burger_hamburger-inner__"]:
 }
 
 .carousel-inner {
+  overflow: visible;
   .carousel-item {
     opacity: 0;
     top: 0;

@@ -11,7 +11,6 @@ const CalloutButton = styled.a`
 	background-color: ${props => props.outline ? 'transparent' : '#005891' };
 	color: ${props => props.outline ? '#005891' : '#fff' } !important;
 	text-decoration: none;
-	font-family: 'Roboto Slab', sans-serif;
 	font-size: 1.25rem;
 	line-height: 1.5;
 	text-align: center;
@@ -21,7 +20,12 @@ const CalloutButton = styled.a`
 		text-decoration: none;
 	}
 `
-
+const EventDescription = styled.div`
+	font-size: 1.125rem;
+	h3,h4,h5,h6 {
+		margin-bottom: 1rem;
+	}
+`
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -72,9 +76,11 @@ class EventMap extends React.Component {
             </Col>
             <Col lg="7">
               <h2 className="mb-4">{RichText.asText(this.props.slice.primary.title)}</h2>
-              <div className="post-body mb-4">
-                {RichText.render(this.props.slice.primary.description)}
-              </div>
+
+							<EventDescription>
+              	{RichText.render(this.props.slice.primary.description)}
+							</EventDescription>
+
               {
                 (this.props.slice.primary.button_link.length !== 0) && (this.props.slice.primary.button_label.length !==0)
                 ?

@@ -29,9 +29,12 @@ $brand-yellow: #D9D458;
   color: $brand-blue !important;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  @include media-breakpoint-only(xs) {
+    padding: 1rem 1.5rem;
+  }
   @include media-breakpoint-only(md) {
     padding: 1rem 1.5rem;
-  }  
+  }
 }
 
 .togglerStyle {
@@ -95,6 +98,9 @@ $brand-yellow: #D9D458;
     background-color: #005891 !important;
     color: #fff !important;
   }
+  @include media-breakpoint-only(xs) {
+    padding: 1rem 1.5rem;
+  }  
   @include media-breakpoint-only(md) {
     padding: 1rem 1.5rem;
   }
