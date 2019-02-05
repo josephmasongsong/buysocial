@@ -4,6 +4,7 @@ import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
 import { DeviceSize } from '../../DeviceSize';
 import LazyLoad from 'react-lazyload';
+import PrismicConfig from '../../prismic-configuration';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -23,6 +24,9 @@ const BlockContainer = styled.div`
   p:last-child {
     margin-bottom: 0;
   }
+	a {
+		text-decoration: underline;
+	}
 	@media ${DeviceSize.xs} {
 		margin-bottom: 1.5rem;
 	}
@@ -38,7 +42,7 @@ class ThreeColumnBlock extends React.Component {
             	<img src={item.icon.url} alt=""/>
 						</LazyLoad>
             {RichText.render(item.title)}
-            {RichText.render(item.blurb)}
+            {RichText.render(item.blurb, PrismicConfig.linkResolver)}
           </BlockContainer>
         </Col>
       )
