@@ -20,7 +20,6 @@ const CalloutButton = styled.a`
 	background-color: ${props => props.outline ? 'transparent' : '#005891' };
 	color: ${props => props.outline ? '#005891' : '#fff' } !important;
 	text-decoration: none;
-	font-family: 'Roboto Slab', sans-serif;
 	font-size: 1.25rem;
 	line-height: 1.5;
 	text-align: center;
