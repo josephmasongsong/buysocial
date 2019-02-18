@@ -40,7 +40,6 @@ const BlogHeader = props => {
 
 	return(
 		<Masthead>
-			<TriangleBlueTwo />
 			<TriangleLarge />
 			<TriangleRed />
 			<TriangleYellow />
