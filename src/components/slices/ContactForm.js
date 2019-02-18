@@ -117,7 +117,7 @@ class ContactForm extends React.Component {
 									{this.validator.message('message', values.message, 'required')}
 					      </FormGroup>
 								<Recaptcha
-									sitekey="6LfFUZIUAAAAAECpCI9NpJkOFcgcYi0_towrNury"
+									sitekey="6LfvVZIUAAAAAGDDlgzoR6NGGqA5WKgZHcXoe1vZ"
 								/>
 					      <FormGroup>
 					        <Button color="primary" name="submit" type="submit" className="btn-lg rounded-0 mt-4">Send Message</Button>
