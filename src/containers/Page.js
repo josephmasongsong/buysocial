@@ -25,7 +25,6 @@ import {
 } from '../components/slices';
 import SlimHeader from '../components/SlimHeader';
 
-
 class Page extends Component {
 	constructor(props) {
 		super(props)

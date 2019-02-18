@@ -13,7 +13,8 @@ import {
 	Title,
   TriangleLarge,
   TriangleRed,
-  TriangleYellow
+  TriangleYellow,
+	TriangleBlueTwo
 } from './StyledHeader'
 
 const MastheadHome = styled(Masthead)`
@@ -85,6 +86,7 @@ class Header extends Component {
 
 		return(
 			<MastheadHome>
+				<TriangleBlueTwo />
 				<TriangleLarge />
 				<TriangleRed />
 				<TriangleYellow />

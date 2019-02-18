@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
+
 @font-face {
     font-family: 'SofiaProMedium';
     src: url('./fonts/SofiaProMedium.woff2') format('woff2'),
@@ -40,6 +42,8 @@ body {
 
 h1,h2,h3,h4,h5,h6, legend {
   font-family: 'SofiaProMedium';
+  // font-family: 'Roboto Slab';
+  // font-weight: 700;
   color: $brand-blue;
 }
 

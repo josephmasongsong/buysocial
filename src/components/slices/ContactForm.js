@@ -5,6 +5,7 @@ import { Container, Row, Col, Button, FormGroup, Label } from 'reactstrap';
 import { RichText } from 'prismic-reactjs'
 import SimpleReactValidator from 'simple-react-validator'
 import GoogleMapContainer from './GoogleMapContainer'
+import Recaptcha from 'react-recaptcha'
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -56,7 +57,6 @@ class ContactForm extends React.Component {
 	      headers: { "Content-Type": "application/x-www-form-urlencoded" },
 	      body: encode({ "form-name": "contact", ...this.state })
 	    })
-	      // .then(() => alert("Success!"))
 	      .catch(error => alert(error));
 			e.preventDefault();
 	    this.props.history.push('/' + redirect);
@@ -116,9 +116,13 @@ class ContactForm extends React.Component {
 					        <textarea id="message" name="message" value={message} onChange={this.handleChange} cols="40" rows="5" className="form-control rounded-0"></textarea>
 									{this.validator.message('message', values.message, 'required')}
 					      </FormGroup>
+								<Recaptcha
+									sitekey="6LfFUZIUAAAAAECpCI9NpJkOFcgcYi0_towrNury"
+								/>
 					      <FormGroup>
-					        <Button color="primary" name="submit" type="submit" className="btn-lg rounded-0">Send Message</Button>
+					        <Button color="primary" name="submit" type="submit" className="btn-lg rounded-0 mt-4">Send Message</Button>
 					      </FormGroup>
+
 					    </form>
 						</Col>
 					</Row>

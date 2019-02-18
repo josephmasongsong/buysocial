@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import images from '../ThemeImages';
-import LazyLoad from 'react-lazyload';
 
 import {
 	Arrows,
@@ -11,7 +10,7 @@ import {
 	Title,
   TriangleLarge,
   TriangleRed,
-  TriangleYellow
+  TriangleYellow,
 } from './StyledHeader'
 
 const SlimHeader = props => {
@@ -21,12 +20,10 @@ const SlimHeader = props => {
 
 	if (headerImg) {
 		headerContent = 	<React.Fragment>
-												<Col md="5" lg="5" className="align-self-center mx-auto order-sm-12">
-												<LazyLoad>
+												<Col md="5" lg="5" className="align-self-center ml-auto order-sm-12">
 													<HeaderImage src={props.headerImage} alt="" />
-												</LazyLoad>
 												</Col>
-												<Col md="7" lg="6" className="align-self-center mx-auto order-sm-1">
+												<Col md="7" lg="6" className="align-self-center mr-auto order-sm-1">
 													<Arrows src={images.arrowRight} alt=""/>
 													<Title>{props.headline}</Title>
 													<SubTitle>{props.subheader}</SubTitle>
@@ -44,11 +41,12 @@ const SlimHeader = props => {
 
 	return(
 		<Masthead>
+
 			<TriangleLarge />
 			<TriangleRed />
 			<TriangleYellow />
 			<Container className="h-100">
-				<Row className="h-100 justify-content-center">
+				<Row noGutters className="h-100">
 					{headerContent}
 				</Row>
 			</Container>

@@ -9,7 +9,8 @@ import {
   Masthead,
   TriangleLarge,
   TriangleRed,
-  TriangleYellow
+  TriangleYellow,
+	TriangleBlueTwo
 } from './StyledHeader'
 
 
@@ -39,6 +40,7 @@ const BlogHeader = props => {
 
 	return(
 		<Masthead>
+			<TriangleBlueTwo />
 			<TriangleLarge />
 			<TriangleRed />
 			<TriangleYellow />

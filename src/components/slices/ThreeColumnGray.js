@@ -38,11 +38,11 @@ class ThreeColumnGray extends React.Component {
       })
       return(
         <GrayBlock>
-            <Container>
-              <Row>
-                {items}
-              </Row>
-            </Container>
+          <Container>
+            <Row>
+              {items}
+            </Row>
+          </Container>
         </GrayBlock>
       )
     }

@@ -38,28 +38,43 @@ const LinkTo = styled.a`
 	}
 `
 const TriangleRed = styled.div`
-	width: 10%;
-  height: 50%;
-  background: #D12331;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  clip-path: polygon(0% 50%, 0% 100%, 100% 100%);
+	width: 6.75%;
+	height: 25%;
+	background: #D12331;
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+	clip-path: polygon(0% 100%,0% 0%,100% 100%);
+	/* width: 10%;
+	height: 50%;
+	background: #D12331;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+	clip-path: polygon(0% 50%, 0% 100%, 100% 100%); */
 	@media ${DeviceSize.xs} {
 		width: 20%;
 		height: 20%;
 	}
 `
 const TriangleBlue = styled.div`
-	width: 10%;
-  height: 50%;
-  background: #005891;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  clip-path: polygon(100% 50%, 0% 0%, 100% 0%);
+	width: 6.75%;
+	height: 25%;
+	background: #005891;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+	/* width: 10%;
+	height: 50%;
+	background: #005891;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	clip-path: polygon(100% 50%, 0% 0%, 100% 0%); */
 	@media ${DeviceSize.xs} {
 		width: 20%;
 		height: 20%;

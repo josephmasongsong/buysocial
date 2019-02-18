@@ -14,13 +14,20 @@ const Masthead = styled.section`
 `
 const TriangleLarge = styled.div`
   @media ${DeviceSize.xl} {
-    width: 20%;
+    /* width: 20%;
     height: 100%;
     background: #005891;
     position: absolute;
     top: 0;
     z-index: 1;
-    clip-path: polygon(0 0, 0 100%, 50% 50%);
+    clip-path: polygon(0 0, 0 100%, 50% 50%); */
+		width: 6.75%;
+		height: 25%;
+		background: #005891;
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		clip-path: polygon(0% 100%,0% 0%,100% 100%);
   }
   @media ${DeviceSize.mdMin} and ${DeviceSize.lg} {
     width: 10%;
@@ -45,14 +52,24 @@ const TriangleLarge = styled.div`
   }
 `
 const TriangleRed = styled.div`
-  width: 10%;
+  /* width: 10%;
   height: 50%;
   background: #D12331;
   position: absolute;
   top: 0;
   right: 0;
   z-index: 2;
+  clip-path: polygon(100% 100%, 0% 0%, 100% 0%); */
+
+	width: 6.75%;
+	height: 25%;
+  background: #D12331;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
   clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+
   @media ${DeviceSize.mdMin} and ${DeviceSize.lg} {
     height: 25%;
   }
@@ -67,14 +84,24 @@ const TriangleRed = styled.div`
 `
 
 const TriangleYellow = styled.div`
-  width: 10%;
+  /* width: 10%;
   height: 50%;
   background: #D9D458;
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: 2;
+  clip-path: polygon(100% 0%, 0% 100%, 100% 100%); */
+
+	width: 6.75%;
+	height: 25%;
+  background: #D9D458;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
   clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+
   @media ${DeviceSize.mdMin} and ${DeviceSize.lg} {
     height: 25%;
   }
@@ -87,6 +114,20 @@ const TriangleYellow = styled.div`
     height: 25%;
   }
 `
+
+const TriangleBlueTwo = styled.div`
+	width: 6.75%;
+	height: 25%;
+	background: #005891;
+	/* background: #D9D458; */
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	-webkit-clip-path: polygon(100% 100%,0% 0%,100% 0%);
+	clip-path: polygon(0% 100%,0% 0%,100% 0%);
+`
+
 
 const Arrows = styled.img`
   margin-bottom: 1rem!important;
@@ -146,5 +187,6 @@ export {
   Title,
   TriangleLarge,
   TriangleRed,
-  TriangleYellow
+  TriangleYellow,
+	TriangleBlueTwo
 }
