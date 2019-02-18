@@ -51,6 +51,47 @@ const TriangleLarge = styled.div`
     clip-path: polygon(0% 100%,0% 0%,100% 100%);
   }
 `
+
+const BlueChevron = styled.div`
+  @media ${DeviceSize.xl} {
+    width: 20%;
+    height: 100%;
+    background: #005891;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    clip-path: polygon(0 0, 0 100%, 50% 50%);
+		/* width: 6.75%;
+		height: 25%;
+		background: #005891;
+		position: absolute;
+		bottom: 0;
+		z-index: 1;
+		clip-path: polygon(0% 100%,0% 0%,100% 100%); */
+  }
+  @media ${DeviceSize.mdMin} and ${DeviceSize.lg} {
+    width: 10%;
+    height: 50%;
+    background: #005891;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    clip-path: polygon(0% 50%,0% 100%,100% 100%);
+  }
+	@media ${DeviceSize.xs} {
+    display: none;
+  }
+  @media ${DeviceSize.smMin} and ${DeviceSize.md} {
+    width: 12.5%;
+    height: 25%;
+    background: #005891;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    clip-path: polygon(0% 100%,0% 0%,100% 100%);
+  }
+`
+
 const TriangleRed = styled.div`
   /* width: 10%;
   height: 50%;
@@ -188,5 +229,6 @@ export {
   TriangleLarge,
   TriangleRed,
   TriangleYellow,
-	TriangleBlueTwo
+	TriangleBlueTwo,
+	BlueChevron
 }

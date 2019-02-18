@@ -8,6 +8,7 @@ import PrismicConfig from '../prismic-configuration';
 
 import {
 	Arrows,
+	BlueChevron,
   Masthead,
 	SubTitle,
 	Title,
@@ -23,6 +24,27 @@ const MastheadHome = styled(Masthead)`
 		height: calc(100vh - 96px);
 	}
 `
+const HomeTriangleRed = styled(TriangleRed)`
+	width: 10%;
+	height: 50%;
+	background: #D12331;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+`
+const HomeTriangleYellow = styled(TriangleYellow)`
+	width: 10%;
+	height: 50%;
+	background: #D9D458;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 2;
+	clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+`
+
 
 const CarouselLink = styled.a`
 	font-size: 1.25rem;
@@ -86,10 +108,9 @@ class Header extends Component {
 
 		return(
 			<MastheadHome>
-				<TriangleBlueTwo />
-				<TriangleLarge />
-				<TriangleRed />
-				<TriangleYellow />
+				<BlueChevron />
+				<HomeTriangleRed />
+				<HomeTriangleYellow />
 				<Container className="h-100">
 					<Row className="h-100 align-items-center">
 						<Col lg="8" className="mx-auto">
