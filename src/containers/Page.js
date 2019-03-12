@@ -3,6 +3,8 @@ import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
 import Loading from '../Loading';
 import NotFound from '../NotFound';
+import PrismicConfig from '../prismic-configuration';
+import htmlSerializer from '../htmlSerializer';
 import {
 	Biography,
 	BulletList,
@@ -134,6 +136,10 @@ class Page extends Component {
   			} else if (slice.slice_type === 'purchaser_form') {
 					return(
 						<PurchaserForm key={index} slice={slice} />
+					)
+  			} else if (slice.slice_type === 'embed') {
+					return(
+						<div key={index} dangerouslySetInnerHTML={{ __html: RichText.asText(slice.primary.embed_code) }} />
 					)
   			} else {
   				return null;
