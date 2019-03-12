@@ -4,7 +4,6 @@ import { RichText } from 'prismic-reactjs';
 import Loading from '../Loading';
 import NotFound from '../NotFound';
 import PrismicConfig from '../prismic-configuration';
-import htmlSerializer from '../htmlSerializer';
 import {
 	Biography,
 	BulletList,
@@ -23,7 +22,8 @@ import {
   SupplierForm,
   ThreeColumnBlock,
   ThreeColumnGray,
-  TwoColumnsCentered
+  TwoColumnsCentered,
+	Embed
 } from '../components/slices';
 import SlimHeader from '../components/SlimHeader';
 
@@ -139,7 +139,7 @@ class Page extends Component {
 					)
   			} else if (slice.slice_type === 'embed') {
 					return(
-						<div key={index} dangerouslySetInnerHTML={{ __html: RichText.asText(slice.primary.embed_code) }} />
+						<Embed key={index} slice={slice} />
 					)
   			} else {
   				return null;

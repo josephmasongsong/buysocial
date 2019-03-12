@@ -17,6 +17,8 @@ import SupplierForm from './SupplierForm';
 import ThreeColumnBlock from './ThreeColumnBlock'
 import ThreeColumnGray from './ThreeColumnGray';
 import TwoColumnsCentered from './TwoColumnsCentered';
+import Embed from './Embed';
+
 
 export {
   Biography,
@@ -37,5 +39,6 @@ export {
   SupplierForm,
   ThreeColumnBlock,
   ThreeColumnGray,
-  TwoColumnsCentered
+  TwoColumnsCentered,
+  Embed
 }
