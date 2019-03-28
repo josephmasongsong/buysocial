@@ -12,10 +12,8 @@ import {
   Masthead,
 	SubTitle,
 	Title,
-  TriangleLarge,
   TriangleRed,
   TriangleYellow,
-	TriangleBlueTwo
 } from './StyledHeader'
 
 const MastheadHome = styled(Masthead)`

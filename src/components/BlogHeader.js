@@ -10,8 +10,6 @@ import {
   TriangleLarge,
   TriangleRed,
   TriangleYellow,
-	TriangleBlueTwo,
-	BlueChevron
 } from './StyledHeader'
 
 

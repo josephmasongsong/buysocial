@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { RichText } from 'prismic-reactjs'
+import { Link,RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
 import { DeviceSize } from '../../DeviceSize';
 import LazyLoad from 'react-lazyload';
+import PrismicConfig from '../../prismic-configuration';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -19,9 +20,11 @@ class LogoGrid extends React.Component {
     const items = this.props.slice.items.map(function(item, itemIndex){
       return(
         <Col md="3" sm="4" xs="6" key={itemIndex}>
+					<a href={Link.url(item.link, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer">
 					<LazyLoad>
           	<img src={item.image.url} alt="" className="img-fluid" />
 					</LazyLoad>
+					</a>
         </Col>
       );
     });

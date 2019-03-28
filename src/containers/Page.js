@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { RichText } from 'prismic-reactjs';
 import Loading from '../Loading';
 import NotFound from '../NotFound';
-import PrismicConfig from '../prismic-configuration';
+
 import {
 	Biography,
 	BulletList,

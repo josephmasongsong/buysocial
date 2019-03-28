@@ -1,6 +1,5 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
-import PrismicConfig from '../../prismic-configuration';
 import { Container } from 'reactstrap';
 import styled from 'styled-components';
 
