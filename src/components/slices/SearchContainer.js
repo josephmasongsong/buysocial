@@ -53,6 +53,7 @@ const Sidebar = () =>
         'categories.lvl1'
       ]}
       limit={10}
+      defaultRefinement="Guidebooks"
       rootPath={null}
       separator=" > "
       showParentLevel
