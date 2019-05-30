@@ -43,7 +43,7 @@ const BlockImage = styled.img`
 `
 const ContentSubTitle = styled.div`
   font-size: 1.25rem;
-  color: #6c757d!important;
+  color: #6c757d !important;
   margin-bottom: 1rem;
 	@media ${DeviceSize.xs} {
 		font-size: 1.125rem;
@@ -65,11 +65,29 @@ const Blurb = styled.div`
 		 }
   }
 `
+const BlockContainer = styled.div`
+  img, h4,h5,h6  {
+    margin-bottom: 1rem;
+  }
+  img {
+    height: 64px;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+	a {
+		text-decoration: underline;
+	}
+	@media ${DeviceSize.xs} {
+		margin-bottom: 1.5rem;
+	}
+`
 
 export {
   ContentBlock,
   BlockImage,
   ContentSubTitle,
   LinkTo,
-  Blurb
+  Blurb,
+  BlockContainer
 }

@@ -1,61 +1,34 @@
 import React from 'react'
-import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
-import { DeviceSize } from '../../DeviceSize';
 import LazyLoad from 'react-lazyload';
 import PrismicConfig from '../../prismic-configuration';
+import { ContentBlock, BlockContainer } from '../../styles';
 
-const ContentBlock = styled.section`
-	position: relative;
-	padding: 6rem 0;
-	border-top: 1px solid #f8f9fa;
-	@media ${DeviceSize.xs} {
-    padding: 3rem 0;
-  }
-`
-const BlockContainer = styled.div`
-  img, h4,h5,h6  {
-    margin-bottom: 1rem;
-  }
-  img {
-    height: 64px;
-  }
-  p:last-child {
-    margin-bottom: 0;
-  }
-	a {
-		text-decoration: underline;
-	}
-	@media ${DeviceSize.xs} {
-		margin-bottom: 1.5rem;
-	}
-`
+const ColumnBlocks = props => (
+	<>
+		{props.items.map((item, i) =>
+			<Col md={`4`} key={i}>
+				<BlockContainer>
+					<LazyLoad>
+						<img src={item.icon.url} alt={item.icon.alt} />
+					</LazyLoad>
+					{RichText.render(item.title)}
+					{RichText.render(item.blurb, PrismicConfig.linkResolver)}
+				</BlockContainer>
+			</Col>
+		)}
+	</>
+)
 
-class ThreeColumnBlock extends React.Component {
-  render () {
-    const items = this.props.slice.items.map(function(item, itemIndex) {
-      return(
-        <Col md="4" key={itemIndex}>
-          <BlockContainer>
-						<LazyLoad>
-            	<img src={item.icon.url} alt=""/>
-						</LazyLoad>
-            {RichText.render(item.title)}
-            {RichText.render(item.blurb, PrismicConfig.linkResolver)}
-          </BlockContainer>
-        </Col>
-      )
-    })
-    return(
-      <ContentBlock >
-        <Container>
-          <Row>
-            {items}
-          </Row>
-        </Container>
-      </ContentBlock>
-    )
-  }
-}
+const ThreeColumnBlock = props => (
+	<ContentBlock >
+		<Container>
+			<Row>
+				<ColumnBlocks items={props.slice.items} />
+			</Row>
+		</Container>
+	</ContentBlock>
+)
+
 export default ThreeColumnBlock
