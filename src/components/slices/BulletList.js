@@ -21,7 +21,7 @@ const BulletList = props => (
 				<Col lg={`12`} className={`align-self-center`}>
 					<Media className={`align-items-center`}>
 						<Media left>
-							<img src={props.slice.primary.icon.url} alt={props.slice.primary.icon.alt} />
+							<img src={props.slice.primary.icon.url} alt={props.slice.primary.icon.alt} className={`bulletlist-icon`} />
 						</Media>
 						<Media body>
 							{RichText.render(props.slice.primary.title)}
