@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { DeviceSize } from './DeviceSize';
+import { Link as RouterLink } from 'react-router-dom';
 
 const ContentBlock = styled.section`
 	position: relative;
@@ -232,6 +233,18 @@ const WizardButton = styled.button`
 	background-color: ${props => props.prev ? '#D9D458' : '#005891' };
 	color: ${props => props.prev ? '#212529' : '#fff' };
 `
+const StyledNavbarBrand = styled(RouterLink)`
+	display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+`
+const Logo = styled.img`
+	width: 84px;
+`
 
 const Name = styled.span`
     position: relative;
@@ -245,7 +258,7 @@ const Name = styled.span`
     }
   }
 `
-const Link = styled.a`
+const TopLink = styled(RouterLink)`
   position: relative;
   color: #005891 !important;
   @media ${DeviceSize.xs} {
@@ -343,7 +356,7 @@ export {
   GrayBlock,
   WizardButton,
   Name,
-  Link,
+  TopLink,
   DocumentSection,
   Person,
   PersonPhoto,
@@ -355,5 +368,7 @@ export {
   MapContainer,
   Address,
   PostImage,
-	PostBody
+	PostBody,
+	StyledNavbarBrand,
+	Logo
 }

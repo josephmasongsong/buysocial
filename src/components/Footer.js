@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
 import images from '../ThemeImages';
-import Prismic from 'prismic-javascript';
 import {Link, RichText} from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import { DeviceSize } from '../DeviceSize';
 import styles from './footer.module.scss';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 const FooterStyle = styled.div`
   padding: 6rem 0;
@@ -47,15 +48,25 @@ class Footer extends Component {
     };
   }
   componentWillMount() {
-	  const apiEndpoint = 'https://buy-social-canada.prismic.io/api/v2';
-	  Prismic.api(apiEndpoint).then(api => {
-	    api.query(Prismic.Predicates.at('document.type', 'footer')).then(response => {
-	      if (response) {
-	        this.setState({ doc: response.results[0] });
-	      }
-	    });
-	  });
-	}
+    this.fetchPage(this.props);
+  }
+
+  componentWillReceiveProps(props) {
+    this.fetchPage(props);
+  }
+
+	fetchPage(props) {
+    if (props.prismicCtx) {
+			return props.prismicCtx.api.getSingle('footer', (err, doc) => {
+        if (doc) {
+          this.setState({ doc });
+        } else {
+          this.setState({ notFound: !doc });
+        }
+      });
+    }
+    return null;
+  }
 	render() {
     if (this.state.doc) {
       const document = this.state.doc.data
@@ -64,7 +75,7 @@ class Footer extends Component {
         if (slice.slice_type === 'nav_item') {
           return(
             <li key={index}>
-              <a className="text-white" href={Link.url(slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(slice.primary.label)}</a>
+              <RouterLink className="text-white" to={Link.url(slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(slice.primary.label)}</RouterLink>
             </li>
           )
         } else {

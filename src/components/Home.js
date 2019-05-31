@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { AsyncNotFound } from './slices/async';
 import Meta from '../meta';
 import SliceZone from './SliceZone';
+import Layout from './Layout';
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -48,7 +50,7 @@ class Home extends Component {
   }
 
   render() {
-    return <>{this.renderPage()}</>
+    return <Layout prismicCtx={this.props.prismicCtx}>{this.renderPage()}</Layout>
   }
 }
 

@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'reactstrap'
 import LazyLoad from 'react-lazyload';
 import PrismicConfig from '../../prismic-configuration';
 import { ContentBlock, BlockContainer } from '../../styles';
+import LinkSerializer from '../../LinkSerializer';
 
 const ColumnBlocks = props => (
 	<>
@@ -14,7 +15,7 @@ const ColumnBlocks = props => (
 						<img src={item.icon.url} alt={item.icon.alt} />
 					</LazyLoad>
 					{RichText.render(item.title)}
-					{RichText.render(item.blurb, PrismicConfig.linkResolver)}
+					{RichText.render(item.blurb, PrismicConfig.linkResolver, LinkSerializer)}
 				</BlockContainer>
 			</Col>
 		)}

@@ -4,6 +4,7 @@ import { AsyncNotFound } from './slices/async';
 import SliceZone from '../components/SliceZone';
 import SlimHeader from '../components/SlimHeader';
 import Meta from '../meta';
+import Layout from './Layout';
 
 class Page extends Component {
 	constructor(props) {
@@ -56,7 +57,7 @@ class Page extends Component {
 	}
 
   render() {
-		return <>{this.renderPage()}</>
+		return <Layout prismicCtx={this.props.prismicCtx}>{this.renderPage()}</Layout>
   }
 }
 

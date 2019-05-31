@@ -8,20 +8,17 @@ import {
 	NavItem,
 	UncontrolledDropdown,
 	DropdownToggle,
-	DropdownItem,
 	DropdownMenu } from 'reactstrap';
 import images from '../ThemeImages';
-import styled from 'styled-components';
 import NavLink from './NavLink';
-import Prismic from 'prismic-javascript';
 import {Link, RichText} from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
 import Burger from 'react-css-burger';
 import styles from './navigation.module.scss';
+import { Link as RouterLink } from 'react-router-dom';
+import { Logo, StyledNavbarBrand } from '../styles';
 
-const Logo = styled.img`
-	width: 84px;
-`
+
 class Navigation extends Component {
 	constructor(props) {
 		super(props);
@@ -37,15 +34,28 @@ class Navigation extends Component {
 		});
 	}
 	componentWillMount() {
-	  const apiEndpoint = 'https://buy-social-canada.prismic.io/api/v2';
-	  Prismic.api(apiEndpoint).then(api => {
-	    api.query(Prismic.Predicates.at('document.type', 'main_navigation')).then(response => {
-	      if (response) {
-	        this.setState({ doc: response.results[0] });
-	      }
-	    });
-	  });
-	}
+    this.fetchPage(this.props);
+  }
+
+  componentWillReceiveProps(props) {
+    this.fetchPage(props);
+  }
+
+	fetchPage(props) {
+    if (props.prismicCtx) {
+
+			return props.prismicCtx.api.getSingle('main_navigation', (err, doc) => {
+        if (doc) {
+          // We put the retrieved content in the state as a doc variable
+          this.setState({ doc });
+        } else {
+          // We changed the state to display error not found if no matched doc
+          this.setState({ notFound: !doc });
+        }
+      });
+    }
+    return null;
+  }
 	render() {
 		if (this.state.doc) {
 
@@ -56,7 +66,7 @@ class Navigation extends Component {
   				const navItems = slice.items.map(function(navItem, navItemIndex){
 						if (typeof navItem.sub_nav_link_lable[0] !== "undefined") {
 							return(
-								<DropdownItem key={navItemIndex} className={styles.dropdownItemStyle} tag="a" href={Link.url(navItem.sub_nav_link, PrismicConfig.linkResolver)}>{navItem.sub_nav_link_lable[0].text}</DropdownItem>
+								<RouterLink key={navItemIndex} className={`${styles.dropdownItemStyle} dropdown-item`} to={Link.url(navItem.sub_nav_link, PrismicConfig.linkResolver)}>{RichText.asText(navItem.sub_nav_link_lable)}</RouterLink>
 	  					);
 						} else {
 							return null;
@@ -91,7 +101,7 @@ class Navigation extends Component {
 	    return (
 				<Navbar color="white" light expand="lg" className={styles.buysocialNavbar}>
 		      <Container className={styles.containerStyle}>
-		        <NavbarBrand href="/" className={styles.navbarBrandStyle}><Logo src={images.logo} alt="Buy Social Canada" /></NavbarBrand>
+		        <StyledNavbarBrand to={`/`} className={styles.navbarBrandStyle}><Logo src={images.logo} alt="Buy Social Canada" /></StyledNavbarBrand>
 						<div className={"navbar-toggler " + styles.togglerStyle}>
 							<Burger
 				        onClick={this.toggle}

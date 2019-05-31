@@ -24,10 +24,12 @@
     "react-scripts": "2.1.1",
     "reactstrap": "^6.5.0",
     "simple-react-validator": "^1.0.2",
+    "source-map-explorer": "^1.8.0",
     "styled-components": "^4.1.1",
     "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build && echo '/*    /index.html   200' > build/_redirects",
     "test": "react-scripts test",

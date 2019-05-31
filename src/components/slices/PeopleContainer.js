@@ -32,7 +32,7 @@ const PeopleContainer = props =>
 					<div className={`text-muted text-center lead mb-0`}>{RichText.render(props.slice.primary.subtitle, PrismicConfig.linkResolver)}</div>
 				</Col>
 			</Row>
-			<Row>
+			<Row className={`justify-content-center`}>
 				<People items={props.slice.items} />
 			</Row>
 		</Container>

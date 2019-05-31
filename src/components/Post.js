@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import { Container, Row, Col, Badge } from 'reactstrap';
-import { Link, RichText } from 'prismic-reactjs';
-import PrismicConfig from '../prismic-configuration';
-import styled from 'styled-components';
-import { DeviceSize } from '../DeviceSize';
+import { Container, Row, Col } from 'reactstrap';
+import { RichText } from 'prismic-reactjs';
 import SliceZone from './SliceZone';
 import { AsyncNotFound, AsyncBlogHeader } from './slices/async';
 import { PostBody, ContentBlock } from '../styles';
+import Layout from './Layout';
 
 class Post extends Component {
   constructor(props) {
@@ -82,7 +80,7 @@ class Post extends Component {
 		}
 	}
   render() {
-		return <>{this.renderPost()}</>
+    return <Layout prismicCtx={this.props.prismicCtx}>{this.renderPost()}</Layout>
   }
 }
 export default Post
