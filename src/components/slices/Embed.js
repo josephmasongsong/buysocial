@@ -1,15 +1,10 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import { Container } from 'reactstrap';
-import styled from 'styled-components';
+import { ContentBlock } from '../../styles';
 
-const StyledSection = styled.section`
-	position: relative;
-	padding: 6rem 0;
-	@media (max-width: 575.98px) {
-		padding: 3rem 0;
-  }
-`
+/* eslint no-eval: 0 */
+
 export default class Embed extends React.Component {
   rawMarkup(){
     const rawMarkup = RichText.asText(this.props.slice.primary.embed_code)
@@ -28,11 +23,11 @@ export default class Embed extends React.Component {
   }
   render() {
     return (
-      <StyledSection>
+      <ContentBlock>
         <Container>
           <div dangerouslySetInnerHTML={{ __html: this.rawMarkup() }} />
         </Container>
-      </StyledSection>
+      </ContentBlock>
     )
   }
 }

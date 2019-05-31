@@ -114,6 +114,11 @@ const AsyncBlogHeader = Loadable({
   loading: () => null
 });
 
+const AsyncSlimHeader = Loadable({
+  loader: () => import("../index").then(m => m.SlimHeader),
+  loading: () => null
+});
+
 export {
   AsyncBiography,
   AsyncBulletList,
@@ -142,4 +147,5 @@ export {
   AsyncNotFound,
   AsyncHeader,
   AsyncBlogHeader,
+  AsyncSlimHeader
 }

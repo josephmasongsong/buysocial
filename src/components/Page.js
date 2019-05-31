@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { AsyncNotFound } from './slices/async';
 import SliceZone from '../components/SliceZone';
-import SlimHeader from '../components/SlimHeader';
+import { AsyncSlimHeader } from '../components/slices/async';
 import Meta from '../meta';
 import Layout from './Layout';
 
@@ -42,7 +42,7 @@ class Page extends Component {
 			return(
 				<>
 					{Meta(document)}
-					<SlimHeader
+					<AsyncSlimHeader
 						headline={RichText.asText(document.page_title)}
 						subheader={RichText.render(document.page_blurb)}
 						headerImage={document.page_image.url}
