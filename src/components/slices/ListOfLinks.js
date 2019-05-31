@@ -81,34 +81,34 @@ const TriangleBlue = styled.div`
 	}
 `
 
-class ListOfLinks extends React.Component {
-  render () {
-    const items = this.props.slice.items.map(function(item, itemIndex){
-      return(
-        <Col md="6" key={itemIndex}>
-  				<LinkContainer>
-  					<LinkTo href={Link.url(item.link, PrismicConfig.linkResolver)}>{RichText.render(item.title)}</LinkTo>
-            {RichText.render(item.description)}
-  				</LinkContainer>
-  			</Col>
-      );
-    });
-    return(
-      <GrayBlock>
-        <TriangleRed />
-        <TriangleBlue />
-        <Container>
-          <Row>
-            <Col lg="8">
-              {RichText.render(this.props.slice.primary.title)}
-            </Col>
-          </Row>
-          <Row>
-            {items}
-          </Row>
-        </Container>
-      </GrayBlock>
-    );
-  }
-}
+const Links = props => (
+	<>
+		{props.items.map((item,i) =>
+			<Col md={`6`} key={i}>
+				<LinkContainer>
+					<LinkTo href={Link.url(item.link, PrismicConfig.linkResolver)}>{RichText.render(item.title)}</LinkTo>
+					{RichText.render(item.description)}
+				</LinkContainer>
+			</Col>
+		)}
+	</>
+)
+
+const ListOfLinks = props =>
+	<GrayBlock>
+		<TriangleRed />
+		<TriangleBlue />
+		<Container>
+			<Row>
+				<Col lg="8">
+					{RichText.render(props.slice.primary.title)}
+				</Col>
+			</Row>
+			<Row>
+				<Links items={props.slice.items} />
+			</Row>
+		</Container>
+	</GrayBlock>
+
+
 export default ListOfLinks

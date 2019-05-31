@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Col, Row, Container } from 'reactstrap';
 import {
   InstantSearch,
@@ -9,20 +9,10 @@ import {
 } from 'react-instantsearch-dom';
 import 'instantsearch.css/themes/algolia-min.css';
 import './search.scss';
-
-import styled from 'styled-components';
+import { DocumentSection } from '../../styles';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
-const ContentBlock = styled.section`
-	position: relative;
-	padding: 6rem 0;
-	border-top: 1px solid #f8f9fa;
-	@media (max-width: 575.98px) {
-		padding: 3rem 0;
-  }
-`
 
 const Hit = ({hit}) =>
   <div className="hit">
@@ -69,29 +59,22 @@ const Content = () =>
     </div>
   </Col>
 
-class SearchContainer extends Component {
-  render(){
-    return(
-      <ContentBlock>
-        <Container>
-          <InstantSearch
-            appId="UVPOJDU7AN"
-            apiKey="0ce11a5ad2a8fd5e0068ec55d40f0e80"
-            indexName="bsc_google_sheet"
-          >
 
-            <Row>
-              <Sidebar/>
+const SearchContainer = props =>
+  <DocumentSection>
+    <Container>
+      <InstantSearch
+        appId="UVPOJDU7AN"
+        apiKey="0ce11a5ad2a8fd5e0068ec55d40f0e80"
+        indexName="bsc_google_sheet"
+      >
+        <Row>
+          <Sidebar/>
+          <Content/>
+        </Row>
+      </InstantSearch>
+    </Container>
+  </DocumentSection>
 
-
-              <Content/>
-            </Row>
-
-          </InstantSearch>
-        </Container>
-      </ContentBlock>
-    )
-  }
-}
 
 export default SearchContainer

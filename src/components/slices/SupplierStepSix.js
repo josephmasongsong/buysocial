@@ -1,18 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { FormGroup, Label, Input } from 'reactstrap'
-import styled from 'styled-components';
+import { WizardButton } from '../../styles';
 import SimpleReactValidator from 'simple-react-validator'
 
-const WizardButton = styled.button`
-  font-family: 'Roboto Slab', sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border: ${props => props.prev ? '1px solid #D9D458' : '1px solid #005891' };
-	background-color: ${props => props.prev ? '#D9D458' : '#005891' };
-	color: ${props => props.prev ? '#212529' : '#fff' };
-`
 class SupplierStepSix extends Component {
   constructor(props){
     super(props)

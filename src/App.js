@@ -1,24 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
-import Loadable from 'react-loadable'
-import Loading from './Loading'
 
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
-import Preview from './Preview';
 
-const AsyncHome = Loadable({
-  loader: () => import("./containers/Home" /* webpackChunkName: "home" */),
-  loading: Loading
-});
-const AsyncPage = Loadable({
-  loader: () => import("./containers/Page" /* webpackChunkName: "page", wepbackPreload: true */),
-  loading: Loading
-});
-const AsyncPost = Loadable({
-  loader: () => import("./containers/Post" /* webpackChunkName: "post" */),
-  loading: Loading
-});
+import { AsyncPage, AsyncPost, AsyncHome, AsyncPreview } from './components/slices/async';
 
 class App extends Component {
 
@@ -27,8 +13,8 @@ class App extends Component {
       <div className="App">
         <Navigation />
           <Switch>
-            <Route exact path="/preview" render={routeProps => <Preview {...routeProps} />} />
-            <Route exact path='/' component={AsyncHome}/>
+            <Route exact path="/preview" render={routeProps => <AsyncPreview {...routeProps} />} />
+            <Route exact path='/' render={() => <AsyncHome prismicCtx={this.props.prismicCtx}/>}/>
             <Route exact path="/:uid" render={routeProps => <AsyncPage {...routeProps} prismicCtx={this.props.prismicCtx} />} />
             <Route exact path="/news/:uid" render={routeProps => <AsyncPost {...routeProps} prismicCtx={this.props.prismicCtx} />} />
           </Switch>

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import styled from 'styled-components'
+
 import { Form, Container, Row, Col } from 'reactstrap'
 import PurchaserStepOne from './PurchaserStepOne'
 import PurchaserStepTwo from './PurchaserStepTwo'
 import PurchaserStepThree from './PurchaserStepThree'
 import PurchaserStepFour from './PurchaserStepFour'
 
+import { ContentBlock } from '../../styles'
 
 
 const encode = (data) => {
@@ -15,17 +16,7 @@ const encode = (data) => {
        .join("&");
  }
 
- const ContentBlock = styled.section`
- 	position: relative;
- 	padding: 6rem 0;
- 	border-top: 1px solid #f8f9fa;
-   h2,h3,h4,h5 {
-     margin-bottom: 1rem;
-   }
- 	@media (max-width: 575.98px) {
- 		padding: 3rem 0;
-   }
- `
+
 
 class PurchaserForm extends Component {
   constructor(props) {
@@ -172,10 +163,10 @@ class PurchaserForm extends Component {
     }
 
     return(
-      <ContentBlock>
+      <ContentBlock className={`applicationForm`}>
         <Container>
           <Row>
-            <Col lg="12">
+            <Col lg={`12`}>
               <Form>
                 {whichStep(step)}
               </Form>

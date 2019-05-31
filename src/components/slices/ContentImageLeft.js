@@ -6,7 +6,7 @@ import LazyLoad from 'react-lazyload';
 import { ContentBlock, BlockImage, ContentSubTitle, LinkTo, Blurb } from '../../styles';
 
 const ContentImageLeft = props => (
-	<ContentBlock>
+	<ContentBlock className={`withImage`}>
 		<Container>
 			<Row>
 				<Col md={`6`} lg={`5`} className={`align-self-center mr-auto`}>

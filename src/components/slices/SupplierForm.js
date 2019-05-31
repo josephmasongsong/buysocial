@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import styled from 'styled-components'
 import { Form, Container, Row, Col } from 'reactstrap'
+import { ContentBlock } from '../../styles';
+
 import SupplierStepOne from './SupplierStepOne'
 import SupplierStepTwo from './SupplierStepTwo'
 import SupplierStepThree from './SupplierStepThree'
@@ -15,17 +16,6 @@ const encode = (data) => {
        .join("&");
  }
 
- const ContentBlock = styled.section`
- 	position: relative;
- 	padding: 6rem 0;
- 	border-top: 1px solid #f8f9fa;
-   h2,h3,h4,h5 {
-     margin-bottom: 1rem;
-   }
- 	@media (max-width: 575.98px) {
- 		padding: 3rem 0;
-   }
- `
 
 class SupplierForm extends Component {
   constructor(props){

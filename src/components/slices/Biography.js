@@ -34,34 +34,31 @@ const ContentBody = styled.div`
   font-size: 1.125rem;
 `
 
-class Biography extends React.Component {
-  render() {
-    return(
-      <ContentBlock>
-        <Container>
-          <Row>
-						<Col lg="2" md="3" className="text-center">
-							<Image src={this.props.slice.primary.image.url}/>
-							<h5 className="text-center">{RichText.asText(this.props.slice.primary.name)}</h5>
-						</Col>
-            <Col lg={{ size: 9, offset: 1 }} md={{ size: 9, offset: 0 }}>
 
-              {
-                (this.props.slice.primary.subtitle.length !== 0 )
-                ?
-                <ContentSubTitle>{RichText.render(this.props.slice.primary.subtitle )}</ContentSubTitle>
-                :
-                null
-              }
-              <ContentBody>
-                {RichText.render(this.props.slice.primary.blurb )}
-              </ContentBody>
+const Biography = props =>
+	<ContentBlock>
+		<Container>
+			<Row>
+				<Col lg={`2`} md={`3`} className={`text-center`}>
+					<Image src={props.slice.primary.image.url}/>
+					<h5 className={`text-center`}>{RichText.asText(props.slice.primary.name)}</h5>
+				</Col>
+				<Col lg={{ size: 9, offset: 1 }} md={{ size: 9, offset: 0 }}>
 
-            </Col>
-          </Row>
-        </Container>
-      </ContentBlock>
-    )
-  }
-}
+					{
+						(props.slice.primary.subtitle.length !== 0 )
+						?
+						<ContentSubTitle>{RichText.render(props.slice.primary.subtitle )}</ContentSubTitle>
+						:
+						null
+					}
+					<ContentBody>
+						{RichText.render(props.slice.primary.blurb )}
+					</ContentBody>
+
+				</Col>
+			</Row>
+		</Container>
+	</ContentBlock>
+
 export default Biography

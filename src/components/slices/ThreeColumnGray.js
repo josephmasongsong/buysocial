@@ -1,50 +1,26 @@
 import React from 'react'
-import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col } from 'reactstrap'
-import { DeviceSize } from '../../DeviceSize';
+import { GrayBlock } from '../../styles';
 
-const GrayBlock = styled.div`
-	padding: 6rem 0 3rem 0;
-	position: relative;
-	background: #fbfbfb;
-	border-top:1px solid #f8f9fa;
-  .column {
-    margin-bottom: 3rem;
-    h4,h5,h6 {
-      margin-bottom: 1rem;
-    }
-    p:last-child {
-      margin-bottom: 0;
-    }
-  }
-	@media ${DeviceSize.xs} {
-    padding: 3rem 0;
-		.column:last-child {
-			margin-bottom: 0;
-		}
-  }
-`
+const Columns = props => (
+	<>
+		{props.items.map((item, i) =>
+			<Col md={`4`} key={i} className={`column`}>
+				{RichText.render(item.title)}
+				{RichText.render(item.blurb)}
+			</Col>
+		)}
+	</>
+)
 
-class ThreeColumnGray extends React.Component {
-    render () {
-      const items = this.props.slice.items.map((item, itemIndex) => {
-        return(
-          <Col md="4" key={itemIndex} className="column">
-            {RichText.render(item.title)}
-            {RichText.render(item.blurb)}
-          </Col>
-        )
-      })
-      return(
-        <GrayBlock>
-          <Container>
-            <Row>
-              {items}
-            </Row>
-          </Container>
-        </GrayBlock>
-      )
-    }
-}
+const ThreeColumnGray = props => (
+	<GrayBlock>
+		<Container>
+			<Row>
+				<Columns items={props.slice.items} />
+			</Row>
+		</Container>
+	</GrayBlock>
+)
 export default ThreeColumnGray

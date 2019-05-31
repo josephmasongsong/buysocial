@@ -5,18 +5,9 @@ import PrismicConfig from '../../prismic-configuration';
 import { Container, Row, Col } from 'reactstrap'
 import { DeviceSize } from '../../DeviceSize';
 import LazyLoad from 'react-lazyload';
+import { ContentBlock } from '../../styles'
 
-const ContentBlock = styled.section`
-	position: relative;
-	padding: 6rem 0;
-	border-top: 1px solid #f8f9fa;
-  h2,h3,h4,h5 {
-    margin-bottom: 1rem;
-  }
-	@media ${DeviceSize.xs} {
-		padding: 3rem 0;
-  }
-`
+
 const BlockImage = styled.img`
 	max-width: 100%;
 	height: auto;
@@ -50,28 +41,23 @@ const Blurb = styled.div`
 	}
 `
 
-class ContentImage extends React.Component {
-  render () {
-    return(
-      <ContentBlock>
-        <Container>
-          <Row>
-						<Col md="6" lg="5" className="align-self-center ml-auto order-sm-12">
-						<LazyLoad>
-							<BlockImage src={this.props.slice.primary.image.url} alt=""/>
-						</LazyLoad>
-						</Col>
-            <Col md="6" className="align-self-center order-sm-1">
-              {RichText.render(this.props.slice.primary.title )}
-              <ContentSubTitle>{RichText.asText(this.props.slice.primary.subtitle )}</ContentSubTitle>
-              <Blurb>{RichText.render(this.props.slice.primary.blurb )}</Blurb>
-              <LinkTo href={Link.url(this.props.slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(this.props.slice.primary.link_label)}</LinkTo>
-            </Col>
+const ContentImage = props =>
+	<ContentBlock className={`withImage`}>
+		<Container>
+			<Row>
+				<Col md="6" lg="5" className="align-self-center ml-auto order-sm-12">
+				<LazyLoad>
+					<BlockImage src={props.slice.primary.image.url} alt=""/>
+				</LazyLoad>
+				</Col>
+				<Col md="6" className="align-self-center order-sm-1">
+					{RichText.render(props.slice.primary.title )}
+					<ContentSubTitle>{RichText.asText(props.slice.primary.subtitle )}</ContentSubTitle>
+					<Blurb>{RichText.render(props.slice.primary.blurb )}</Blurb>
+					<LinkTo href={Link.url(props.slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(props.slice.primary.link_label)}</LinkTo>
+				</Col>
 
-          </Row>
-        </Container>
-      </ContentBlock>
-    )
-  }
-}
+			</Row>
+		</Container>
+	</ContentBlock>
 export default ContentImage

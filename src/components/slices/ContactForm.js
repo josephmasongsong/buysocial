@@ -1,33 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
-import { Container, Row, Col, Button, FormGroup, Label } from 'reactstrap';
+import { Container, Row, Col, Button, FormGroup, Label } from 'reactstrap'
 import { RichText } from 'prismic-reactjs'
 import SimpleReactValidator from 'simple-react-validator'
 import GoogleMapContainer from './GoogleMapContainer'
 import Recaptcha from 'react-recaptcha'
-
-const ContentBlock = styled.section`
-	position: relative;
-	padding: 6rem 0;
-	border-top: 1px solid #f8f9fa;
-	@media (max-width: 575.98px) {
-		padding: 3rem 0;
-  }
-`
-const MapContainer = styled.div`
-	width: 100%;
-	height: 242px;
-  margin-bottom: 1.5rem;
-`
-const Address = styled.ul`
-  padding-left: 0rem;
-	margin-left: 1.25rem;
-	a {
-		color: #005891;
-		text-decoration: underline;
-	}
-`
+import { ContentBlock, MapContainer, Address } from '../../styles'
 
 const encode = (data) => {
    return Object.keys(data)

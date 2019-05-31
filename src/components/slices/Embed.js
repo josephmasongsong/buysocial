@@ -35,5 +35,4 @@ export default class Embed extends React.Component {
       </StyledSection>
     )
   }
-
 }

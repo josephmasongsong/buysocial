@@ -71,12 +71,12 @@ class Header extends Component {
   }
   next() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === this.props.slides.length - 1 ? 0 : this.state.activeIndex + 1;
+    const nextIndex = this.state.activeIndex === this.props.slice.items.length - 1 ? 0 : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
   previous() {
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === 0 ? this.props.slides.length - 1 : this.state.activeIndex - 1;
+    const nextIndex = this.state.activeIndex === 0 ? this.props.slice.items.length - 1 : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
   goToIndex(newIndex) {
@@ -86,7 +86,7 @@ class Header extends Component {
 	render(){
 		const { activeIndex } = this.state;
 
-		const items = this.props.slides || [];
+		const items = this.props.slice.items || [];
 
 		const carouselSlides =  items.map((item, itemIndex) => {
 			return(

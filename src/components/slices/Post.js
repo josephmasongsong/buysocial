@@ -1,25 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Media } from 'reactstrap';
 import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
-import { DeviceSize } from '../../DeviceSize';
 import LazyLoad from 'react-lazyload';
+import { PostImage } from '../../styles';
 
-const PostImage = styled.div`
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  width: 220px;
-  height: 160px;
-  background-position: center;
-  background-size: cover;
-  background-image: ${props => `url(${props.background})`};
-  @media ${DeviceSize.xs} {
-    width: 100%;
-    max-width: 100%;
-    height: 220px;
-    margin-right: 0 !important;
-    margin-bottom: 1rem;
-  }
-`
+
 const MediaWrapper = styled(Media)`
   margin-bottom: 3rem;
   a { text-decoration: underline; };
@@ -28,32 +14,24 @@ const LinkTo = styled.a`
   text-decoration: none !important;
 `
 
-class Post extends Component {
-
-  render(){
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const pubDate = new Date(this.props.post.data.publication_date)
-
-    return(
-
-      <MediaWrapper>
-
-        <Media left>
-          <LazyLoad height={160}>
-            <PostImage background={this.props.post.data.post_image.url} className="mr-4" />
-          </LazyLoad>
-        </Media>
-
-        <Media body>
-          <LinkTo href={"/news/" + this.props.post.uid}><h4 className="mb-2">{RichText.asText(this.props.post.data.post_title)}</h4></LinkTo>
-          <p className="text-muted mb-2">By {RichText.asText(this.props.post.data.author.data.name)} | {pubDate.toLocaleDateString("en-US", options)}</p>
-          <p>{RichText.asText(this.props.post.data.post_excerpt)}</p>
-          <a href={"/news/" + this.props.post.uid}>Read more...</a>
-        </Media>
-      </MediaWrapper>
-
-    )
-  }
+const Post = props => {
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const pubDate = new Date(props.post.data.publication_date)
+  return(
+    <MediaWrapper>
+      <Media left>
+        <LazyLoad height={160}>
+          <PostImage background={props.post.data.post_image.url} className="mr-4" />
+        </LazyLoad>
+      </Media>
+      <Media body>
+        <LinkTo href={"/news/" + props.post.uid}><h4 className="mb-2">{RichText.asText(props.post.data.post_title)}</h4></LinkTo>
+        <p className="text-muted mb-2">By {RichText.asText(props.post.data.author.data.name)} | {pubDate.toLocaleDateString("en-US", options)}</p>
+        <p>{RichText.asText(props.post.data.post_excerpt)}</p>
+        <a href={"/news/" + props.post.uid}>Read more...</a>
+      </Media>
+    </MediaWrapper>
+  )
 }
 
 export default Post;

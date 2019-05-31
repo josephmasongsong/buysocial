@@ -1,30 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-import { DeviceSize } from '../DeviceSize';
-
-const Name = styled.span`
-    position: relative;
-    &:after {
-      content: '';
-      width: 100%;
-      border-top: 2px solid #005891;
-      position: absolute;
-      left: 0;
-      bottom: -10px;
-    }
-  }
-`
-const Link = styled.a`
-  position: relative;
-  color: #005891 !important;
-  @media ${DeviceSize.xs} {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  @media ${DeviceSize.smMin} and ${DeviceSize.md} {
-    padding: 1rem 1.5rem;
-  }
-`
+import { Name, Link } from '../styles';
 
 const NavLink = props => {
   const pageURI = window.location.pathname+window.location.search

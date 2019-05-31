@@ -1,7 +1,6 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import { Container, Row, Col, Media } from 'reactstrap'
-
 import { ContentBlock } from '../../styles'
 
 const ListItems = props => (
