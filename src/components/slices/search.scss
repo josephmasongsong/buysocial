@@ -39,7 +39,7 @@
   margin-left: .25rem;
 }
 .ais-SearchBox-form {
-  margin-bottom: 3rem;
+  margin-bottom: 0.5rem;
 }
 .ais-SearchBox-input {
   border-radius: 0;
@@ -87,4 +87,15 @@
 }
 .ais-HierarchicalMenu-item--selected {
 
+}
+.searchSidebar .ais-HierarchicalMenu-link, .searchSidebar .ais-Menu-link {
+  border-bottom: 0;
+}
+
+.ais-PoweredBy {
+  margin-bottom: 3rem;
+}
+
+.ais-ToggleRefinement-labelText {
+  margin-left: 0.5rem;
 }

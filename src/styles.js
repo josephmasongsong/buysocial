@@ -271,7 +271,7 @@ const TopLink = styled(RouterLink)`
 `
 const DocumentSection = styled.section`
 	position: relative;
-	padding: 6rem 0;
+	/* padding: 3rem 0 6rem; */
 	border-top: 1px solid #f8f9fa;
 	@media (max-width: 575.98px) {
 		padding: 3rem 0;

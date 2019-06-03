@@ -18,7 +18,7 @@ import ThreeColumnBlock from './ThreeColumnBlock'
 import ThreeColumnGray from './ThreeColumnGray';
 import TwoColumnsCentered from './TwoColumnsCentered';
 import Embed from './Embed';
-
+import SearchDirectory from './SearchDirectory';
 
 export {
   Biography,
@@ -40,5 +40,6 @@ export {
   ThreeColumnBlock,
   ThreeColumnGray,
   TwoColumnsCentered,
-  Embed
+  Embed,
+  SearchDirectory
 }

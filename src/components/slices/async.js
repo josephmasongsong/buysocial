@@ -119,6 +119,11 @@ const AsyncSlimHeader = Loadable({
   loading: () => null
 });
 
+const AsyncSearchDirectory = Loadable({
+  loader: () => import("./index").then(m => m.SearchDirectory),
+  loading: () => null
+});
+
 export {
   AsyncBiography,
   AsyncBulletList,
@@ -147,5 +152,6 @@ export {
   AsyncNotFound,
   AsyncHeader,
   AsyncBlogHeader,
-  AsyncSlimHeader
+  AsyncSlimHeader,
+  AsyncSearchDirectory
 }

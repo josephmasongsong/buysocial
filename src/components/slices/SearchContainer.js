@@ -6,6 +6,7 @@ import {
   Hits,
   Pagination,
   HierarchicalMenu,
+  PoweredBy
 } from 'react-instantsearch-dom';
 import 'instantsearch.css/themes/algolia-min.css';
 import './search.scss';
@@ -15,7 +16,7 @@ import Hit from './Hit';
 const Sidebar = () =>
   <Col md="3" className="sidebar">
     <SearchBox translations={{ placeholder: 'Begin typing...' }} />
-
+    <PoweredBy/>
     <HierarchicalMenu
       attributes={[
         'categories.lvl0',

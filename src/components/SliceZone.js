@@ -20,7 +20,8 @@ import {
   AsyncThreeColumnGray,
   AsyncTwoColumnsCentered,
   AsyncEmbed,
-  AsyncHeader
+  AsyncHeader,
+  AsyncSearchDirectory
 } from './slices/async';
 
 export default class SliceZone extends Component {
@@ -71,6 +72,8 @@ export default class SliceZone extends Component {
           return <AsyncRecentArticles slice={slice} key={`slice-` + index} />
         case("featured_pages"):
           return <AsyncHeader slice={slice} key={`slice-` + index} />
+        case("directory"):
+          return <AsyncSearchDirectory slice={slice} key={`slice-` + index} />
 
         default:
           return null;
