@@ -7,8 +7,7 @@ import {
   HierarchicalMenu,
   ToggleRefinement,
   Hits,
-  PoweredBy,
-  ClearRefinements
+  PoweredBy
 } from 'react-instantsearch-dom';
 import { RichText } from 'prismic-reactjs';
 import 'instantsearch.css/themes/algolia-min.css';
