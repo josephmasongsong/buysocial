@@ -24,6 +24,10 @@
   border: 0;
   padding:0;
   box-shadow: none;
+  margin: 0;
+}
+
+.documentDb .ais-Hits-item, .documentDb .ais-InfiniteHits-item, .documentDb .ais-InfiniteResults-item, .documentDb .ais-Results-item {
   margin: 0 0 3rem 0;
 }
 
@@ -93,7 +97,7 @@
 }
 
 .ais-PoweredBy {
-  margin-bottom: 3rem;
+  // margin-bottom: 3rem;
 }
 
 .ais-ToggleRefinement-labelText {

@@ -17,6 +17,7 @@ const Sidebar = () =>
   <Col md="3" className="sidebar">
     <SearchBox translations={{ placeholder: 'Begin typing...' }} />
     <PoweredBy/>
+    <div className={`mb-5`}></div>
     <HierarchicalMenu
       attributes={[
         'categories.lvl0',
@@ -32,7 +33,7 @@ const Sidebar = () =>
   </Col>
 
 const Content = () =>
-  <Col md="8" className="ml-auto">
+  <Col md="8" className="ml-auto documentDb">
     <Hits hitComponent={Hit} />
     <div className="pagination">
       <Pagination showLast/>

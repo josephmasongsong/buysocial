@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import Layout from './Layout'
-import SearchDirectory from './slices/SearchDirectory';
+import SearchDirectory from './slices/SearchDirectory'
+import Layout from './DirectoryLayout'
+
 
 export default class SupplierDirectory extends Component {
   constructor(props) {
@@ -31,10 +32,19 @@ export default class SupplierDirectory extends Component {
     return null;
   }
 
+  renderPage() {
+    if (this.state.doc) {
+      const document = this.state.doc.data;
+      return <SearchDirectory document={document} />
+    } else {
+      return null
+    }
+  }
+
   render() {
     return(
-      <Layout prismicCtx={this.props.prismicCtx} >
-        <SearchDirectory />
+      <Layout prismicCtx={this.props.prismicCtx}>
+        {this.renderPage()}
       </Layout>
     )
   }

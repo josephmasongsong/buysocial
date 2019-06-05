@@ -271,7 +271,7 @@ const TopLink = styled(RouterLink)`
 `
 const DocumentSection = styled.section`
 	position: relative;
-	/* padding: 3rem 0 6rem; */
+	padding: 6rem 0;
 	border-top: 1px solid #f8f9fa;
 	@media (max-width: 575.98px) {
 		padding: 3rem 0;
@@ -302,6 +302,8 @@ const Subtitle = styled.div`
   color: #6c757d!important;
   margin-bottom: 1rem;
 `
+
+
 const MapContainer = styled.div`
 	width: 100%;
 	height: 242px;

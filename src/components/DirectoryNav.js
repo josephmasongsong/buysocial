@@ -9,13 +9,13 @@ import {
 	DropdownToggle,
 	DropdownMenu } from 'reactstrap';
 import images from '../ThemeImages';
-import NavLink from './NavLink';
-import {Link, RichText} from 'prismic-reactjs';
 import PrismicConfig from '../prismic-configuration';
+import {Link, RichText} from 'prismic-reactjs';
+import { Link as RouterLink } from 'react-router-dom';
 import Burger from 'react-css-burger';
 import styles from './navigation.module.scss';
-import { Link as RouterLink } from 'react-router-dom';
-import { Logo, StyledNavbarBrand } from '../styles';
+import { HorizontalLogo, StyledNavbarBrand } from '../DirectoryStyles';
+import NavLink from './NavLink';
 
 const NavItems = props => {
 	return props.slice.items.map((item, i) => {
@@ -56,7 +56,7 @@ const NavContent = props => {
 	})
 }
 
-class Navigation extends Component {
+class DirectoryNav extends Component {
 	constructor(props) {
 		super(props);
 		this.toggle = this.toggle.bind(this);
@@ -80,7 +80,7 @@ class Navigation extends Component {
 
 	fetchPage(props) {
     if (props.prismicCtx) {
-			return props.prismicCtx.api.getSingle('main_navigation', (err, doc) => {
+			return props.prismicCtx.api.getSingle('directory_nav', (err, doc) => {
         if (doc) {
           this.setState({ doc });
         } else {
@@ -101,8 +101,8 @@ class Navigation extends Component {
 	render() {
     return (
 			<Navbar color="white" light expand="lg" className={styles.buysocialNavbar}>
-	      <Container className={styles.containerStyle}>
-	        <StyledNavbarBrand to={`/`} className={styles.navbarBrandStyle}><Logo src={images.logo} alt="Buy Social Canada" /></StyledNavbarBrand>
+	      <Container className={styles.containerStyle} fluid>
+	        <StyledNavbarBrand to={`/`}><HorizontalLogo src={images.logoHorizontal} alt="Buy Social Canada" /></StyledNavbarBrand>
 					<div className={"navbar-toggler " + styles.togglerStyle}>
 						<Burger
 			        onClick={this.toggle}
@@ -125,4 +125,4 @@ class Navigation extends Component {
 	}
 }
 
-export default Navigation
+export default DirectoryNav
