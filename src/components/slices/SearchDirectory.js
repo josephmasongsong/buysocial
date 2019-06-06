@@ -111,7 +111,7 @@ export default class SupplierSearch extends Component {
         <InstantSearch
           appId="UVPOJDU7AN"
           apiKey="0ce11a5ad2a8fd5e0068ec55d40f0e80"
-          indexName="se_directory"
+          indexName="prod_se_directory"
         >
           <Row>
             <Sidebar/>
