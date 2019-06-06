@@ -16,7 +16,7 @@ export default {
   linkResolver(doc) {
     if (doc.type === 'page') return `/${doc.uid}`;
     if (doc.type === 'blog_post') return `/news/${doc.uid}`;
-    if (doc.type === 'supplier_directory') return `/supplier-directory`;
+    if (doc.type === 'supplier_directory') return `/suppliers/directory`;
     return '/';
   },
 };
