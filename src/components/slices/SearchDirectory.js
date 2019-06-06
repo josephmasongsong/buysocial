@@ -7,7 +7,8 @@ import {
   HierarchicalMenu,
   ToggleRefinement,
   Hits,
-  PoweredBy
+  PoweredBy,
+  ClearRefinements
 } from 'react-instantsearch-dom';
 import { RichText } from 'prismic-reactjs';
 import 'instantsearch.css/themes/algolia-min.css';
@@ -72,6 +73,9 @@ const Sidebar = () =>
       showParentLevel
     />
 
+    <div className={`mt-5`} />
+
+    <ClearRefinements/>
   </Col>
 
 
