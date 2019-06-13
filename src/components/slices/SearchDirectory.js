@@ -8,7 +8,8 @@ import {
   ToggleRefinement,
   Hits,
   PoweredBy,
-  ClearRefinements
+  ClearRefinements,
+  ScrollTo
 } from 'react-instantsearch-dom';
 import { RichText } from 'prismic-reactjs';
 import 'instantsearch.css/themes/algolia-min.css';
@@ -21,7 +22,7 @@ import PrismicConfig from '../../prismic-configuration';
 
 const Search = () =>
   <SearchWrapper>
-    <SearchBox translations={{ placeholder: 'Search social enterprises...' }} />
+    <SearchBox translations={{ placeholder: 'Search by region, service category or name' }} />
     <div className={`d-flex justify-content-between`}>
       <ToggleRefinement
         attribute="bsc_certification"
@@ -40,12 +41,11 @@ const Content = ({ clickHandler }) =>
         <Hit hit={hit} clickHandler={clickHandler} />
       )}
     />
-
   </>
 
 
 const Sidebar = () =>
-  <Col md={{ size: 2 }} className={`searchSidebar pl-4 py-5 border-right`}>
+  <Col md={{ size: 2 }} className={`searchSidebar pl-4 py-5 border-right d-none d-sm-block`}>
 
     <h5>Location</h5>
 
@@ -121,14 +121,19 @@ export default class SupplierSearch extends Component {
             <Sidebar/>
 
             <ResultsBody md="6" className={`p-0`}>
-              <Search />
-              <Content clickHandler={this.changeInfoPane} />
+              <ScrollTo>
+                <Search />
+                <Content clickHandler={this.changeInfoPane} />
+              </ScrollTo>
               <PaginationWrapper>
-                <Pagination showLast/>
+                <Pagination
+                  padding={2}
+                  showLast
+                />
               </PaginationWrapper>
             </ResultsBody>
 
-            <Col md={`4`}  className={`p-0`}>
+            <Col md={`4`}  className={`p-0 d-none d-sm-block`}>
               {(this.state.doc != null)
                 ?
                 <InfoPane hit={this.state.doc} clickHandler={this.closeInfoPane} />

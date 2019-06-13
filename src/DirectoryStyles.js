@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Col } from 'reactstrap'
+import { DeviceSize } from './DeviceSize';
 
 //NAVIGATION BAR
 
@@ -15,6 +16,9 @@ const StyledNavbarBrand = styled(Link)`
 `
 const HorizontalLogo = styled.img`
 	width: 300px;
+	@media ${DeviceSize.xs} {
+		width: 250px;
+	}
 `
 // RESULTS BODY
 
@@ -27,6 +31,9 @@ const ResultsBody = styled(Col)`
 const SearchWrapper = styled.div`
   padding: 3.5rem 3.5rem 1.75rem;
   /* border-bottom: 1px solid #dee2e6; */
+	@media ${DeviceSize.xs} {
+		padding: 1rem 1rem 0.75rem;
+	}
 `
 
 // HITS
@@ -36,6 +43,9 @@ const HitWrapper = styled.div`
   align-items: flex-start;
   padding: 1.75rem;
   /* border-bottom: 1px solid #dee2e6; */
+	@media ${DeviceSize.xs} {
+		padding: 1rem;
+	}
 `
 const HitBody = styled.div`
   flex: 1;
@@ -49,6 +59,9 @@ const PaginationWrapper = styled.div`
   padding: 1.75rem 0 3.5rem 3rem;
 	display: flex;
   /* border-top: 1px solid #dee2e6; */
+	@media ${DeviceSize.xs} {
+		padding: 0.875rem 0 1.75rem 1.25rem;
+	}
 `
 
 //INFOPANE
@@ -72,6 +85,21 @@ const InfoPaneWrapper = styled.div`
   }
 `
 
+const HitImg = styled.img`
+	width: 140px;
+	height: 140px;
+	@media ${DeviceSize.xs} {
+		display: none;
+  }
+`
+
+const HitCert = styled.img`
+	width: 56px;
+	@media ${DeviceSize.xs} {
+		display: none;
+  }
+`
+
 export {
   DirectoryMapContainer,
   HitWrapper,
@@ -81,5 +109,7 @@ export {
   PaginationWrapper,
 	ResultsBody,
   SearchWrapper,
-  StyledNavbarBrand
+  StyledNavbarBrand,
+	HitImg,
+	HitCert
 }
