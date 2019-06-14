@@ -1,0 +1,10 @@
+@media (max-width: 576px) {
+  .SlideModal--open {
+      width: 281.25px !important;
+  }
+}
+
+.SlideModal {
+  min-width: 281.25px !important;
+  max-width: 281.25px !important;
+}

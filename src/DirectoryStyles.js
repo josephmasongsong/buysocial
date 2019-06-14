@@ -100,6 +100,14 @@ const HitCert = styled.img`
   }
 `
 
+const ConditionalMsg = styled.h4`
+	padding-left: 3.5rem;
+	@media ${DeviceSize.xs} {
+		padding-left: 1rem;
+	}
+`
+
+
 export {
   DirectoryMapContainer,
   HitWrapper,
@@ -111,5 +119,6 @@ export {
   SearchWrapper,
   StyledNavbarBrand,
 	HitImg,
-	HitCert
+	HitCert,
+	ConditionalMsg
 }
