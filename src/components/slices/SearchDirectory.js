@@ -24,6 +24,8 @@ import Slider from 'react-slide-out';
 import MobileSidebar from './MobileSidebar';
 import 'react-slide-out/lib/index.css';
 import './SearchDirectory.scss';
+import { AsyncSlimHeader } from './async';
+
 
 const VirtualHierarchicalMenu = connectHierarchicalMenu(() => null);
 
@@ -166,79 +168,85 @@ export default class SupplierSearch extends Component {
     const isMobile = width <= 576;
 
     return(
-      <Container fluid>
+      <>
+        <AsyncSlimHeader
+          headline={RichText.asText(document.header_title)}
+          subheader={RichText.render(document.header_blurb)}
+          headerImage={document.header_image.url}
+        />
+        <Container fluid>
+          <InstantSearch
+            appId="UVPOJDU7AN"
+            apiKey="0ce11a5ad2a8fd5e0068ec55d40f0e80"
+            indexName="prod_se_directory"
+            searchState={searchState}
+            onSearchStateChange={this.onSearchStateChange}
+          >
 
-        <InstantSearch
-          appId="UVPOJDU7AN"
-          apiKey="0ce11a5ad2a8fd5e0068ec55d40f0e80"
-          indexName="prod_se_directory"
-          searchState={searchState}
-          onSearchStateChange={this.onSearchStateChange}
-        >
-
-          {isMobile &&
-            <>
-              <VirtualHierarchicalMenu
-                attributes={[
-                  'region.lvl0',
-                  'region.lvl1',
-                ]}
-              />
-              <VirtualHierarchicalMenu
-                attributes={[
-                  'categories.lvl0',
-                  'categories.lvl1'
-                ]}
-              />
-            </>
-          }
-
-          <Row>
-
-          {isMobile
-            ?
-            <Slider isOpen={this.state.isOpen} onOutsideClick={() => this.setState({isOpen: false})} leftToRight>
-              <div style={{ width: '281.25px' }} >
-                <MobileSidebar searchState={searchState} onSearchStateChange={this.onSearchStateChange}  />
-              </div>
-            </Slider>
-
-            :
-            <Sidebar />
-          }
-
-
-            <ResultsBody md="6" className={`p-0`}>
-              <ScrollTo>
-                <Search openSlider={this.openSlider} isMobile={isMobile}/>
-                <ConditionalDisplay>
-                  <Content clickHandler={this.changeInfoPane} />
-                </ConditionalDisplay>
-              </ScrollTo>
-              <PaginationWrapper>
-                <Pagination
-                  padding={2}
-                  showLast
+            {isMobile &&
+              <>
+                <VirtualHierarchicalMenu
+                  attributes={[
+                    'region.lvl0',
+                    'region.lvl1',
+                  ]}
                 />
-              </PaginationWrapper>
-            </ResultsBody>
+                <VirtualHierarchicalMenu
+                  attributes={[
+                    'categories.lvl0',
+                    'categories.lvl1'
+                  ]}
+                />
+              </>
+            }
 
-            <Col md={`4`}  className={`p-0 d-none d-sm-block`}>
-              {(this.state.doc != null)
-                ?
-                <InfoPane hit={this.state.doc} clickHandler={this.closeInfoPane} />
-                :
-                <InfoPaneWrapper className={`shadow-sm border`}>
-                  <h1 className={`h2`}>{RichText.asText(document.title)}</h1>
-                  {RichText.render(document.body, PrismicConfig.linkResolver)}
-                </InfoPaneWrapper>
-              }
-            </Col>
-          </Row>
+            <Row>
+
+            {isMobile
+              ?
+              <Slider isOpen={this.state.isOpen} onOutsideClick={() => this.setState({isOpen: false})} leftToRight>
+                <div style={{ width: '281.25px' }} >
+                  <MobileSidebar searchState={searchState} onSearchStateChange={this.onSearchStateChange}  />
+                </div>
+              </Slider>
+
+              :
+              <Sidebar />
+            }
 
 
-        </InstantSearch>
-      </Container>
+              <ResultsBody md="6" className={`p-0`}>
+                <ScrollTo>
+                  <Search openSlider={this.openSlider} isMobile={isMobile}/>
+                  <ConditionalDisplay>
+                    <Content clickHandler={this.changeInfoPane} />
+                  </ConditionalDisplay>
+                </ScrollTo>
+                <PaginationWrapper>
+                  <Pagination
+                    padding={2}
+                    showLast
+                  />
+                </PaginationWrapper>
+              </ResultsBody>
+
+              <Col md={`4`}  className={`p-0 d-none d-sm-block`}>
+                {(this.state.doc != null)
+                  ?
+                  <InfoPane hit={this.state.doc} clickHandler={this.closeInfoPane} />
+                  :
+                  <InfoPaneWrapper className={`shadow-sm border`}>
+                    <h1 className={`h2`}>{RichText.asText(document.title)}</h1>
+                    {RichText.render(document.body, PrismicConfig.linkResolver)}
+                  </InfoPaneWrapper>
+                }
+              </Col>
+            </Row>
+
+
+          </InstantSearch>
+        </Container>
+      </>
     )
   }
 }
