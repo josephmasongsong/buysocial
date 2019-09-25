@@ -1,7 +1,15 @@
 import React from 'react';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
+import images from '../../ThemeImages';
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+function fallback() {
+  return(
+    <img src={images.excel} width="160" />
+  )
+}
 
 const Hit = ({hit}) =>
   <div className="hit">
@@ -11,6 +19,7 @@ const Hit = ({hit}) =>
       file={{
         url: `${hit.link}`
       }}
+      error={fallback()}
     >
       <Page pageNumber={1} width={160} />
     </Document>
