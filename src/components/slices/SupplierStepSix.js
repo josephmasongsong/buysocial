@@ -123,7 +123,38 @@ class SupplierStepSix extends Component {
         </FormGroup>
         {this.validator.message('akcelosDirectory', values.akcelosDirectory, 'required')}
 
-        <legend>Confirmation</legend>
+
+        <legend>Newsletter</legend>
+        <p>
+          Would you like to be up to date on the lastes social enterprise and procurement news?
+        </p>
+        <FormGroup check>
+          <Label check>
+            <Input
+              type="radio"
+              name="joinNewsletter"
+              onChange={this.props.handleChange('joinNewsletter')}
+              value="yes"
+              checked={values.joinNewsletter === 'yes'}
+            />{' '}
+            Yes, I would like to receive the Buy Social Canada newsletter.
+          </Label>
+        </FormGroup>
+        <FormGroup check>
+          <Label check>
+          <Input
+            type="radio"
+            name="joinNewsletter"
+            onChange={this.props.handleChange('joinNewsletter')}
+            value="no"
+            checked={values.joinNewsletter === 'no'}
+          />{' '}
+            No thank you, but I know I can opt in on the Buy Social Canada at any time.
+          </Label>
+        </FormGroup>
+        {this.validator.message('joinNewsletter', values.joinNewsletter, 'required')}
+
+        <legend className="pt-3">Confirmation</legend>
 
         <p>
           I confirm that this application is accurate and true, to the best of my knowledge, and I am not attempting to misconstrue any facts regarding my organization.

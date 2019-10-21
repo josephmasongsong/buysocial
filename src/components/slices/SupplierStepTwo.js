@@ -82,6 +82,7 @@ class SupplierStepTwo extends Component {
             onChange={this.props.handleChange('revenue')}
             defaultValue={values.revenue}
           >
+            <option>Choose from list...</option>
             <option>Under $1 million</option>
             <option>$1 - 5 million</option>
             <option>$5 - 20 million</option>

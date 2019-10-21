@@ -52,6 +52,7 @@ class SupplierForm extends Component {
       seccMembership: '',
       akcelosDirectory: '',
       referringAgency: '',
+      joinNewsletter: '',
       confirm: '',
     }
   }
@@ -121,6 +122,7 @@ class SupplierForm extends Component {
       seccMembership,
       akcelosDirectory,
       referringAgency,
+      joinNewsletter,
       confirm
     } = this.state;
 
@@ -155,6 +157,7 @@ class SupplierForm extends Component {
       seccMembership,
       akcelosDirectory,
       referringAgency,
+      joinNewsletter,
       confirm
     };
 
