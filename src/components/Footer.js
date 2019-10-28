@@ -75,7 +75,7 @@ class Footer extends Component {
         if (slice.slice_type === 'nav_item') {
           return(
             <li key={index}>
-              <RouterLink className="text-white" to={Link.url(slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(slice.primary.label)}</RouterLink>
+              <RouterLink style={{ padding: "0.5rem 0", display: "block" }} className="text-white" to={Link.url(slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(slice.primary.label)}</RouterLink>
             </li>
           )
         } else {
@@ -119,10 +119,9 @@ class Footer extends Component {
               <Col sm="6" lg="2">
   							<Header>Social</Header>
                 <ul className="social list-inline">
-                  <li className="list-inline-item"><a className={styles.socialIcon} href={Link.url(document.facebook_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a></li>
-                  <li className="list-inline-item"><a className={styles.socialIcon} href={Link.url(document.twitter_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a></li>
-                  <li className="list-inline-item"><a className={styles.socialIcon} href={Link.url(document.linkedin_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
-                  <li className="list-inline-item"><a className={styles.socialIcon} href={Link.url(document.instagram_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a></li>
+                  <li className="list-inline-item"><a aria-label="Facebook" className={styles.socialIcon} href={Link.url(document.facebook_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a></li>
+                  <li className="list-inline-item"><a aria-label="Twitter" className={styles.socialIcon} href={Link.url(document.twitter_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a></li>
+                  <li className="list-inline-item"><a aria-label="LinkedIn" className={styles.socialIcon} href={Link.url(document.linkedin_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
                 </ul>
   						</Col>
   					</Row>
