@@ -1,0 +1,19 @@
+{
+  "Main" : {
+    "name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Name"
+      }
+    },
+    "picture" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Picture"
+      }
+    }
+  }
+}

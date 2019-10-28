@@ -1,0 +1,48 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "UID"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Title"
+      }
+    },
+    "document_link" : {
+      "type" : "Link",
+      "config" : {
+        "allowTargetBlank" : true,
+        "label" : "Document Link"
+      }
+    },
+    "document_blurb" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, hyperlink",
+        "allowTargetBlank" : true,
+        "label" : "Document Blurb"
+      }
+    },
+    "document_tags" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "document_tag" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "document_tag" ],
+              "label" : "Document Tag"
+            }
+          }
+        },
+        "label" : "Document Tags"
+      }
+    }
+  }
+}

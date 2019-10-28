@@ -13,7 +13,6 @@ const App = props => (
           <Route exact path='/' render={() => <AsyncHome prismicCtx={props.prismicCtx}/>}/>
           <Route exact path="/:uid" render={routeProps => <AsyncPage {...routeProps} prismicCtx={props.prismicCtx} />} />
           <Route path="/news/:uid" render={routeProps => <AsyncPost {...routeProps} prismicCtx={props.prismicCtx} />} />
-          {/* <Route path="/suppliers/directory" component={SupplierDirectory} /> */}
           <Route exact path="/suppliers/directory" render={routeProps =>  <SupplierDirectory {...routeProps}  prismicCtx={props.prismicCtx} />  } />
           <Route component={AsyncNotFound} />
         </Switch>

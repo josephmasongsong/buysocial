@@ -1,0 +1,116 @@
+{
+  "Main" : {
+    "display_name" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Display Name"
+      }
+    },
+    "newsletter_blurb" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Newsletter Blurb"
+      }
+    },
+    "facebook_url" : {
+      "type" : "Link",
+      "config" : {
+        "allowTargetBlank" : true,
+        "label" : "Facebook Url"
+      }
+    },
+    "instagram_url" : {
+      "type" : "Link",
+      "config" : {
+        "allowTargetBlank" : true,
+        "label" : "Instagram Url"
+      }
+    },
+    "twitter_url" : {
+      "type" : "Link",
+      "config" : {
+        "allowTargetBlank" : true,
+        "label" : "Twitter Url"
+      }
+    },
+    "linkedin_url" : {
+      "type" : "Link",
+      "config" : {
+        "allowTargetBlank" : true,
+        "label" : "LinkedIn Url"
+      }
+    },
+    "address" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "allowTargetBlank" : true,
+        "label" : "Address"
+      }
+    },
+    "email" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Email"
+      }
+    },
+    "phone" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph",
+        "label" : "Phone"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "choices" : {
+          "nav_item" : {
+            "type" : "Slice",
+            "fieldset" : "Nav Item",
+            "description" : "Nav Item with Sub Navigation",
+            "icon" : "insert_link",
+            "non-repeat" : {
+              "label" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Label",
+                  "placeholder" : "Enter Link Label..."
+                }
+              },
+              "link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Link",
+                  "placeholder" : "Select Link..."
+                }
+              }
+            },
+            "repeat" : {
+              "sub_nav_link_lable" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Sub Nav Link Lable",
+                  "placeholder" : "Enter Sub Nav Link Label..."
+                }
+              },
+              "sub_nav_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Sub Nav Link",
+                  "placeholder" : "Select Sub Nav Link..."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
