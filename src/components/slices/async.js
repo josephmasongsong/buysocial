@@ -70,35 +70,35 @@ const AsyncSlimHeader = Loadable({
 });
 
 const AsyncColumns = Loadable({
-  loader: () => import("../index").then(m => m.Columns),
+  loader: () => import("./index").then(m => m.Columns),
   loading: () => null
 });
 const AsyncImageBlock = Loadable({
-  loader: () => import("../index").then(m => m.ImageBlock),
+  loader: () => import("./index").then(m => m.ImageBlock),
   loading: () => null
 });
 const AsyncTestimonials = Loadable({
-  loader: () => import("../index").then(m => m.Testimonials),
+  loader: () => import("./index").then(m => m.Testimonials),
   loading: () => null
 });
 const AsyncVideoEmbed = Loadable({
-  loader: () => import("../index").then(m => m.VideoEmbed),
+  loader: () => import("./index").then(m => m.VideoEmbed),
   loading: () => null
 });
 const AsyncDirectory = Loadable({
-  loader: () => import("../index").then(m => m.Directory),
+  loader: () => import("./index").then(m => m.Directory),
   loading: () => null
 });
 const AsyncFreeform = Loadable({
-  loader: () => import("../index").then(m => m.Freeform),
+  loader: () => import("./index").then(m => m.Freeform),
   loading: () => null
 });
 const AsyncSlickSlider = Loadable({
-  loader: () => import("../index").then(m => m.SlickSlider),
+  loader: () => import("./index").then(m => m.SlickSlider),
   loading: () => null
 });
 const AsyncGiftDirectory = Loadable({
-  loader: () => import("../index").then(m => m.GiftDirectory),
+  loader: () => import("./index").then(m => m.GiftDirectory),
   loading: () => null
 });
 
