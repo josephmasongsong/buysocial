@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { Form, Container, Row, Col } from 'reactstrap'
-import { ContentBlock } from '../../styles';
+import { ContentBlock } from '../../../styles';
 
 import SupplierStepOne from './SupplierStepOne'
 import SupplierStepTwo from './SupplierStepTwo'

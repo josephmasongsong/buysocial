@@ -113,3 +113,18 @@ label { font-family: 'SofiaProMedium'; }
   border-color: #005891;
   box-shadow: none;
 }
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.05);
+}
+
+.snippet-col:nth-child(-n+2) .snippet {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.magic-dots.slick-dots li.slick-active button:before {
+  color: #fff !important;
+}

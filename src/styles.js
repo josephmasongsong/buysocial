@@ -15,7 +15,7 @@ const ContentBlock = styled.section`
     }
   }
   ul {
-    margin-bottom: 0;
+    margin-bottom: 1rem;
     li {
       margin-bottom: 1rem;
       padding-left: 1rem;

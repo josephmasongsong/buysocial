@@ -36,7 +36,7 @@ const NavContent = props => {
 					(slice.items.length > 1)
 					?
 					<UncontrolledDropdown nav inNavbar>
-						<DropdownToggle nav className={"px-4 " + styles.navLinkStyle}>
+						<DropdownToggle nav className={"px-3 " + styles.navLinkStyle}>
 							{RichText.asText(slice.primary.label)}
 						</DropdownToggle>
 						<DropdownMenu right className={styles.dropdownStyle}>

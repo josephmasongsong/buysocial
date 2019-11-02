@@ -3,9 +3,9 @@ import { withRouter } from 'react-router-dom'
 import { Container, Row, Col, Button, FormGroup, Label } from 'reactstrap'
 import { RichText } from 'prismic-reactjs'
 import SimpleReactValidator from 'simple-react-validator'
-import GoogleMapContainer from './GoogleMapContainer'
+import GoogleMapContainer from '../GoogleMapContainer'
 import Recaptcha from 'react-recaptcha'
-import { ContentBlock, MapContainer, Address } from '../../styles'
+import { ContentBlock, MapContainer, Address } from '../../../styles'
 
 const encode = (data) => {
    return Object.keys(data)

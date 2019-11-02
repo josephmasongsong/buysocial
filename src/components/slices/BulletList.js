@@ -1,7 +1,15 @@
 import React from 'react'
 import { RichText } from 'prismic-reactjs'
-import { Container, Row, Col, Media } from 'reactstrap'
-import { ContentBlock } from '../../styles'
+import { Container, Media } from 'reactstrap'
+import styled from 'styled-components'
+
+const Section = styled.section`
+  padding: 4rem 0;
+  background-color: ${props => props.bgColor};
+	p {
+		font-size: 1.125rem;
+  }
+`
 
 const ListItems = props => (
 	<>
@@ -13,25 +21,24 @@ const ListItems = props => (
 	</>
 )
 
-const BulletList = props => (
-	<ContentBlock>
-		<Container>
-			<Row>
-				<Col lg={`12`} className={`align-self-center`}>
-					<Media className={`align-items-center`}>
-						<Media left>
-							<img src={props.slice.primary.icon.url} alt={props.slice.primary.icon.alt} className={`bulletlist-icon`} />
-						</Media>
-						<Media body>
-							{RichText.render(props.slice.primary.title)}
-						</Media>
+const BulletList = props => {
+	const bgColor = (props.slice.primary.bg_color === "white") ? "#fff" : "#fbfbfb"
+	return(
+		<Section bgColor={bgColor}>
+			<Container>
+				<Media className={`align-items-center mb-3`}>
+					<Media left>
+						<img src={props.slice.primary.icon.url} alt={props.slice.primary.icon.alt} className={`mr-3`} height="64" />
 					</Media>
-					<ul className={`fa-ul`}>
-						<ListItems items={props.slice.items} />
-					</ul>
-				</Col>
-			</Row>
-		</Container>
-	</ContentBlock>
-)
+					<Media body>
+						<h3 className="mb-0">{RichText.asText(props.slice.primary.title)}</h3>
+					</Media>
+				</Media>
+				<ul className={`fa-ul`}>
+					<ListItems items={props.slice.items} />
+				</ul>
+			</Container>
+		</Section>
+	)
+}
 export default BulletList

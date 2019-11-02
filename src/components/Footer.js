@@ -74,8 +74,8 @@ class Footer extends Component {
       const footerNavigation = document.body.map(function(slice, index){
         if (slice.slice_type === 'nav_item') {
           return(
-            <li key={index}>
-              <RouterLink style={{ padding: "0.5rem 0", display: "block" }} className="text-white" to={Link.url(slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(slice.primary.label)}</RouterLink>
+            <li key={index} style={{ float: 'left', width: '50%' }}>
+              <RouterLink style={{ padding: "0 0 1rem 0", display: "block" }} className="text-white" to={Link.url(slice.primary.link, PrismicConfig.linkResolver)} >{RichText.asText(slice.primary.label)}</RouterLink>
             </li>
           )
         } else {
@@ -84,25 +84,19 @@ class Footer extends Component {
       });
       return(
   			<FooterStyle className="footer">
-  				<Arrows src={images.arrowLeft} alt="" />
+  				<Arrows src={images.arrowLeft} alt="Buy Social Canada" />
   				<Container>
-  					<Row className="justify-content-center">
-  						<Col sm="6" lg="3" className="mx-auto">
-  							<Header>Contact Information</Header>
+  					<Row>
+              <Col sm="6" lg="3">
+                <Header>Contact Information</Header>
                 <Address className="fa-ul pl-0">
                   <li className="mb-2"><span className={"fa-li " + styles.listStyle}><i className="fas fa-map-marker-alt text-warning"></i></span>{RichText.render(document.address)}</li>
                   <li className="mb-2"><span className={"fa-li " + styles.listStyle}><i className="fas fa-envelope text-warning"></i></span><a href={"mailto:" + RichText.asText(document.email)} className="text-white">{RichText.asText(document.email)}</a></li>
                   <li><span className={"fa-li " + styles.listStyle}><i className="fas fa-phone text-warning"></i></span><a href={"tel:" + RichText.asText(document.phone)} className="text-white">{RichText.asText(document.phone)}</a></li>
                 </Address>
-  						</Col>
-  						<Col sm="6" lg="2">
-  							<Header>Navigation</Header>
-                <ul className="list-unstyled">
-                  {footerNavigation}
-                </ul>
-  						</Col>
-              <Col sm="6" lg="4" className="mr-auto">
-  							<Header>Newsletter</Header>
+              </Col>
+              <Col sm="6" lg="4" className="mx-auto">
+                <Header>Stay Up To Date</Header>
                 <p>{RichText.asText(document.newsletter_blurb)}</p>
                 <form name="newsletter_signup" method="post">
                   <input type="hidden" name="form-name" value="newsletter_signup" />
@@ -115,15 +109,23 @@ class Footer extends Component {
                     </span>
                   </div>
                 </form>
-  						</Col>
-              <Col sm="6" lg="2">
+              </Col>
+              <Col sm="6" lg="4">
+                <Header>Navigation</Header>
+                <ul className="list-unstyled">
+                  {footerNavigation}
+                </ul>
+              </Col>
+
+
+              {/* <Col sm="6" lg="2">
   							<Header>Social</Header>
                 <ul className="social list-inline">
                   <li className="list-inline-item"><a aria-label="Facebook" className={styles.socialIcon} href={Link.url(document.facebook_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a></li>
                   <li className="list-inline-item"><a aria-label="Twitter" className={styles.socialIcon} href={Link.url(document.twitter_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a></li>
                   <li className="list-inline-item"><a aria-label="LinkedIn" className={styles.socialIcon} href={Link.url(document.linkedin_url, PrismicConfig.linkResolver)} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a></li>
                 </ul>
-  						</Col>
+  						</Col> */}
   					</Row>
   				</Container>
   			</FooterStyle>

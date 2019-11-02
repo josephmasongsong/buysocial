@@ -7,7 +7,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 function fallback() {
   return(
-    <img src={images.excel} width="160" />
+    <img src={images.excel} width="160" alt="Missing" />
   )
 }
 

@@ -184,6 +184,9 @@ const SubTitle = styled.div`
   p:last-child {
     margin-bottom: 0;
   }
+	a {
+		text-decoration: underline;
+	}
   @media ${DeviceSize.smMin} and ${DeviceSize.md} {
     font-size: 1rem;
   }
@@ -194,7 +197,7 @@ const SubTitle = styled.div`
 const Title = styled.h1`
   margin-bottom: 1rem;
   @media ${DeviceSize.xl} {
-    font-size: 3.25rem;
+    font-size: 3.125rem;
   }
   @media ${DeviceSize.smMin} and ${DeviceSize.md} {
     font-size: 2.5rem;

@@ -4,13 +4,13 @@ import {
   Label,
   Input,
 } from 'reactstrap'
-import { WizardButton } from '../../styles';
+import { WizardButton } from '../../../styles';
 import SimpleReactValidator from 'simple-react-validator'
 
-class PurchaserStepOne extends Component {
+class SupplierStepOne extends Component {
   constructor(props){
     super(props)
-    this.validator = new SimpleReactValidator()
+    this.validator = new SimpleReactValidator();
   }
   saveAndContinue = (e) => {
     e.preventDefault()
@@ -21,11 +21,11 @@ class PurchaserStepOne extends Component {
       this.forceUpdate();
     }
   }
-  render() {
-    const { values } = this.props
+  render(){
+    const { values } = this.props;
     return(
       <Fragment>
-          <legend className="mb-4">Business Information</legend>
+          <legend className="mb-4">Social Enterprise Information</legend>
           <FormGroup>
             <Label htmlFor="organizationName">Organization Name</Label>
             <Input
@@ -39,6 +39,19 @@ class PurchaserStepOne extends Component {
               {this.validator.message('organizationName', values.organizationName, 'required')}
           </FormGroup>
           <FormGroup>
+            <Label htmlFor="inceptionYear">Year of Inception</Label>
+            <Input
+              type="text"
+              name="inceptionYear"
+              id="inceptionYear"
+              placeholder=""
+              onChange={this.props.handleChange('inceptionYear')}
+              defaultValue={values.inceptionYear}
+              />
+              {this.validator.message('inceptionYear', values.inceptionYear, 'required|numeric')}
+
+          </FormGroup>
+          <FormGroup>
             <Label htmlFor="organizationAddress">Organization Address</Label>
             <Input
               type="text"
@@ -49,25 +62,7 @@ class PurchaserStepOne extends Component {
               defaultValue={values.organizationAddress}
               />
               {this.validator.message('organizationAddress', values.organizationAddress, 'required')}
-          </FormGroup>
-          <FormGroup>
-            <Label htmlFor="organizationType">Organization Type</Label>
-            <Input
-              type="select"
-              name="organizationType"
-              id="organizationType"
-              placeholder=""
-              onChange={this.props.handleChange('organizationType')}
-              defaultValue={values.organizationType}
-            >
-              <option>Choose from list...</option>
-              <option>Non Profit</option>
-              <option>Charity</option>
-              <option>For Profit owned by Non Profit / Charity</option>
-              <option>Cooperative</option>
-              <option>Hybrid (ex. CCC or CIC)</option>
-            </Input>
-            {this.validator.message('organizationType', values.organizationType, 'required')}
+
           </FormGroup>
           <FormGroup>
             <Label htmlFor="region">Region</Label>
@@ -131,4 +126,4 @@ class PurchaserStepOne extends Component {
     )
   }
 }
-export default PurchaserStepOne
+export default SupplierStepOne

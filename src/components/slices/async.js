@@ -1,36 +1,11 @@
-
 import Loadable from "react-loadable";
 
-const AsyncBiography = Loadable({
-  loader: () => import("./index").then(m => m.Biography),
-  loading: () => null
-});
 const AsyncBulletList = Loadable({
   loader: () => import("./index").then(m => m.BulletList),
   loading: () => null
 });
-const AsyncCalloutCenter = Loadable({
-  loader: () => import("./index").then(m => m.CalloutCenter),
-  loading: () => null
-});
 const AsyncContactForm = Loadable({
   loader: () => import("./index").then(m => m.ContactForm),
-  loading: () => null
-});
-const AsyncContentImage = Loadable({
-  loader: () => import("./index").then(m => m.ContentImage),
-  loading: () => null
-});
-const AsyncContentImageLeft = Loadable({
-  loader: () => import("./index").then(m => m.ContentImageLeft),
-  loading: () => null
-});
-const AsyncContentNoImage = Loadable({
-  loader: () => import("./index").then(m => m.ContentNoImage),
-  loading: () => null
-});
-const AsyncEventMap = Loadable({
-  loader: () => import("./index").then(m => m.EventMap),
   loading: () => null
 });
 const AsyncListOfLinks = Loadable({
@@ -65,24 +40,6 @@ const AsyncSupplierForm = Loadable({
   loader: () => import("./index").then(m => m.SupplierForm),
   loading: () => null
 });
-const AsyncThreeColumnBlock = Loadable({
-  loader: () => import("./index").then(m => m.ThreeColumnBlock),
-  loading: () => null
-});
-const AsyncThreeColumnGray = Loadable({
-  loader: () => import("./index").then(m => m.ThreeColumnGray),
-  loading: () => null
-});
-const AsyncTwoColumnsCentered = Loadable({
-  loader: () => import("./index").then(m => m.TwoColumnsCentered),
-  loading: () => null
-});
-
-const AsyncEmbed = Loadable({
-  loader: () => import("./index").then(m => m.Embed),
-  loading: () => null
-});
-
 const AsyncHome = Loadable({
   loader: () => import("../index").then(m => m.Home),
   loading: () => null
@@ -103,36 +60,59 @@ const AsyncNotFound = Loadable({
   loader: () => import("../index").then(m => m.NotFound),
   loading: () => null
 });
-
-const AsyncHeader = Loadable({
-  loader: () => import("../index").then(m => m.Header),
-  loading: () => null
-});
-
 const AsyncBlogHeader = Loadable({
   loader: () => import("../index").then(m => m.BlogHeader),
   loading: () => null
 });
-
 const AsyncSlimHeader = Loadable({
   loader: () => import("../index").then(m => m.SlimHeader),
   loading: () => null
 });
 
-const AsyncSearchDirectory = Loadable({
-  loader: () => import("./index").then(m => m.SearchDirectory),
+const AsyncColumns = Loadable({
+  loader: () => import("../index").then(m => m.Columns),
+  loading: () => null
+});
+const AsyncImageBlock = Loadable({
+  loader: () => import("../index").then(m => m.ImageBlock),
+  loading: () => null
+});
+const AsyncTestimonials = Loadable({
+  loader: () => import("../index").then(m => m.Testimonials),
+  loading: () => null
+});
+const AsyncVideoEmbed = Loadable({
+  loader: () => import("../index").then(m => m.VideoEmbed),
+  loading: () => null
+});
+const AsyncDirectory = Loadable({
+  loader: () => import("../index").then(m => m.Directory),
+  loading: () => null
+});
+const AsyncFreeform = Loadable({
+  loader: () => import("../index").then(m => m.Freeform),
+  loading: () => null
+});
+const AsyncSlickSlider = Loadable({
+  loader: () => import("../index").then(m => m.SlickSlider),
+  loading: () => null
+});
+const AsyncGiftDirectory = Loadable({
+  loader: () => import("../index").then(m => m.GiftDirectory),
   loading: () => null
 });
 
 export {
-  AsyncBiography,
+  AsyncColumns,
+  AsyncImageBlock,
+  AsyncTestimonials,
+  AsyncVideoEmbed,
+  AsyncDirectory,
+  AsyncFreeform,
+  AsyncSlickSlider,
+  AsyncGiftDirectory,
   AsyncBulletList,
-  AsyncCalloutCenter,
   AsyncContactForm,
-  AsyncContentImage,
-  AsyncContentImageLeft,
-  AsyncContentNoImage,
-  AsyncEventMap,
   AsyncListOfLinks,
   AsyncLogoGrid,
   AsyncPeopleContainer,
@@ -141,17 +121,11 @@ export {
   AsyncRecentArticles,
   AsyncSearchContainer,
   AsyncSupplierForm,
-  AsyncThreeColumnBlock,
-  AsyncThreeColumnGray,
-  AsyncTwoColumnsCentered,
-  AsyncEmbed,
   AsyncHome,
   AsyncPage,
   AsyncPost,
   AsyncPreview,
   AsyncNotFound,
-  AsyncHeader,
   AsyncBlogHeader,
   AsyncSlimHeader,
-  AsyncSearchDirectory
 }

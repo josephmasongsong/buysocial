@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { FormGroup, Label, Input } from 'reactstrap'
 import SimpleReactValidator from 'simple-react-validator'
-import { WizardButton } from '../../styles';
+import { WizardButton } from '../../../styles';
 
 class SupplierStepTwo extends Component {
   constructor(props){

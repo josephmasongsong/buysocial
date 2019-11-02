@@ -19,7 +19,7 @@ const GrayBlock = styled.div`
 const LinkContainer = styled.div`
   margin-bottom: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #dee2e6 !important;
+  /* border-bottom: 1px solid #dee2e6 !important; */
   h3,h4,h5 {
     maring-bottom: 0.5rem;
     color: #343a40!important;
@@ -84,8 +84,8 @@ const TriangleBlue = styled.div`
 const Links = props => (
 	<>
 		{props.items.map((item,i) =>
-			<Col md={`6`} key={i}>
-				<LinkContainer>
+			<Col md={`6`} key={i} className="snippet-col">
+				<LinkContainer className="snippet">
 					<LinkTo href={Link.url(item.link, PrismicConfig.linkResolver)}>{RichText.render(item.title)}</LinkTo>
 					{RichText.render(item.description)}
 				</LinkContainer>

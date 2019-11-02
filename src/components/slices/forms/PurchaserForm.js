@@ -7,7 +7,7 @@ import PurchaserStepTwo from './PurchaserStepTwo'
 import PurchaserStepThree from './PurchaserStepThree'
 import PurchaserStepFour from './PurchaserStepFour'
 
-import { ContentBlock } from '../../styles'
+import { ContentBlock } from '../../../styles'
 
 
 const encode = (data) => {

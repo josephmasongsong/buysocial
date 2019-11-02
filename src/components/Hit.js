@@ -4,12 +4,12 @@ import { HitWrapper, HitBody, HitImg, HitCert } from '../DirectoryStyles';
 import images from '../ThemeImages';
 
 const Hit = ({ hit, clickHandler }) =>
-  <HitWrapper className={`align-items-center`}>
+  <HitWrapper>
     {hit.image
       ?
-      <HitImg src={hit.image} alt={hit.name} className={`mr-4`}/>
+      <HitImg src={hit.image} alt={hit.name} className={`border mr-4`}/>
       :
-      <HitImg src={images.placeholder} alt="Company Logo" className={`mr-4`}/>
+      <HitImg src={images.placeholder} alt="Company Logo" className={`border mr-4`}/>
     }
     <HitBody>
       <h4 className={`mb-1`} onClick={(e) => clickHandler(hit,e)} style={{ cursor: "pointer" }}>{hit.name}</h4>

@@ -1,34 +1,35 @@
-import Biography from './Biography';
+
 import BulletList from './BulletList';
-import CalloutCenter from './CalloutCenter';
-import ContactForm from './ContactForm';
-import ContentImage from './ContentImage';
-import ContentImageLeft from './ContentImageLeft';
-import ContentNoImage from './ContentNoImage';
-import EventMap from './EventMap';
 import ListOfLinks from './ListOfLinks';
 import LogoGrid from './LogoGrid';
 import PeopleContainer from './PeopleContainer';
 import PostList from './PostList';
-import PurchaserForm from './PurchaserForm';
 import RecentArticles from './RecentArticles';
 import SearchContainer from './SearchContainer';
-import SupplierForm from './SupplierForm';
-import ThreeColumnBlock from './ThreeColumnBlock'
-import ThreeColumnGray from './ThreeColumnGray';
-import TwoColumnsCentered from './TwoColumnsCentered';
-import Embed from './Embed';
-import SearchDirectory from './SearchDirectory';
+import ContactForm from './forms/ContactForm';
+import PurchaserForm from './forms/PurchaserForm';
+import SupplierForm from './forms/SupplierForm';
+
+import Columns from './Columns'
+import ImageBlock from './ImageBlock'
+import Testimonials from './Testimonials'
+import VideoEmbed from './VideoEmbed'
+import Directory from './Directory'
+import Freeform from './Freeform'
+import SlickSlider from './SlickSlider'
+import GiftDirectory from './GiftDirectory'
 
 export {
-  Biography,
   BulletList,
-  CalloutCenter,
   ContactForm,
-  ContentImage,
-  ContentImageLeft,
-  ContentNoImage,
-  EventMap,
+  Columns,
+  ImageBlock,
+  Testimonials,
+  VideoEmbed,
+  Directory,
+  Freeform,
+  SlickSlider,
+  GiftDirectory,
   ListOfLinks,
   LogoGrid,
   PeopleContainer,
@@ -37,9 +38,4 @@ export {
   RecentArticles,
   SearchContainer,
   SupplierForm,
-  ThreeColumnBlock,
-  ThreeColumnGray,
-  TwoColumnsCentered,
-  Embed,
-  SearchDirectory
 }

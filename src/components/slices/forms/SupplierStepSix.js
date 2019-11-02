@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { FormGroup, Label, Input } from 'reactstrap'
-import { WizardButton } from '../../styles';
+import { WizardButton } from '../../../styles';
 import SimpleReactValidator from 'simple-react-validator'
 
 class SupplierStepSix extends Component {
