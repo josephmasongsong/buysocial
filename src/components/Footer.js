@@ -100,6 +100,7 @@ class Footer extends Component {
                 <p>{RichText.asText(document.newsletter_blurb)}</p>
                 <form name="newsletter_signup" method="post">
                   <input type="hidden" name="form-name" value="newsletter_signup" />
+                  <label htmlFor="email"></label>
                   <div className="input-group mb-5">
                     <input name="email" type="email" placeholder="Email" className={"form-control rounded-0 " + styles.formStyle} />
                     <span className="input-group-append">

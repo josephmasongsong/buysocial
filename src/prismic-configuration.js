@@ -1,7 +1,7 @@
 
 export default {
 
-  apiEndpoint: 'https://buy-social-canada.prismic.io/api/v2',
+  apiEndpoint: process.env.REACT_APP_PRISMIC,
 
   // -- Access token if the Master is not open
   // accessToken: 'xxxxxx',

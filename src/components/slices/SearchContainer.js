@@ -45,8 +45,8 @@ const SearchContainer = props =>
   <DocumentSection>
     <Container>
       <InstantSearch
-        appId="UVPOJDU7AN"
-        apiKey="0ce11a5ad2a8fd5e0068ec55d40f0e80"
+        appId={process.env.REACT_APP_ALGOLIA_ID}
+        apiKey={process.env.REACT_APP_ALGOLIA_KEY}
         indexName="bsc_google_sheet"
       >
         <Row>
