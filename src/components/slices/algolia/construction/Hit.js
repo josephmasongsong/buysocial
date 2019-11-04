@@ -8,7 +8,7 @@ const HitWrapper = styled.div`
   align-items: flex-start;
   padding-bottom: 1.75rem;
 	@media ${DeviceSize.xs} {
-		padding: 1rem;
+		padding: 1rem 0 0;
 	}
 `
 const HitImg = styled.img`

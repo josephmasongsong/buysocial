@@ -9,6 +9,15 @@ const Section = styled.section`
 	p {
 		font-size: 1.125rem;
   }
+  @media (max-width: 575.98px) {
+    padding: 3rem 0;
+    p {
+      font-size: 1rem;
+    }
+    .fa-ul {
+      margin-left: 2em;
+    }
+  }
 `
 
 const ListItems = props => (
@@ -28,7 +37,7 @@ const BulletList = props => {
 			<Container>
 				<Media className={`align-items-center mb-3`}>
 					<Media left>
-						<img src={props.slice.primary.icon.url} alt={props.slice.primary.icon.alt} className={`mr-3`} height="64" />
+						<img src={props.slice.primary.icon.url} alt={props.slice.primary.icon.alt} className={`mr-0 mr-sm-3 mb-2 mb-sm-0`} height="64" />
 					</Media>
 					<Media body>
 						<h3 className="mb-0">{RichText.asText(props.slice.primary.title)}</h3>

@@ -10,6 +10,9 @@ const Section = styled.section`
   .richtext {
     h3 { color: #000 !important; text-align: center }
   }
+  @media (max-width: 575.98px) {
+    padding: 3rem 0 0;
+  }
 `
 
 const Column = styled(Col)`

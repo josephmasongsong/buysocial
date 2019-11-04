@@ -109,7 +109,7 @@ class RecentArticles extends Component {
           <Container>
             <Row>
               <Col lg="8">
-                <h3 className="mb-5">Latest From Buy Social Canada</h3>
+                <h3 className="mb-5">Latest News</h3>
               </Col>
             </Row>
             <Row>

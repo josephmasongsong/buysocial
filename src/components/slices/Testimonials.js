@@ -25,6 +25,9 @@ const Section = styled.section`
     bottom: 0;
     background: rgba(0, 88, 145, 0.90);
   }
+  @media (max-width: 575.98px) {
+    padding: 3rem 0;
+  }
 `
 const QuoteContainer = styled.div`
   width: 100%;
@@ -34,6 +37,9 @@ const Quote = styled.div`
   font-family: 'SofiaProLight';
   font-size: 1.875rem;
   margin-bottom: 1rem;
+  @media (max-width: 575.98px) {
+    font-size: 1.5rem;
+  }
 `
 
 const settings = {

@@ -25,6 +25,9 @@ const Section = styled.section`
     justify-content: normal;
     margin-top: 1.75rem;
   }
+  @media (max-width: 575.98px) {
+    padding: 3rem 0;
+  }
 `
 
 const ConditionalDisplay = connectStateResults(
@@ -74,7 +77,7 @@ export default class Directory extends Component {
             onSearchStateChange={this.onSearchStateChange}
           >
             <Row>
-              <Col lg="3">
+              <Col md="3">
                 <SearchBox translations={{ placeholder: 'Search...' }} />
                 <PoweredBy />
 
@@ -115,7 +118,7 @@ export default class Directory extends Component {
                 <div className="mt-4"/>
                 <ClearRefinements/>
               </Col>
-              <Col lg="9" className="pl-5">
+              <Col md="9" className="pl-sm-5">
                 <ScrollTo>
                   <ConditionalDisplay>
                     <Content />

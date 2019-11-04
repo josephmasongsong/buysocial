@@ -102,7 +102,9 @@ class Navigation extends Component {
     return (
 			<Navbar color="white" light expand="lg" className={styles.buysocialNavbar}>
 	      <Container className={styles.containerStyle}>
-	        <StyledNavbarBrand to={`/`} className={styles.navbarBrandStyle}><Logo src={images.logo} alt="Buy Social Canada" /></StyledNavbarBrand>
+	        <StyledNavbarBrand to={`/`} className={styles.navbarBrandStyle}>
+						<Logo src={images.logo} alt="Buy Social Canada" />
+					</StyledNavbarBrand>
 					<div className={"navbar-toggler " + styles.togglerStyle}>
 						<Burger
 			        onClick={this.toggle}

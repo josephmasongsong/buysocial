@@ -41,7 +41,6 @@ const SlimHeader = props => {
 
 	return(
 		<Masthead>
-
 			<TriangleLarge />
 			<TriangleRed />
 			<TriangleYellow />

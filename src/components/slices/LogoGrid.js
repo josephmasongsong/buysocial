@@ -7,6 +7,12 @@ import styled from 'styled-components'
 
 const Section = styled.section`
   padding: 4rem 0 0rem;
+  @media (max-width: 575.98px) {
+    padding: 3rem 0;
+    .lead {
+      font-size: 1.125rem;
+    }
+  }
 `
 
 const perRow = number => {
