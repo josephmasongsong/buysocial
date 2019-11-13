@@ -38,9 +38,9 @@ const Hit = ({ hit, clickHandler }) =>
         >{hit.name}</h4>
       {hit.website && <a className={`mb-2 d-inline-block`} href={`http://` + hit.website} target={`_blank`} >{hit.website}</a> }
       {/* {hit.phone && <p className={`mb-0`}>{hit.phone}</p> }
-      {hit.email && <p className={`mb-0`}>{hit.email}</p> }
-      {hit.address && <p className={`mb-0`}>{hit.address}</p> } */}
-      {hit.description && <div>{hit.description}</div>}
+      {hit.email && <p className={`mb-0`}>{hit.email}</p> } */}
+      {hit.address && <p className={`mb-2`}><i className="fas fa-map-marker-alt text-warning mr-1"></i><a href={`https://www.google.com/maps/search/?api=1&query=${hit.address}`} style={{ textDecoration: 'none' }} target="_blank">{hit.address}</a></p> }
+      {hit.description && <div style={{ color: '#4a5568' }}>{hit.description}</div>}
     </HitBody>
   </HitWrapper>
 
