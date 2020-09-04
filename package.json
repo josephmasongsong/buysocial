@@ -6,7 +6,7 @@
     "bootstrap": "4.2.1",
     "google-maps-react": "^2.0.2",
     "instantsearch.css": "7.0.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.13.1",
     "prismic-javascript": "^1.5.0",
     "prismic-reactjs": "^0.3.2",
     "prop-types": "^15.6.2",
