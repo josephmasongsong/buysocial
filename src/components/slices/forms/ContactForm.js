@@ -70,7 +70,7 @@ class ContactForm extends React.Component {
 								<li className="mb-1"><span className="fa-li"><i className="fas fa-map-marker-alt text-warning"></i></span>{RichText.render(this.props.slice.primary.readable_address)}</li>
 								<li className="mb-1"><span className="fa-li"><i className="fas fa-envelope text-warning"></i></span><a href={"mailto:" + RichText.asText(this.props.slice.primary.email)}>{RichText.asText(this.props.slice.primary.email)}</a></li>
 								<li className="mb-1"><span className="fa-li"><i className="fas fa-phone text-warning"></i></span><a href="tel:+16044160318">+1.604.416.0318</a></li>
-                <li className="mb-1"><span className="fa-li"><i className="fab fa-linkedin text-warning"></i></span><a href="https://ca.linkedin.com/company/buy-social-canada-ccc">Like us on Facebook</a></li>
+                <li className="mb-1"><span className="fa-li"><i className="fab fa-linkedin text-warning"></i></span><a href="https://ca.linkedin.com/company/buy-social-canada-ccc">Check us out on LinkedIn</a></li>
                 <li><span className="fa-li"><i className="fab fa-twitter text-warning"></i></span><a href="https://twitter.com/buysocialcanada">Follow us on Twitter</a></li>
 							</Address>
 
